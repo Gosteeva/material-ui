@@ -21,19 +21,19 @@ function FloatingActionButtons(props) {
       <Button fab color="primary" aria-label="add" className={classes.button}>
         <AddIcon />
       </Button>
-      <Button fab mini color="primary" aria-label="add" className={classes.button}>
+      <Button fab size="small" color="primary" aria-label="add" className={classes.button}>
         <AddIcon />
       </Button>
       <Button fab color="accent" aria-label="edit" className={classes.button}>
         <ModeEditIcon />
       </Button>
-      <Button fab mini color="accent" aria-label="edit" className={classes.button}>
+      <Button fab size="small" color="accent" aria-label="edit" className={classes.button}>
         <ModeEditIcon />
       </Button>
       <Button fab disabled aria-label="delete" className={classes.button}>
         <DeleteIcon />
       </Button>
-      <Button fab mini disabled aria-label="delete" className={classes.button}>
+      <Button fab size="small" disabled aria-label="delete" className={classes.button}>
         <DeleteIcon />
       </Button>
     </div>

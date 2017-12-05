@@ -40,8 +40,8 @@ function FlatButtons(props) {
       <Button disabled component={Link} href="/" className={classes.button}>
         Link disabled
       </Button>
-      <Button dense className={classes.button}>
-        Dense
+      <Button size="small" className={classes.button}>
+        Small
       </Button>
       <Button className={classes.button} onClick={doSomething} data-something="here I am">
         Does something

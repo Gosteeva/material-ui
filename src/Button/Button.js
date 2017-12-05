@@ -33,7 +33,7 @@ export const styles = (theme: Object) => ({
       },
     },
   },
-  dense: {
+  small: {
     padding: `${theme.spacing.unit - 1}px ${theme.spacing.unit}px`,
     minWidth: 64,
     minHeight: 32,
@@ -147,7 +147,7 @@ export const styles = (theme: Object) => ({
       boxShadow: theme.shadows[12],
     },
   },
-  mini: {
+  smallFab: {
     width: 40,
     height: 40,
   },
@@ -191,9 +191,10 @@ export type Props = {
    */
   component?: ElementType,
   /**
-   * Uses a smaller minWidth, ideal for things like card actions.
+   * set a smaller `minWidth` for Flat and Raised buttons,
+   * and renders a mini variant for the floating action button.
    */
-  dense: boolean,
+  size?: 'small',
   /**
    * If `true`, the button will be disabled.
    */
@@ -217,10 +218,6 @@ export type Props = {
    */
   href?: string,
   /**
-   * If `true`, and `fab` is `true`, will use mini floating action button styling.
-   */
-  mini: boolean,
-  /**
    * If `true`, the button will use raised styling.
    */
   raised: boolean,
@@ -233,11 +230,9 @@ export type Props = {
 class Button extends React.Component<ProvidedProps & Props> {
   static defaultProps = {
     color: 'default',
-    dense: false,
     disabled: false,
     fab: false,
     disableFocusRipple: false,
-    mini: false,
     raised: false,
     disableRipple: false,
     type: 'button',
@@ -249,12 +244,11 @@ class Button extends React.Component<ProvidedProps & Props> {
       classes,
       className: classNameProp,
       color,
-      dense,
       disabled,
       disableFocusRipple,
       fab,
-      mini,
       raised,
+      size,
       ...other
     } = this.props;
 
@@ -264,7 +258,7 @@ class Button extends React.Component<ProvidedProps & Props> {
         [classes.root]: true,
         [classes.raised]: raised || fab,
         [classes.fab]: fab,
-        [classes.mini]: fab && mini,
+        [classes.smallFab]: fab && size === 'small',
         [classes.colorInherit]: color === 'inherit',
         [classes.flatPrimary]: flat && color === 'primary',
         [classes.flatAccent]: flat && color === 'accent',
@@ -272,7 +266,7 @@ class Button extends React.Component<ProvidedProps & Props> {
         [classes.raisedPrimary]: !flat && color === 'primary',
         [classes.raisedAccent]: !flat && color === 'accent',
         [classes.raisedContrast]: !flat && color === 'contrast',
-        [classes.dense]: dense,
+        [classes.small]: !fab && size === 'small',
         [classes.disabled]: disabled,
       },
       classNameProp,

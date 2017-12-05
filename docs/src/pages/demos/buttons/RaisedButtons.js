@@ -45,8 +45,8 @@ function RaisedButtons(props) {
           Upload
         </Button>
       </label>
-      <Button raised dense className={classes.button}>
-        Dense
+      <Button raised size="small" className={classes.button}>
+        Small
       </Button>
     </div>
   );

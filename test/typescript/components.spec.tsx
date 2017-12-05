@@ -105,7 +105,7 @@ const ButtonTest = () =>
     <Button color="contrast">Contrast</Button>
     <Button disabled>Disabled</Button>
     <Button href="#flat-buttons">Link</Button>
-    <Button dense>Dense</Button>
+    <Button size="small">Size</Button>
     <Button raised>Raised</Button>
     <Button fab color="primary" aria-label="add">
       <FakeIcon />
@@ -154,7 +154,7 @@ const CardTest = () =>
       </Typography>
     </CardContent>
     <CardActions>
-      <Button dense>Learn More</Button>
+      <Button size="small">Learn More</Button>
     </CardActions>
   </Card>;
 
@@ -348,7 +348,7 @@ const ExpansionPanelTest = () =>
           <Typography>...</Typography>
       </ExpansionPanelDetails>
       <ExpansionPanelActions>
-          <Button dense>Save</Button>
+          <Button size="small">Save</Button>
       </ExpansionPanelActions>
     </ExpansionPanel>
   </div>;
@@ -570,7 +570,7 @@ const SnackbarTest = () =>
         <Button
           key="undo"
           color="accent"
-          dense
+          size="small"
           onClick={e => log(e)}
         >
           UNDO
@@ -589,7 +589,7 @@ const SnackbarTest = () =>
 
 const SnackbarContentTest = () => {
   const action = (
-    <Button color="accent" dense>
+    <Button color="accent" size="small">
       lorem ipsum dolorem
     </Button>
   );

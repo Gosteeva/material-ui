@@ -9,20 +9,19 @@ export interface ButtonProps extends StandardProps<
 > {
   color?: PropTypes.Color | 'contrast';
   component?: string | React.ComponentType<ButtonProps>;
-  dense?: boolean;
   disabled?: boolean;
   disableFocusRipple?: boolean;
   disableRipple?: boolean;
   fab?: boolean;
   href?: string;
-  mini?: boolean;
   raised?: boolean;
+  size?: string;
   type?: string;
 }
 
 export type ButtonClassKey =
   | ButtonBaseClassKey
-  | 'dense'
+  | 'small'
   | 'label'
   | 'flatPrimary'
   | 'flatAccent'
@@ -34,6 +33,7 @@ export type ButtonClassKey =
   | 'raisedAccent'
   | 'raisedContrast'
   | 'fab'
+  | 'smallFab'
   ;
 
 declare const Button: React.ComponentType<ButtonProps>;
