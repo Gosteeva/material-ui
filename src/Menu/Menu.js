@@ -6,7 +6,7 @@ import { findDOMNode } from 'react-dom';
 import getScrollbarSize from 'dom-helpers/util/scrollbarSize';
 import withStyles from '../styles/withStyles';
 import Popover from '../Popover';
-import MenuList from './MenuList';
+import MenuList from '../MenuList/MenuList';
 
 const RTL_ORIGIN = {
   vertical: 'top',

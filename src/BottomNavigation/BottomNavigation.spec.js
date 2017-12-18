@@ -2,7 +2,7 @@ import React from 'react';
 import { assert } from 'chai';
 import { spy } from 'sinon';
 import { createShallow, createMount, getClasses } from '../test-utils';
-import BottomNavigationButton from './BottomNavigationButton';
+import BottomNavigationButton from '../BottomNavigationButton/BottomNavigationButton';
 import Icon from '../Icon';
 import BottomNavigation from './BottomNavigation';
 

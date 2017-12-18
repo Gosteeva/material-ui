@@ -1,10 +1,10 @@
 export { default } from './Stepper';
 export * from './Stepper';
-export { default as Step } from './Step';
-export * from './Step';
-export { default as StepButton } from './StepButton';
-export * from './StepButton';
-export { default as StepContent } from './StepContent';
-export * from './StepContent';
-export { default as StepLabel } from './StepLabel';
-export * from './StepLabel';
+export { default as Step } from '../Step/Step';
+export * from '../Step/Step';
+export { default as StepButton } from '../StepButton/StepButton';
+export * from '../StepButton/StepButton';
+export { default as StepContent } from '../StepContent/StepContent';
+export * from '../StepContent/StepContent';
+export { default as StepLabel } from '../StepLabel/StepLabel';
+export * from '../StepLabel/StepLabel';

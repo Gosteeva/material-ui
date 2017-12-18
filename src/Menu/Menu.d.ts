@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { PopoverProps, PopoverClassKey } from '../Popover';
 import { TransitionDuration, TransitionHandlers } from '../internal/transition';
-import { MenuListProps } from './MenuList';
+import { MenuListProps } from '../MenuList/MenuList';
 import { StandardProps } from '..';
 
 export interface MenuProps extends StandardProps<

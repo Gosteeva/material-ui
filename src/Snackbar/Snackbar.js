@@ -7,7 +7,7 @@ import { duration } from '../styles/transitions';
 import ClickAwayListener from '../utils/ClickAwayListener';
 import { capitalizeFirstLetter, createChainedFunction } from '../utils/helpers';
 import Slide from '../transitions/Slide';
-import SnackbarContent from './SnackbarContent';
+import SnackbarContent from '../SnackBarContent/SnackbarContent';
 
 export const styles = theme => {
   const gutter = theme.spacing.unit * 3;

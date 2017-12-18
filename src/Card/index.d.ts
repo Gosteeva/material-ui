@@ -1,10 +1,10 @@
 export { default } from './Card';
 export * from './Card';
-export { default as CardActions } from './CardActions';
-export * from './CardActions';
-export { default as CardContent } from './CardContent';
-export * from './CardContent';
-export { default as CardHeader } from './CardHeader';
-export * from './CardHeader';
-export { default as CardMedia } from './CardMedia';
-export * from './CardMedia';
+export { default as CardActions } from '../CardActions/CardActions';
+export * from '../CardActions/CardActions';
+export { default as CardContent } from '../CardContent/CardContent';
+export * from '../CardContent/CardContent';
+export { default as CardHeader } from '../CardHeader/CardHeader';
+export * from '../CardHeader/CardHeader';
+export { default as CardMedia } from '../CardMedia/CardMedia';
+export * from '../CardMedia/CardMedia';

@@ -4,7 +4,7 @@ import { spy } from 'sinon';
 import { createShallow, createMount, getClasses } from '../test-utils';
 import Collapse from '../transitions/Collapse';
 import ExpansionPanel from './ExpansionPanel';
-import ExpansionPanelSummary from './ExpansionPanelSummary';
+import ExpansionPanelSummary from '../ExpansionPanelSummary/ExpansionPanelSummary';
 
 describe('<ExpansionPanel />', () => {
   let mount;

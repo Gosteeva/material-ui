@@ -8,7 +8,7 @@ import consoleErrorMock from '../../test/utils/consoleErrorMock';
 import Tabs from './Tabs';
 import TabScrollButton from './TabScrollButton';
 import TabIndicator from './TabIndicator';
-import Tab from './Tab';
+import Tab from '../Tab/Tab';
 
 const TabsNaked = unwrap(Tabs);
 

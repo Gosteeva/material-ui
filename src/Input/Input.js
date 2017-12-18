@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '../styles/withStyles';
 import { isMuiComponent } from '../utils/reactHelpers';
-import Textarea from './Textarea';
+import Textarea from '../Textarea/Textarea';
 
 // Supports determination of isControlled().
 // Controlled input accepts its current value as a prop.

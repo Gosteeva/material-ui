@@ -1,8 +1,8 @@
 import React from 'react';
 import { assert } from 'chai';
 import { createShallow, createMount } from '../test-utils';
-import Step from './Step';
-import StepConnector from './StepConnector';
+import Step from '../Step/Step';
+import StepConnector from '../StepConnector/StepConnector';
 import Stepper from './Stepper';
 import CheckCircle from '../svg-icons/CheckCircle';
 

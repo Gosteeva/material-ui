@@ -2,9 +2,9 @@ import React from 'react';
 import { assert } from 'chai';
 import { spy } from 'sinon';
 import { createShallow, createMount, getClasses, unwrap } from '../test-utils';
-import Textarea from './Textarea';
+import Textarea from '../Textarea/Textarea';
 import Input, { hasValue, isDirty } from './Input';
-import InputAdornment from './InputAdornment';
+import InputAdornment from '../InputAdornment/InputAdornment';
 
 const NakedInput = unwrap(Input);
 
