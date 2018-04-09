@@ -108,7 +108,9 @@ class Tooltip extends React.Component {
     }
   }
 
-  state = {};
+  state = {
+    title: typeof title === 'string' ? this.props.title : '',
+  };
 
   componentDidMount() {
     warning(
@@ -153,8 +155,11 @@ class Tooltip extends React.Component {
       childrenProps.onFocus(event);
     }
 
-    if (event.type === 'mouseover' && childrenProps.onMouseOver) {
-      childrenProps.onMouseOver(event);
+    if (event.type === 'mouseover') {
+      this.setState({ title: '' });
+      if (childrenProps.onMouseOver) {
+        childrenProps.onMouseOver(event);
+      }
     }
 
     if (this.ignoreNonTouchEvents && event.type !== 'touchstart') {
@@ -184,15 +189,18 @@ class Tooltip extends React.Component {
   };
 
   handleLeave = event => {
-    const { children, leaveDelay } = this.props;
+    const { children, leaveDelay, title } = this.props;
     const childrenProps = children.props;
 
     if (event.type === 'blur' && childrenProps.onBlur) {
       childrenProps.onBlur(event);
     }
 
-    if (event.type === 'mouseleave' && childrenProps.onMouseLeave) {
-      childrenProps.onMouseLeave(event);
+    if (event.type === 'mouseleave') {
+      this.setState({ title: title === 'string' ? title : '' });
+      if (childrenProps.onMouseLeave) {
+        childrenProps.onMouseLeave(event);
+      }
     }
 
     clearTimeout(this.enterTimer);
@@ -276,7 +284,10 @@ class Tooltip extends React.Component {
 
     const placement = theme.direction === 'rtl' ? flipPlacement(placementProp) : placementProp;
     let open = this.isControlled ? openProp : this.state.open;
-    const childrenProps = { 'aria-describedby': id };
+    const childrenProps = {
+      'aria-describedby': id,
+      title: this.state.title,
+    };
 
     // There is no point at displaying an empty tooltip.
     if (title === '') {
