@@ -71,7 +71,7 @@ export const styles = theme => {
     },
     formControl: {
       'label + &': {
-        marginTop: 16,
+        marginTop: theme.spacing.unit * 2,
       },
     },
     focused: {},
@@ -121,7 +121,8 @@ export const styles = theme => {
     },
     error: {},
     multiline: {
-      padding: `${8 - 2}px 0 ${8 - 1}px`,
+      padding: `${theme.spacing.unit + 2}px ${theme.spacing.unit + 4}px ${theme.spacing.unit +
+        2}px`,
     },
     fullWidth: {
       width: '100%',
@@ -129,7 +130,8 @@ export const styles = theme => {
     input: {
       font: 'inherit',
       color: 'currentColor',
-      padding: `${8 - 2}px 0 ${8 - 1}px`,
+      padding: `${theme.spacing.unit + 2}px ${theme.spacing.unit + 4}px ${theme.spacing.unit +
+        2}px`,
       border: 0,
       boxSizing: 'content-box',
       verticalAlign: 'middle',
@@ -172,7 +174,7 @@ export const styles = theme => {
       },
     },
     inputMarginDense: {
-      paddingTop: 4 - 1,
+      paddingTop: theme.spacing.unit / 2 - 1,
     },
     inputMultiline: {
       resize: 'none',
@@ -217,10 +219,6 @@ function formControlState(props, context) {
 }
 
 class Input extends React.Component {
-  isControlled = this.props.value != null;
-
-  input = null; // Holds the input reference
-
   constructor(props, context) {
     super(props, context);
 
@@ -289,8 +287,11 @@ class Input extends React.Component {
     } // else performed in the onChange
   }
 
+  isControlled = this.props.value != null;
+  input = null; // Holds the input reference
+
   handleFocus = event => {
-    // Fix a bug with IE11 where the focus/blur events are triggered
+    // Fix an bug with IE11 where the focus/blur events are triggered
     // while the input is disabled.
     if (formControlState(this.props, this.context).disabled) {
       event.stopPropagation();
@@ -301,22 +302,12 @@ class Input extends React.Component {
     if (this.props.onFocus) {
       this.props.onFocus(event);
     }
-
-    const { muiFormControl } = this.context;
-    if (muiFormControl && muiFormControl.onFocus) {
-      muiFormControl.onFocus(event);
-    }
   };
 
   handleBlur = event => {
     this.setState({ focused: false });
     if (this.props.onBlur) {
       this.props.onBlur(event);
-    }
-
-    const { muiFormControl } = this.context;
-    if (muiFormControl && muiFormControl.onBlur) {
-      muiFormControl.onBlur(event);
     }
   };
 
@@ -334,20 +325,10 @@ class Input extends React.Component {
   handleRefInput = node => {
     this.input = node;
 
-    let ref;
-
     if (this.props.inputRef) {
-      ref = this.props.inputRef;
+      this.props.inputRef(node);
     } else if (this.props.inputProps && this.props.inputProps.ref) {
-      ref = this.props.inputProps.ref;
-    }
-
-    if (ref) {
-      if (typeof ref === 'function') {
-        ref(node);
-      } else {
-        ref.current = node;
-      }
+      this.props.inputProps.ref(node);
     }
   };
 
@@ -473,6 +454,7 @@ class Input extends React.Component {
         {startAdornment}
         <InputComponent
           aria-invalid={error}
+          aria-required={required}
           autoComplete={autoComplete}
           autoFocus={autoFocus}
           className={inputClassName}
@@ -553,15 +535,15 @@ Input.propTypes = {
    * The component used for the native input.
    * Either a string to use a DOM element or a component.
    */
-  inputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.object]),
+  inputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
-   * Attributes applied to the `input` element.
+   * Properties applied to the `input` element.
    */
   inputProps: PropTypes.object,
   /**
    * Use that property to pass a ref callback to the native input component.
    */
-  inputRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  inputRef: PropTypes.func,
   /**
    * If `dense`, will adjust vertical spacing. This is normally obtained via context from
    * FormControl.

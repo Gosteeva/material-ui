@@ -3,11 +3,64 @@
 import React from 'react';
 import warning from 'warning';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Input from '../Input';
 import InputLabel from '../InputLabel';
 import FormControl from '../FormControl';
 import FormHelperText from '../FormHelperText';
 import Select from '../Select';
+import withStyles from '../styles/withStyles';
+
+export const styles = theme => ({
+  filledFormControl: {
+    backgroundColor: '#DCDCDC',
+    borderRadius: '4px 4px 0 0',
+  },
+  outlinedFormControl: {
+    border: '1px solid',
+    borderRadius: 4,
+    transition: theme.transitions.create('border-color', {
+      duration: theme.transitions.duration.shorter,
+    }),
+  },
+  outlinedFormControlFocused: {
+    border: '1px solid',
+    borderColor: theme.palette.primary.main,
+  },
+  inputLabelFormControl: {
+    position: 'absolute',
+    left: 12,
+    top: 8,
+    transform: 'translate(0, 20px) scale(1)',
+  },
+  outlinedInputLabelFormControl: {
+    position: 'absolute',
+    left: 12,
+    top: -8,
+    transform: 'translate(0, 28px) scale(1)',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900],
+    padding: '0 4px',
+    margin: '0 -4px',
+  },
+  // Duplicated from InputLabel to control sheet order
+  outlinedInputLabelShrink: {
+    transform: 'translate(0, 1.5px) scale(0.75)',
+    transformOrigin: 'top left',
+  },
+  formHelperTextRoot: {
+    padding: '0 12px',
+  },
+  inputMultiline: {
+    padding: `${theme.spacing.unit + 2}px ${theme.spacing.unit + 4}px ${theme.spacing.unit + 2}px`,
+  },
+  inputInput: {
+    padding: `${theme.spacing.unit + 2}px ${theme.spacing.unit + 4}px ${theme.spacing.unit + 2}px`,
+  },
+  outlinedInputInput: {
+    padding: '4px 12px 16px',
+  },
+});
 
 /**
  * The `TextField` is a convenience wrapper for the most common cases (80%).
@@ -42,17 +95,18 @@ function TextField(props) {
     autoComplete,
     autoFocus,
     children,
-    className,
+    classes,
+    className: classNameProp,
     defaultValue,
     disabled,
     error,
-    FormHelperTextProps,
+    FormHelperTextProps: FormHelperTextPropsProp,
     fullWidth,
     helperText,
     id,
-    InputLabelProps,
+    InputLabelProps: InputLabelPropsProp,
     inputProps,
-    InputProps,
+    InputProps: InputPropsProp,
     inputRef,
     label,
     multiline,
@@ -68,8 +122,41 @@ function TextField(props) {
     SelectProps,
     type,
     value,
+    variant,
     ...other
   } = props;
+
+  const InputLabelProps = {
+    classes:
+      variant === 'outlined'
+        ? {
+            formControl: classes.outlinedInputLabelFormControl,
+            shrink: classes.outlinedInputLabelShrink,
+          }
+        : {
+            formControl: classes.inputLabelFormControl,
+            shrink: classes.outlinedInputLabelShrink,
+          },
+    ...InputLabelPropsProp,
+  };
+
+  const InputProps = {
+    disableUnderline: variant === 'outlined' ? true : undefined,
+    classes:
+      variant === 'outlined'
+        ? {
+            input: classes.outlinedInputInput,
+          }
+        : undefined,
+    // multiline: classes.inputMultiline,
+    // input: classes.inputInput,
+    ...InputPropsProp,
+  };
+
+  const FormHelperTextProps = {
+    className: classes.formHelperTextRoot,
+    ...FormHelperTextPropsProp,
+  };
 
   warning(
     !select || Boolean(children),
@@ -101,13 +188,29 @@ function TextField(props) {
     />
   );
 
+  const outlined = variant === 'outlined';
+
+  const className = classNames(
+    {
+      [classes.filledFormControl]: variant === 'filled',
+      [classes.outlinedFormControl]: outlined,
+    },
+    classNameProp,
+  );
+
+  const formControlClasses = {
+    focused: outlined ? classes.outlinedFormControlFocused : undefined,
+  };
+
   return (
     <FormControl
       aria-describedby={helperTextId}
+      classes={formControlClasses}
       className={className}
       error={error}
       fullWidth={fullWidth}
       required={required}
+      variant={variant}
       {...other}
     >
       {label && (
@@ -147,6 +250,11 @@ TextField.propTypes = {
    * @ignore
    */
   children: PropTypes.node,
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css-api) below for more details.
+   */
+  classes: PropTypes.object.isRequired,
   /**
    * @ignore
    */
@@ -264,11 +372,16 @@ TextField.propTypes = {
     PropTypes.number,
     PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   ]),
+  /**
+   * The type of TextField;
+   */
+  variant: PropTypes.oneOf(['normal', 'filled', 'outlined']),
 };
 
 TextField.defaultProps = {
   required: false,
   select: false,
+  variant: 'normal',
 };
 
-export default TextField;
+export default withStyles(styles, { name: 'MuiTextField' })(TextField);

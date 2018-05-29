@@ -17,6 +17,7 @@ export const styles = {
     margin: 0,
     border: 0,
   },
+  focused: {},
   marginNormal: {
     marginTop: 16,
     marginBottom: 8,
@@ -114,6 +115,7 @@ class FormControl extends React.Component {
   };
 
   render() {
+    const { focused } = this.state;
     const {
       classes,
       className,
@@ -133,6 +135,7 @@ class FormControl extends React.Component {
           {
             [classes[`margin${capitalize(margin)}`]]: margin !== 'none',
             [classes.fullWidth]: fullWidth,
+            [classes.focused]: focused,
           },
           className,
         )}

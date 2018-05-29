@@ -12,10 +12,10 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
+    width: 265,
   },
   menu: {
-    width: 200,
+    width: 265,
   },
 });
 
@@ -71,6 +71,7 @@ class TextFields extends React.Component {
           defaultValue="foo"
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
           required
@@ -79,6 +80,7 @@ class TextFields extends React.Component {
           defaultValue="Hello World"
           className={classes.textField}
           margin="normal"
+          variant="outlined"
         />
         <TextField
           error
