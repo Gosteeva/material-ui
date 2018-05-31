@@ -17,7 +17,22 @@ export const styles = {
     margin: 0,
     border: 0,
   },
+  filled: {
+    backgroundColor: '#DCDCDC',
+    borderRadius: '4px 4px 0 0',
+  },
+  outlined: {
+    border: '1px solid',
+    borderRadius: 4,
+    transition: theme.transitions.create('border-color', {
+      duration: theme.transitions.duration.shorter,
+    }),
+  },
   focused: {},
+  outlinedFocused: {
+    border: '1px solid',
+    borderColor: theme.palette.primary.main,
+  },
   marginNormal: {
     marginTop: 16,
     marginBottom: 8,
@@ -74,7 +89,7 @@ class FormControl extends React.Component {
   };
 
   getChildContext() {
-    const { disabled, error, required, margin } = this.props;
+    const { disabled, error, required, margin, variant } = this.props;
     const { adornedStart, filled, focused } = this.state;
 
     return {
@@ -90,6 +105,7 @@ class FormControl extends React.Component {
         onFilled: this.handleDirty,
         onFocus: this.handleFocus,
         required,
+        variant,
       },
     };
   }
@@ -125,6 +141,7 @@ class FormControl extends React.Component {
       fullWidth,
       margin,
       required,
+      variant,
       ...other
     } = this.props;
 
@@ -135,7 +152,10 @@ class FormControl extends React.Component {
           {
             [classes[`margin${capitalize(margin)}`]]: margin !== 'none',
             [classes.fullWidth]: fullWidth,
+            [classes.filled]: variant === 'filled',
+            [classes.outlined]: variant === 'outlined',
             [classes.focused]: focused,
+            [classes.outlinedFocused]: focused && variant === 'outlined',
           },
           className,
         )}
@@ -184,6 +204,10 @@ FormControl.propTypes = {
    * If `true`, the label will indicate that the input is required.
    */
   required: PropTypes.bool,
+  /**
+   * The type of TextField component.
+   */
+  variant: PropTypes.oneOf(['standard', 'filled', 'outlined']),
 };
 
 FormControl.defaultProps = {

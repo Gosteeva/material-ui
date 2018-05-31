@@ -3,7 +3,6 @@
 import React from 'react';
 import warning from 'warning';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Input from '../Input';
 import InputLabel from '../InputLabel';
 import FormControl from '../FormControl';
@@ -12,21 +11,6 @@ import Select from '../Select';
 import withStyles from '../styles/withStyles';
 
 export const styles = theme => ({
-  filledFormControl: {
-    backgroundColor: '#DCDCDC',
-    borderRadius: '4px 4px 0 0',
-  },
-  outlinedFormControl: {
-    border: '1px solid',
-    borderRadius: 4,
-    transition: theme.transitions.create('border-color', {
-      duration: theme.transitions.duration.shorter,
-    }),
-  },
-  outlinedFormControlFocused: {
-    border: '1px solid',
-    borderColor: theme.palette.primary.main,
-  },
   inputLabelFormControl: {
     position: 'absolute',
     left: 12,
@@ -96,7 +80,7 @@ function TextField(props) {
     autoFocus,
     children,
     classes,
-    className: classNameProp,
+    className,
     defaultValue,
     disabled,
     error,
@@ -188,24 +172,9 @@ function TextField(props) {
     />
   );
 
-  const outlined = variant === 'outlined';
-
-  const className = classNames(
-    {
-      [classes.filledFormControl]: variant === 'filled',
-      [classes.outlinedFormControl]: outlined,
-    },
-    classNameProp,
-  );
-
-  const formControlClasses = {
-    focused: outlined ? classes.outlinedFormControlFocused : undefined,
-  };
-
   return (
     <FormControl
       aria-describedby={helperTextId}
-      classes={formControlClasses}
       className={className}
       error={error}
       fullWidth={fullWidth}
@@ -375,13 +344,13 @@ TextField.propTypes = {
   /**
    * The type of TextField;
    */
-  variant: PropTypes.oneOf(['normal', 'filled', 'outlined']),
+  variant: PropTypes.oneOf(['standard', 'filled', 'outlined']),
 };
 
 TextField.defaultProps = {
   required: false,
   select: false,
-  variant: 'normal',
+  variant: 'standard',
 };
 
 export default withStyles(styles, { name: 'MuiTextField' })(TextField);
