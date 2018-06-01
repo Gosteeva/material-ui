@@ -24,13 +24,11 @@ export const styles = {
   outlined: {
     border: '1px solid',
     borderRadius: 4,
-    transition: theme.transitions.create('border-color', {
-      duration: theme.transitions.duration.shorter,
-    }),
+    transition: theme.transitions.create('border-color'),
   },
   focused: {},
   outlinedFocused: {
-    border: '1px solid',
+    border: '2px solid',
     borderColor: theme.palette.primary.main,
   },
   marginNormal: {

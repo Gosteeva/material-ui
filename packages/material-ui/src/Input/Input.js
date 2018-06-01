@@ -190,7 +190,10 @@ export const styles = theme => {
       '-webkit-appearance': 'textfield',
     },
     inputOutlined: {
-      padding: '4px 12px 16px',
+      padding: '4px 12px',
+    },
+    inputOutlinedFocused: {
+      padding: '3px 11px',
     },
   };
 };
@@ -394,6 +397,8 @@ class Input extends React.Component {
 
     const { muiFormControl } = this.context;
     const { disabled, error, margin } = formControlState(this.props, this.context);
+    const outlined = muiFormControl && muiFormControl.variant === 'outlined';
+    const { focused } = this.state;
 
     const className = classNames(
       classes.root,
@@ -401,7 +406,7 @@ class Input extends React.Component {
         [classes.disabled]: disabled,
         [classes.error]: error,
         [classes.fullWidth]: fullWidth,
-        [classes.focused]: this.state.focused,
+        [classes.focused]: focused,
         [classes.formControl]: muiFormControl,
         [classes.multiline]: multiline,
         [classes.underline]: !disableUnderline,
@@ -417,7 +422,8 @@ class Input extends React.Component {
         [classes.inputTypeSearch]: type === 'search',
         [classes.inputMultiline]: multiline,
         [classes.inputMarginDense]: margin === 'dense',
-        [classes.inputOutlined]: muiFormControl && muiFormControl.variant === 'outlined',
+        [classes.inputOutlined]: outlined,
+        [classes.inputOutlinedFocused]: outlined && focused,
       },
       inputPropsClassName,
     );

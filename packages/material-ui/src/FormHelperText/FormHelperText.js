@@ -61,8 +61,8 @@ function FormHelperText(props, context) {
   }
 
   const variant =
-    (muiFormControl && muiFormControl.variant === 'filled') ||
-    muiFormControl.variant === 'outlined';
+    muiFormControl &&
+    (muiFormControl.variant === 'filled' || muiFormControl.variant === 'outlined');
 
   const className = classNames(
     classes.root,
