@@ -207,7 +207,7 @@ FormControl.propTypes = {
   /**
    * The type of TextField component.
    */
-  variant: PropTypes.oneOf(['standard', 'filled', 'outlined']),
+  variant: PropTypes.oneOf(['default', 'filled', 'outlined']),
 };
 
 FormControl.defaultProps = {
@@ -217,6 +217,7 @@ FormControl.defaultProps = {
   fullWidth: false,
   margin: 'none',
   required: false,
+  variant: 'default',
 };
 
 FormControl.childContextTypes = {

@@ -25,6 +25,9 @@ export const styles = theme => ({
   marginDense: {
     marginTop: 4,
   },
+  variant: {
+    padding: '0 12px',
+  },
 });
 
 function FormHelperText(props, context) {
@@ -57,12 +60,17 @@ function FormHelperText(props, context) {
     }
   }
 
+  const variant =
+    (muiFormControl && muiFormControl.variant === 'filled') ||
+    muiFormControl.variant === 'outlined';
+
   const className = classNames(
     classes.root,
     {
       [classes.disabled]: disabled,
       [classes.error]: error,
       [classes.marginDense]: margin === 'dense',
+      [classes.variant]: variant,
     },
     classNameProp,
   );

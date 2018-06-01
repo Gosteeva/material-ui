@@ -36,7 +36,7 @@ export interface TextFieldProps
   SelectProps?: Partial<SelectProps>;
   type?: string;
   value?: Array<string | number> | string | number;
-  variant?: 'normal' | 'filled' | 'outlined';
+  variant?: 'default' | 'filled' | 'outlined';
 }
 
 export type TextFieldClassKey = FormControlClassKey;

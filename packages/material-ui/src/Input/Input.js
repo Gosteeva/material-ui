@@ -189,6 +189,9 @@ export const styles = theme => {
       '-moz-appearance': 'textfield',
       '-webkit-appearance': 'textfield',
     },
+    inputOutlined: {
+      padding: '4px 12px 16px',
+    },
   };
 };
 
@@ -414,6 +417,7 @@ class Input extends React.Component {
         [classes.inputTypeSearch]: type === 'search',
         [classes.inputMultiline]: multiline,
         [classes.inputMarginDense]: margin === 'dense',
+        [classes.inputOutlined]: muiFormControl && muiFormControl.variant === 'outlined',
       },
       inputPropsClassName,
     );

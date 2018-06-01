@@ -17,6 +17,21 @@ export const styles = theme => ({
     // slight alteration to spec spacing to match visual spec result
     transform: 'translate(0, 24px) scale(1)',
   },
+
+  filledFormControl: {
+    left: 12,
+    top: 8,
+    transform: 'translate(0, 20px) scale(1)',
+  },
+  outlinedFormControl: {
+    left: 12,
+    top: -8,
+    transform: 'translate(0, 28px) scale(1)',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900],
+    padding: '0 4px',
+    margin: '0 -4px',
+  },
   marginDense: {
     // Compensation for the `Input.inputDense` style.
     transform: 'translate(0, 21px) scale(1)',
@@ -61,6 +76,8 @@ function InputLabel(props, context) {
     classes.root,
     {
       [classes.formControl]: muiFormControl,
+      [classes.filledFormControl]: muiFormControl && muiFormControl.variant === 'filled',
+      [classes.outlinedFormControl]: muiFormControl && muiFormControl.variant === 'outlined',
       [classes.animated]: !disableAnimation,
       [classes.shrink]: shrink,
       [classes.marginDense]: margin === 'dense',
