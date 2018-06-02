@@ -123,6 +123,16 @@ export const styles = theme => {
       },
     },
     disabled: {},
+    disabledFilled: {
+      '&:hover': {
+        backgroundColor: 'rgba(0,0,0,0.045)',
+      },
+    },
+    disabledOutlined: {
+      '&:hover': {
+        boxShadow: `inset 0 0 0 1px ${theme.palette.grey[400]}`,
+      },
+    },
     underline: {
       '&:after': {
         borderBottom: `2px solid ${theme.palette.primary[light ? 'dark' : 'light']}`,
@@ -459,6 +469,8 @@ class Input extends React.Component {
         [classes.outlined]: outlined && !focused,
         [classes.focused]: focused,
         [classes.focusedOutlined]: focused && outlined,
+        [classes.disabledFilled]: disabled && filled,
+        [classes.disabledOutlined]: disabled && outlined,
         [classes.errorOutlined]: error && outlined,
         [classes.focusedFilled]: focused && filled,
         [classes.multiline]: multiline,

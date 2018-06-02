@@ -89,6 +89,14 @@ class TextFields extends React.Component {
           margin="normal"
         />
         <TextField
+          disabled
+          id="disabled"
+          label="Disabled"
+          defaultValue="Hello World"
+          className={classes.textField}
+          margin="normal"
+        />
+        <TextField
           id="password-input"
           label="Password"
           className={classes.textField}
