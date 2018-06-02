@@ -74,12 +74,54 @@ export const styles = theme => {
         marginTop: theme.spacing.unit * 2,
       },
     },
-    formControlFilled: {
+    formControlVariant: {
       'label + &': {
         marginTop: 0,
       },
     },
+    filled: {
+      cursor: 'text',
+      borderRadius: '4px 4px 0 0',
+      backgroundColor: 'rgba(0,0,0,0.045)',
+      '&:hover': {
+        backgroundColor: 'rgba(0,0,0,0.07)',
+      },
+      transition: theme.transitions.create('background-color', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
+    outlined: {
+      cursor: 'text',
+      borderRadius: 4,
+      boxShadow: `inset 0 0 0 1px ${theme.palette.grey[400]}`,
+      '&:hover': {
+        boxShadow: `inset 0 0 0 1px ${theme.palette.grey[900]}`,
+      },
+      transition: theme.transitions.create('box-shadow', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
     focused: {},
+    focusedFilled: {
+      backgroundColor: 'rgba(0,0,0,0.11)',
+      transition: theme.transitions.create('background-color', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
+    focusedOutlined: {
+      cursor: 'text',
+      borderRadius: 4,
+      boxShadow: `inset 0 0 0 2px ${theme.palette.primary.main}`,
+      transition: theme.transitions.create('box-shadow', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    },
+    errorOutlined: {
+      boxShadow: `inset 0 0 0 2px ${theme.palette.error.main}`,
+      '&:hover': {
+        boxShadow: `inset 0 0 0 2px ${theme.palette.error.main}`,
+      },
+    },
     disabled: {},
     underline: {
       '&:after': {
@@ -196,7 +238,7 @@ export const styles = theme => {
       padding: '26px 12px 10px',
     },
     inputOutlined: {
-      padding: '0px 12px 14px',
+      padding: '16px 12px 14px',
     },
   };
 };
@@ -363,6 +405,7 @@ class Input extends React.Component {
   }
 
   render() {
+    const { focused } = this.state;
     const {
       autoComplete,
       autoFocus,
@@ -411,7 +454,13 @@ class Input extends React.Component {
         [classes.fullWidth]: fullWidth,
         [classes.focused]: this.state.focused,
         [classes.formControl]: muiFormControl,
-        [classes.formControlFilled]: filled,
+        [classes.formControlVariant]: filled || outlined,
+        [classes.filled]: filled && !focused,
+        [classes.outlined]: outlined && !focused,
+        [classes.focused]: focused,
+        [classes.focusedOutlined]: focused && outlined,
+        [classes.errorOutlined]: error && outlined,
+        [classes.focusedFilled]: focused && filled,
         [classes.multiline]: multiline,
         [classes.underline]: !disableUnderline,
       },

@@ -163,7 +163,7 @@ TextField.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * If `true`, the label will be displayed in an error state.
+   * If `true`, the TextField will be displayed in an error state.
    */
   error: PropTypes.bool,
   /**

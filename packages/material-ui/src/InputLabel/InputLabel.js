@@ -27,10 +27,11 @@ export const styles = theme => ({
     left: 12,
     top: -6,
     transform: 'translate(0, 24px) scale(1)',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900],
     padding: '0 4px',
     margin: '0 -4px',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900],
+    zIndex: 1,
   },
   marginDense: {
     // Compensation for the `Input.inputDense` style.
