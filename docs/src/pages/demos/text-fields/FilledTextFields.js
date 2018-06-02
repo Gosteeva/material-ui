@@ -58,56 +58,51 @@ class TextFields extends React.Component {
     return (
       <form className={classes.container} noValidate autoComplete="off">
         <TextField
-          id="name"
+          id="filled-name"
           label="Name"
           className={classes.textField}
           value={this.state.name}
           onChange={this.handleChange('name')}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="uncontrolled"
+          id="filled-uncontrolled"
           label="Uncontrolled"
           defaultValue="foo"
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
           required
-          id="required"
+          id="filled-required"
           label="Required"
           defaultValue="Hello World"
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
           error
-          id="error"
+          id="filled-error"
           label="Error"
           defaultValue="Hello World"
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="password-input"
+          id="filled-password-input"
           label="Password"
           className={classes.textField}
           type="password"
           autoComplete="current-password"
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
-          className={classes.textField}
-          margin="normal"
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-        <TextField
-          id="multiline-flexible"
+          id="filled-multiline-flexible"
           label="Multiline"
           multiline
           rowsMax="4"
@@ -115,41 +110,46 @@ class TextFields extends React.Component {
           onChange={this.handleChange('multiline')}
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="multiline-static"
+          id="filled-multiline-static"
           label="Multiline"
           multiline
           rows="4"
           defaultValue="Default Value"
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="helperText"
+          id="filled-helperText"
           label="Helper text"
           defaultValue="Default Value"
           className={classes.textField}
           helperText="Some important text"
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="with-placeholder"
+          id="filled-with-placeholder"
           label="With placeholder"
           placeholder="Placeholder"
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="textarea"
+          id="filled-textarea"
           label="With placeholder multiline"
           placeholder="Placeholder"
           multiline
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="number"
+          id="filled-number"
           label="Number"
           value={this.state.age}
           onChange={this.handleChange('age')}
@@ -159,16 +159,18 @@ class TextFields extends React.Component {
             shrink: true,
           }}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="search"
+          id="filled-search"
           label="Search field"
           type="search"
           className={classes.textField}
           margin="normal"
+          variant="filled"
         />
         <TextField
-          id="select-currency"
+          id="filled-select-currency"
           select
           label="Select"
           className={classes.textField}
@@ -181,6 +183,7 @@ class TextFields extends React.Component {
           }}
           helperText="Please select your currency"
           margin="normal"
+          variant="filled"
         >
           {currencies.map(option => (
             <MenuItem key={option.value} value={option.value}>
@@ -189,7 +192,7 @@ class TextFields extends React.Component {
           ))}
         </TextField>
         <TextField
-          id="select-currency-native"
+          id="filled-select-currency-native"
           select
           label="Native select"
           className={classes.textField}
@@ -203,6 +206,7 @@ class TextFields extends React.Component {
           }}
           helperText="Please select your currency"
           margin="normal"
+          variant="filled"
         >
           {currencies.map(option => (
             <option key={option.value} value={option.value}>
@@ -211,7 +215,7 @@ class TextFields extends React.Component {
           ))}
         </TextField>
         <TextField
-          id="full-width"
+          id="filled-full-width"
           label="Label"
           InputLabelProps={{
             shrink: true,
@@ -220,6 +224,7 @@ class TextFields extends React.Component {
           helperText="Full width!"
           fullWidth
           margin="normal"
+          variant="filled"
         />
       </form>
     );

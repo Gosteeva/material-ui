@@ -15,6 +15,20 @@ module.exports = require('fs')
   .readFileSync(require.resolve('docs/src/pages/demos/text-fields/TextFields'), 'utf8')
 `,
         },
+        'pages/demos/text-fields/FilledTextFields.js': {
+          js: require('docs/src/pages/demos/text-fields/FilledTextFields').default,
+          raw: preval`
+module.exports = require('fs')
+  .readFileSync(require.resolve('docs/src/pages/demos/text-fields/FilledTextFields'), 'utf8')
+`,
+        },
+        'pages/demos/text-fields/OutlinedTextFields.js': {
+          js: require('docs/src/pages/demos/text-fields/OutlinedTextFields').default,
+          raw: preval`
+module.exports = require('fs')
+  .readFileSync(require.resolve('docs/src/pages/demos/text-fields/OutlinedTextFields'), 'utf8')
+`,
+        },
         'pages/demos/text-fields/ComposedTextField.js': {
           js: require('docs/src/pages/demos/text-fields/ComposedTextField').default,
           raw: preval`

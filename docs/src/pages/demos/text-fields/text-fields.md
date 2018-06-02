@@ -13,7 +13,17 @@ components: FormControl, FormHelperText, Input, InputAdornment, InputLabel, Text
 
 The `TextField` wrapper component is a complete form control including a label, input and help text.
 
+### Standard Text Fields
+
 {{"demo": "pages/demos/text-fields/TextFields.js"}}
+
+### Filled Text Fields
+
+{{"demo": "pages/demos/text-fields/FilledTextFields.js"}}
+
+### Outlined Text Fields
+
+{{"demo": "pages/demos/text-fields/OutlinedTextFields.js"}}
 
 ## Components
 

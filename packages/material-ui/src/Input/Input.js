@@ -196,7 +196,7 @@ export const styles = theme => {
       padding: '26px 12px 10px',
     },
     inputOutlined: {
-      padding: '4px 12px',
+      padding: '0px 12px 14px',
     },
   };
 };
