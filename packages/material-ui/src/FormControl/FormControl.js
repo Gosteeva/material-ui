@@ -18,18 +18,41 @@ export const styles = {
     border: 0,
   },
   filled: {
-    backgroundColor: '#DCDCDC',
+    cursor: 'text',
     borderRadius: '4px 4px 0 0',
+    backgroundColor: 'rgba(0,0,0,0.045)',
+    '&:hover': {
+      backgroundColor: 'rgba(0,0,0,0.07)',
+    },
+    transition: theme.transitions.create('background-color', {
+      duration: theme.transitions.duration.shortest,
+    }),
   },
   outlined: {
-    border: '1px solid',
+    cursor: 'text',
     borderRadius: 4,
-    transition: theme.transitions.create('border-color'),
+    boxShadow: `inset 0 0 0 1px ${theme.palette.grey[400]}`,
+    '&:hover': {
+      boxShadow: `inset 0 0 0 1px ${theme.palette.grey[900]}`,
+    },
+    transition: theme.transitions.create('box-shadow', {
+      duration: theme.transitions.duration.shortest,
+    }),
   },
   focused: {},
-  outlinedFocused: {
-    border: '2px solid',
-    borderColor: theme.palette.primary.main,
+  focusedFilled: {
+    backgroundColor: 'rgba(0,0,0,0.11)',
+    transition: theme.transitions.create('background-color', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  focusedOutlined: {
+    cursor: 'text',
+    borderRadius: 4,
+    boxShadow: `inset 0 0 0 2px ${theme.palette.primary.main}`,
+    transition: theme.transitions.create('box-shadow', {
+      duration: theme.transitions.duration.shortest,
+    }),
   },
   marginNormal: {
     marginTop: 16,
@@ -150,10 +173,11 @@ class FormControl extends React.Component {
           {
             [classes[`margin${capitalize(margin)}`]]: margin !== 'none',
             [classes.fullWidth]: fullWidth,
-            [classes.filled]: variant === 'filled',
-            [classes.outlined]: variant === 'outlined',
+            [classes.filled]: variant === 'filled' && !focused,
+            [classes.outlined]: variant === 'outlined' && !focused,
             [classes.focused]: focused,
-            [classes.outlinedFocused]: focused && variant === 'outlined',
+            [classes.focusedOutlined]: focused && variant === 'outlined',
+            [classes.focusedFilled]: focused && variant === 'filled',
           },
           className,
         )}

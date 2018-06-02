@@ -25,16 +25,12 @@ export const styles = theme => ({
   },
   formControlOutlined: {
     left: 12,
-    top: -8,
+    top: -6,
     transform: 'translate(0, 28px) scale(1)',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900],
     padding: '0 4px',
     margin: '0 -4px',
-  },
-  formControlOutlinedFocused: {
-    left: 11,
-    top: -9,
   },
   marginDense: {
     // Compensation for the `Input.inputDense` style.
@@ -65,7 +61,6 @@ function InputLabel(props, context) {
   } = props;
 
   const { muiFormControl } = context;
-  const outlined = muiFormControl && muiFormControl.variant === 'outlined';
 
   let shrink = shrinkProp;
   if (typeof shrink === 'undefined' && muiFormControl) {
@@ -81,11 +76,10 @@ function InputLabel(props, context) {
     classes.root,
     {
       [classes.formControl]: muiFormControl,
-      [classes.formControlFilled]: muiFormControl && muiFormControl.variant === 'filled',
-      [classes.formControlOutlined]: outlined,
+      [classes.formControlFilled]: muiFormControl.variant === 'filled',
+      [classes.formControlOutlined]: muiFormControl.variant === 'outlined',
       [classes.animated]: !disableAnimation,
       [classes.shrink]: shrink,
-      [classes.formControlOutlinedFocused]: outlined && muiFormControl.focused,
       [classes.marginDense]: margin === 'dense',
     },
     classNameProp,

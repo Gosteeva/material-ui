@@ -74,6 +74,11 @@ export const styles = theme => {
         marginTop: theme.spacing.unit * 2,
       },
     },
+    formControlFilled: {
+      'label + &': {
+        marginTop: 0,
+      },
+    },
     focused: {},
     disabled: {},
     underline: {
@@ -121,8 +126,7 @@ export const styles = theme => {
     },
     error: {},
     multiline: {
-      padding: `${theme.spacing.unit + 2}px ${theme.spacing.unit + 4}px ${theme.spacing.unit +
-        2}px`,
+      padding: `${theme.spacing.unit - 2}px 0 ${theme.spacing.unit - 1}px`,
     },
     fullWidth: {
       width: '100%',
@@ -130,8 +134,7 @@ export const styles = theme => {
     input: {
       font: 'inherit',
       color: 'currentColor',
-      padding: `${theme.spacing.unit + 2}px ${theme.spacing.unit + 4}px ${theme.spacing.unit +
-        2}px`,
+      padding: `${theme.spacing.unit - 2}px 0 ${theme.spacing.unit - 1}px`,
       border: 0,
       boxSizing: 'content-box',
       verticalAlign: 'middle',
@@ -189,11 +192,11 @@ export const styles = theme => {
       '-moz-appearance': 'textfield',
       '-webkit-appearance': 'textfield',
     },
+    inputFilled: {
+      padding: '26px 12px 10px',
+    },
     inputOutlined: {
       padding: '4px 12px',
-    },
-    inputOutlinedFocused: {
-      padding: '3px 11px',
     },
   };
 };
@@ -397,8 +400,8 @@ class Input extends React.Component {
 
     const { muiFormControl } = this.context;
     const { disabled, error, margin } = formControlState(this.props, this.context);
+    const filled = muiFormControl && muiFormControl.variant === 'filled';
     const outlined = muiFormControl && muiFormControl.variant === 'outlined';
-    const { focused } = this.state;
 
     const className = classNames(
       classes.root,
@@ -406,8 +409,9 @@ class Input extends React.Component {
         [classes.disabled]: disabled,
         [classes.error]: error,
         [classes.fullWidth]: fullWidth,
-        [classes.focused]: focused,
+        [classes.focused]: this.state.focused,
         [classes.formControl]: muiFormControl,
+        [classes.formControlFilled]: filled,
         [classes.multiline]: multiline,
         [classes.underline]: !disableUnderline,
       },
@@ -422,8 +426,8 @@ class Input extends React.Component {
         [classes.inputTypeSearch]: type === 'search',
         [classes.inputMultiline]: multiline,
         [classes.inputMarginDense]: margin === 'dense',
+        [classes.inputFilled]: filled,
         [classes.inputOutlined]: outlined,
-        [classes.inputOutlinedFocused]: outlined && focused,
       },
       inputPropsClassName,
     );
