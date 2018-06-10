@@ -37,7 +37,7 @@ function Outline(props) {
   const hsw = strokeWidth / 2;
 
   return (
-    <svg className={className} {...other}>
+    <svg className={className} width={widthProp} height={heightProp} {...other}>
       {/* Rounded rectangle without top */}
       <path
         d={`
