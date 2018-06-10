@@ -101,6 +101,9 @@ const pages = [
       {
         pathname: '/utils/click-away-listener',
       },
+      {
+        pathname: '/utils/outline',
+      },
     ],
   },
   {
