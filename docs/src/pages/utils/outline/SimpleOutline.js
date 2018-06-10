@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-class TextFields extends React.Component {
+class SimpleOutline extends React.Component {
   state = {
     br: 4,
     sw: 1,
@@ -30,7 +30,6 @@ class TextFields extends React.Component {
     this.setState({
       [name]: value,
     });
-    console.log(name, value);
   };
 
   handleChangeSwitch = name => event => {
@@ -93,8 +92,8 @@ class TextFields extends React.Component {
   }
 }
 
-TextFields.propTypes = {
+SimpleOutline.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TextFields);
+export default withStyles(styles)(SimpleOutline);
