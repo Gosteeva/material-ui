@@ -8,6 +8,7 @@ import InputLabel from '../InputLabel';
 import FormControl from '../FormControl';
 import FormHelperText from '../FormHelperText';
 import Select from '../Select';
+import Outline from '../Outline';
 
 /**
  * The `TextField` is a convenience wrapper for the most common cases (80%).
@@ -103,6 +104,8 @@ function TextField(props) {
     />
   );
 
+  const labelRef = React.createRef();
+
   return (
     <FormControl
       aria-describedby={helperTextId}
@@ -113,8 +116,9 @@ function TextField(props) {
       variant={variant}
       {...other}
     >
+      {variant === 'outlined' ? <Outline labelRef={labelRef} /> : null}
       {label && (
-        <InputLabel htmlFor={id} {...InputLabelProps}>
+        <InputLabel htmlFor={id} {...InputLabelProps} ref={labelRef}>
           {label}
         </InputLabel>
       )}

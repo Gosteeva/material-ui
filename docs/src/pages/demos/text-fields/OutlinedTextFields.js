@@ -94,7 +94,7 @@ class TextFields extends React.Component {
         />
         <TextField
           disabled
-          id="filled-disabled"
+          id="outlined-disabled"
           label="Disabled"
           defaultValue="Hello World"
           className={classes.textField}

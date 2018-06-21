@@ -90,17 +90,6 @@ export const styles = theme => {
         duration: theme.transitions.duration.shortest,
       }),
     },
-    outlined: {
-      cursor: 'text',
-      borderRadius: 4,
-      boxShadow: `inset 0 0 0 1px ${theme.palette.grey[400]}`,
-      '&:hover': {
-        boxShadow: `inset 0 0 0 1px ${theme.palette.grey[900]}`,
-      },
-      transition: theme.transitions.create('box-shadow', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
     focused: {},
     focusedFilled: {
       backgroundColor: 'rgba(0,0,0,0.11)',
@@ -108,29 +97,10 @@ export const styles = theme => {
         duration: theme.transitions.duration.shortest,
       }),
     },
-    focusedOutlined: {
-      cursor: 'text',
-      borderRadius: 4,
-      boxShadow: `inset 0 0 0 2px ${theme.palette.primary.main}`,
-      transition: theme.transitions.create('box-shadow', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    errorOutlined: {
-      boxShadow: `inset 0 0 0 2px ${theme.palette.error.main}`,
-      '&:hover': {
-        boxShadow: `inset 0 0 0 2px ${theme.palette.error.main}`,
-      },
-    },
     disabled: {},
     disabledFilled: {
       '&:hover': {
         backgroundColor: 'rgba(0,0,0,0.045)',
-      },
-    },
-    disabledOutlined: {
-      '&:hover': {
-        boxShadow: `inset 0 0 0 1px ${theme.palette.grey[400]}`,
       },
     },
     underline: {
@@ -249,6 +219,7 @@ export const styles = theme => {
     },
     inputOutlined: {
       padding: '16px 12px 14px',
+      zIndex: 1,
     },
   };
 };
@@ -334,12 +305,6 @@ class Input extends React.Component {
     return {
       muiFormControl: null,
     };
-  }
-
-  componentDidMount() {
-    if (!this.isControlled) {
-      this.checkDirty(this.input);
-    }
   }
 
   componentDidUpdate() {
@@ -446,6 +411,7 @@ class Input extends React.Component {
       rows,
       rowsMax,
       startAdornment,
+      theme,
       type,
       value,
       ...other
@@ -466,12 +432,8 @@ class Input extends React.Component {
         [classes.formControl]: muiFormControl,
         [classes.formControlVariant]: filled || outlined,
         [classes.filled]: filled && !focused,
-        [classes.outlined]: outlined && !focused,
         [classes.focused]: focused,
-        [classes.focusedOutlined]: focused && outlined,
         [classes.disabledFilled]: disabled && filled,
-        [classes.disabledOutlined]: disabled && outlined,
-        [classes.errorOutlined]: error && outlined,
         [classes.focusedFilled]: focused && filled,
         [classes.multiline]: multiline,
         [classes.underline]: !disableUnderline,
@@ -594,7 +556,7 @@ Input.propTypes = {
    */
   endAdornment: PropTypes.node,
   /**
-   * If `true`, the input will indicate an error. This is normally obtained via context from
+   * If `true`, the input will indicate an error. This is normally controlled via context from
    * FormControl.
    */
   error: PropTypes.bool,
@@ -684,6 +646,10 @@ Input.propTypes = {
    */
   startAdornment: PropTypes.node,
   /**
+   * @ignore
+   */
+  theme: PropTypes.object.isRequired,
+  /**
    * Type of the input element. It should be a valid HTML5 input type.
    */
   type: PropTypes.string,
@@ -714,4 +680,4 @@ Input.childContextTypes = {
   muiFormControl: PropTypes.object,
 };
 
-export default withStyles(styles, { name: 'MuiInput' })(Input);
+export default withStyles(styles, { name: 'MuiInput', withTheme: true })(Input);

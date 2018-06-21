@@ -29,8 +29,6 @@ export const styles = theme => ({
     transform: 'translate(0, 24px) scale(1)',
     padding: '0 4px',
     margin: '0 -4px',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[900],
     zIndex: 1,
   },
   marginDense: {

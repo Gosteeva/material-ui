@@ -69,7 +69,7 @@ HiddenJs.propTypes = {
    *
    * As `window.innerWidth` is unavailable on the server,
    * we default to rendering an empty componenent during the first mount.
-   * In some situation you might want to use an heristic to approximate
+   * In some situation you might want to use a heuristic to approximate
    * the screen width of the client browser screen width.
    *
    * For instance, you could be using the user-agent or the client-hints.

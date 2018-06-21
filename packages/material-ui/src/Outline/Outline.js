@@ -1,46 +1,120 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '../styles/withStyles';
+import InputLabel from '../InputLabel';
 
 export const styles = theme => {
   return {
-    root: {},
+    root: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      // height: '100%',
+    },
+    svg: {},
     path: {
-      transition: theme.transitions.create(['stroke-dashoffset', 'stroke-width'], {
-        duration: theme.transitions.duration.short,
-      }),
       strokeDasharray: 10000,
+      stroke: theme.palette.grey[400],
+      // '&:hover': {
+      //   stroke: theme.palette.grey[900],
+      // },
+    },
+    pathMounted: {
+      transition: theme.transitions.create(['stroke', 'stroke-dashoffset', 'stroke-width'], {
+        duration: theme.transitions.duration.shorter,
+      }),
+    },
+    hiddenLabel: {
+      position: 'absolute',
+      visibility: 'hidden',
+      height: 'auto',
+      width: 'auto',
+      whiteSpace: 'nowrap',
+    },
+    focused: {
+      stroke: theme.palette.primary.main,
+    },
+    error: {
+      stroke: theme.palette.error.main,
+    },
+    disabled: {
+      stroke: theme.palette.grey[400],
     },
   };
 };
 
-function Outline(props) {
-  const {
-    borderRadius: br,
-    classes,
-    className: classNameProp,
-    gapWidth,
-    height: heightProp,
-    open,
-    strokeWidth,
-    theme,
-    width: widthProp,
-    ...other
-  } = props;
+class Outline extends React.Component {
+  state = {
+    gapWidth: 0,
+    mounted: false,
+  };
 
-  const className = classNames(classes.root, classNameProp);
+  // componentDidMount() {
+  //   if (this.labelRef.current) {
+  //     // eslint-disable-next-line react/no-did-mount-set-state
+  //     this.setState({
+  //       gapWidth: (ReactDOM.findDOMNode(this.labelRef.current).clientWidth + 8) * 0.75,
+  //     });
+  //   }
+  // }
 
-  const width = widthProp - strokeWidth;
-  const height = heightProp - strokeWidth;
-  const br2 = br * 2;
-  const hsw = strokeWidth / 2;
+  labelRef = React.createRef();
 
-  return (
-    <svg className={className} width={widthProp} height={heightProp} {...other}>
-      {/* Rounded rectangle without top */}
-      <path
-        d={`
+  render() {
+    const {
+      borderRadius: br,
+      // borderColor: borderColorProp,
+      classes,
+      className: classNameProp,
+      height: heightProp,
+      labelRef,
+      open: openProp,
+      // strokeWidth,
+      theme,
+      width: widthProp,
+      ...other
+    } = this.props;
+
+    const { muiFormControl } = this.context;
+
+    let open = openProp;
+    if (typeof open === 'undefined' && muiFormControl) {
+      open = muiFormControl.filled || muiFormControl.focused || muiFormControl.adornedStart;
+    }
+
+    const strokeWidth = muiFormControl.focused ? 2 : 1;
+    const width = widthProp - strokeWidth;
+    const height = heightProp - strokeWidth;
+    const br2 = br * 2;
+    const hsw = strokeWidth / 2;
+
+    console.log({ labelRef });
+
+    const { gapWidth } = this.state;
+    // const gapWidth = (ReactDOM.findDOMNode(labelRef.current).clientWidth + 8) * 0.75;
+
+    const className = classNames(classes.root, classNameProp);
+
+    const pathClassName = classNames(classes.path, {
+      [classes.error]: muiFormControl.error,
+      // [classes.fullWidth]: fullWidth,
+      // [classes.focused]: this.state.focused,
+      // [classes.formControlVariant]: filled || outlined,
+      [classes.focused]: muiFormControl.focused,
+      // [classes.multiline]: multiline,
+      [classes.disabled]: muiFormControl.disable,
+      [classes.pathMounted]: this.state.mounted,
+    });
+
+    return (
+      <div className={className} {...other}>
+        <svg className={classes.outline}>
+          {/* Rounded rectangle without top */}
+          <path
+            d={`
           M ${width - br + hsw} ${hsw}
           a ${br} ${br} 0 0 1 ${br} ${br}
           l 0 ${height - br2}
@@ -50,41 +124,43 @@ function Outline(props) {
           l 0 -${height - br2}
           a ${br} ${br} 0 0 1 ${br} -${br}
         `}
-        stroke={theme.palette.primary.main}
-        strokeWidth={`${strokeWidth}px`}
-        strokeLinecap="square"
-        fill="transparent"
-        className={classes.path}
-      />
-      {/* Top of rectangle - left side */}
-      <path
-        d={`
+            strokeWidth={`${strokeWidth}px`}
+            strokeLinecap="square"
+            fill="transparent"
+            className={pathClassName}
+          />
+          {/* Top of outline - left side */}
+          <path
+            d={`
           M${br + strokeWidth / 2} ${hsw}
           l ${10 - br + gapWidth / 2} 0
        `}
-        stroke={theme.palette.primary.main}
-        strokeWidth={`${strokeWidth}px`}
-        strokeDashoffset={10000 - 10 + br - (open ? 0 : gapWidth / 2)}
-        fill="transparent"
-        className={classes.path}
-      />
-      {/* Top of rectangle - right side */}
-      <path
-        d={`
+            strokeWidth={`${strokeWidth}px`}
+            strokeDashoffset={10000 - 8 + br - (open ? 0 : gapWidth / 2)}
+            fill="transparent"
+            className={pathClassName}
+          />
+          {/* Top of outline - right side */}
+          <path
+            d={`
           M ${width - br + hsw} ${hsw}
-          l -${width - 10 - br - gapWidth / 2} 0
+          l -${width - 8 - br - gapWidth / 2} 0
        `}
-        stroke={theme.palette.primary.main}
-        strokeWidth={`${strokeWidth}px`}
-        strokeDashoffset={10000 - widthProp + br + gapWidth / (open ? 1 : 2)}
-        fill="transparent"
-        className={classes.path}
-      />
-    </svg>
-  );
+            strokeWidth={`${strokeWidth}px`}
+            strokeDashoffset={10000 - widthProp + 2 + br + gapWidth / (open ? 1 : 2)}
+            fill="transparent"
+            className={pathClassName}
+          />
+        </svg>
+      </div>
+    );
+  }
 }
 
 Outline.propTypes = {
+  /**
+   * The radius of the border corner.
+   */
   borderRadius: PropTypes.number,
   /**
    * The content of the component.
@@ -108,13 +184,14 @@ Outline.propTypes = {
    */
   height: PropTypes.number,
   /**
-   * If true, the gap is open.
+   * Used to determined the gap width.
+   */
+  labelRef: PropTypes.func,
+  /**
+   * If true, the gap is open. This is normally obtained via context from
+   * FormControl.
    */
   open: PropTypes.bool,
-  /**
-   * Thickness of the outline.
-   */
-  strokeWidth: PropTypes.number,
   /**
    * @ignore
    */
@@ -128,10 +205,12 @@ Outline.propTypes = {
 Outline.defaultProps = {
   borderRadius: 4,
   gapWidth: 0,
-  height: 56,
-  open: false,
-  strokeWidth: 2,
+  height: 48,
   width: 250,
+};
+
+Outline.contextTypes = {
+  muiFormControl: PropTypes.object,
 };
 
 export default withStyles(styles, { name: 'MuiOutline', withTheme: true })(Outline);
