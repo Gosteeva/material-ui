@@ -251,6 +251,10 @@ function formControlState(props, context) {
 }
 
 class Input extends React.Component {
+  isControlled = this.props.value != null;
+
+  input = null; // Holds the input reference
+
   constructor(props, context) {
     super(props, context);
 
@@ -312,9 +316,6 @@ class Input extends React.Component {
       this.checkDirty(this.props);
     } // else performed in the onChange
   }
-
-  isControlled = this.props.value != null;
-  input = null; // Holds the input reference
 
   handleFocus = event => {
     // Fix an bug with IE11 where the focus/blur events are triggered

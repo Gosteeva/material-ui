@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '../styles/withStyles';
-import InputLabel from '../InputLabel';
+// import InputLabel from '../InputLabel';
 
 export const styles = theme => {
   return {
@@ -47,6 +47,8 @@ export const styles = theme => {
 };
 
 class Outline extends React.Component {
+  labelRef = React.createRef();
+
   state = {
     gapWidth: 0,
     mounted: false,
@@ -60,8 +62,6 @@ class Outline extends React.Component {
   //     });
   //   }
   // }
-
-  labelRef = React.createRef();
 
   render() {
     const {
@@ -90,9 +90,6 @@ class Outline extends React.Component {
     const height = heightProp - strokeWidth;
     const br2 = br * 2;
     const hsw = strokeWidth / 2;
-
-    console.log({ labelRef });
-
     const { gapWidth } = this.state;
     // const gapWidth = (ReactDOM.findDOMNode(labelRef.current).clientWidth + 8) * 0.75;
 
