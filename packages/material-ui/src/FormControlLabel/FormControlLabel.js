@@ -22,7 +22,7 @@ export const styles = theme => ({
       cursor: 'default',
     },
   },
-  /* Styles applied to the root element if `position="start"`. */
+  /* Styles applied to the root element if `labelPlacement="start"`. */
   start: {
     flexDirection: 'row-reverse',
   },
