@@ -45,7 +45,6 @@ module.exports = {
         [
           'babel-plugin-module-resolver',
           {
-            root: ['./'],
             alias: {
               '@material-ui/core': './packages/material-ui/src',
               '@material-ui/icons': './packages/material-ui-icons/src',
@@ -60,7 +59,7 @@ module.exports = {
           'babel-plugin-module-resolver',
           {
             alias: {
-              modules: './modules',
+              modules: './docs/src/modules',
             },
           },
         ],
@@ -78,8 +77,8 @@ module.exports = {
               '@material-ui/icons': './packages/material-ui-icons/src',
               '@material-ui/lab': './packages/material-ui-lab/src',
               docs: './docs',
-              modules: './modules',
-              pages: './pages',
+              modules: './docs/src/modules',
+              pages: './docs/src/pages',
             },
           },
         ],
@@ -97,8 +96,8 @@ module.exports = {
               '@material-ui/icons': './packages/material-ui-icons/src',
               '@material-ui/lab': './packages/material-ui-lab/src',
               docs: './docs',
-              modules: './modules',
-              pages: './pages',
+              modules: './docs/src/modules',
+              pages: './docs/src/pages',
             },
           },
         ],
@@ -159,7 +158,6 @@ module.exports = {
         [
           'babel-plugin-module-resolver',
           {
-            root: ['./'],
             alias: {
               '@material-ui/core': './packages/material-ui/src',
               '@material-ui/icons': './packages/material-ui-icons/src',

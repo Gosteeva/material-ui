@@ -5,7 +5,7 @@ import yargs from 'yargs';
 import path from 'path';
 import rimraf from 'rimraf';
 import Mustache from 'mustache';
-import Queue from 'modules/waterfall/Queue';
+import Queue from 'docs/src/modules/waterfall/Queue';
 import util from 'util';
 import glob from 'glob';
 import mkdirp from 'mkdirp';

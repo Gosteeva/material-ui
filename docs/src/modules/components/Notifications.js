@@ -4,7 +4,7 @@ import 'isomorphic-fetch';
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import sleep from 'modules/waterfall/sleep';
+import sleep from 'docs/src/modules/waterfall/sleep';
 
 function getLastSeenNotification() {
   const seen = document.cookie.replace(

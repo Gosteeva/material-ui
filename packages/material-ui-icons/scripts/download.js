@@ -3,9 +3,9 @@
 import fse from 'fs-extra';
 import path from 'path';
 import yargs from 'yargs';
-import Queue from 'modules/waterfall/Queue';
-import sleep from 'modules/waterfall/sleep';
-import retry from 'modules/waterfall/retry';
+import Queue from 'docs/src/modules/waterfall/Queue';
+import sleep from 'docs/src/modules/waterfall/sleep';
+import retry from 'docs/src/modules/waterfall/retry';
 import 'isomorphic-fetch';
 
 const themeMap = {

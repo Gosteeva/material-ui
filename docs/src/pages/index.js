@@ -4,14 +4,14 @@ import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import withRoot from 'docs/src/modules/components/withRoot';
-import HomeSteps from 'docs/src/modules/components/HomeSteps';
-import Tidelift from 'docs/src/modules/components/Tidelift';
-import HomeBackers from 'docs/src/modules/components/HomeBackers';
-import HomeFooter from 'docs/src/modules/components/HomeFooter';
-import AppFrame from 'docs/src/modules/components/AppFrame';
-import Link from 'docs/src/modules/components/Link';
-import Head from 'docs/src/modules/components/Head';
+import withRoot from '../modules/components/withRoot';
+import HomeSteps from '../modules/components/HomeSteps';
+import Tidelift from '../modules/components/Tidelift';
+import HomeBackers from '../modules/components/HomeBackers';
+import HomeFooter from '../modules/components/HomeFooter';
+import AppFrame from '../modules/components/AppFrame';
+import Link from '../modules/components/Link';
+import Head from '../modules/components/Head';
 
 const styles = theme => ({
   root: {
