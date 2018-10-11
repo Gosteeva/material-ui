@@ -4,6 +4,7 @@ import MuiTextField from '@material-ui/core/TextField';
 
 // Define type of property
 interface Props {
+  autoComplete: string;
   autoFocus: boolean;
   defaultValue: undefined | undefined;
   disabled: boolean;
@@ -14,7 +15,6 @@ interface Props {
   label: string;
   margin: 'none' | 'dense' | 'normal';
   multiline: boolean;
-  name: string;
   onChange: () => void;
   placeholder: string;
   required: boolean;
@@ -43,6 +43,10 @@ export class Button extends React.Component<Props> {
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
+      autoComplete: {
+        type: ControlType.String,
+        title: 'AutoComplete',
+      },
       autoFocus: {
         type: ControlType.Boolean,
         title: 'AutoFocus',
@@ -85,10 +89,6 @@ export class Button extends React.Component<Props> {
         type: ControlType.Boolean,
         title: 'Multiline',
       },
-      name: {
-        type: ControlType.String,
-        title: 'Name',
-      },
       onChange: {
         type: ControlType.Func,
         title: 'OnChange',
@@ -125,7 +125,7 @@ export class Button extends React.Component<Props> {
   };
 
   render() {
-    const { height, label, width, ...other } = this.props;
+    const { height, width, ...other } = this.props;
 
     return (
       <div
@@ -137,7 +137,7 @@ export class Button extends React.Component<Props> {
           justifyContent: 'center',
         }}
       >
-        <MuiTextField {...other}>{label}</MuiTextField>
+        <MuiTextField {...other} />
       </div>
     );
   }

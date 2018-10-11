@@ -41,8 +41,11 @@ import { findComponents } from '../src/modules/utils/find';
 const supportedComponents = ['Button', 'TextField'];
 
 // FIXME: 'id', - matches width
-const ignoredProps = ['autoComplete', 'classes', 'className', 'component', 'Props', 'Ref',
-  'rows', 'rowsMax', 'value'];
+const ignoredProps = {
+  all: ['classes', 'className', 'component', 'name', 'Props', 'Ref'],
+  Button: [],
+  TextField: ['rows', 'rowsMax', 'value'],
+};
 
 const propsValues = {
   Button: {
@@ -77,6 +80,11 @@ const additionalProps = (component) => ({
     defaultValue: { value: propsValues[component].height },
   },
 });
+
+const templates = {
+  Button: 'label_as_children.txt',
+  TextField: 'self_closing.txt',
+};
 
 // Read the command-line args
 const args = process.argv;
@@ -132,9 +140,7 @@ function buildFramer(componentObject) {
 
   // Add additional props, if the template values exist for this component
   if (propsValues[reactAPI.name]) {
-    // console.log(additionalProps(reactAPI.name));
     Object.assign(reactAPI.props, additionalProps(reactAPI.name));
-    console.log(reactAPI.props);
   }
 
   reactAPI.propNames = Object.keys(reactAPI.props);
@@ -154,11 +160,12 @@ function buildFramer(componentObject) {
     return optionsString.slice(0, -separator.length);
   }
 
-  // Return true if a prop if in the ignoredProps list, description contains ignore.
+  // Return true if a prop is in the ignoredProps list, or description contains `@ignore`.
   function ignore(prop) {
     // Test if the propName contains a (sub)string from ignoredProps
+    const blacklist = ignoredProps.all.concat(ignoredProps[reactAPI.name]);
     const reducer = (accumulator, currentValue) => accumulator || prop.name.includes(currentValue);
-    return prop.description.includes('@ignore') || ignoredProps.reduce(reducer, false);
+    return prop.description.includes('@ignore') || blacklist.reduce(reducer, false);
   }
 
   function getTemplateStrings() {
@@ -240,7 +247,7 @@ function buildFramer(componentObject) {
         return;
       }
 
-      const template = readFileSync(path.join(__dirname, 'templates/label_as_children.txt'), 'utf8');
+      const template = readFileSync(path.join(__dirname, `templates/${templates[reactAPI.name]}`), 'utf8');
       const fileString = Mustache.render(template, getTemplateStrings());
       writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString);
       console.log('Built Framer component for', reactAPI.name);

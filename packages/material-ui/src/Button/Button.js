@@ -365,6 +365,7 @@ Button.defaultProps = {
   component: 'button',
   disabled: false,
   disableFocusRipple: false,
+  disableRipple: false,
   fullWidth: false,
   mini: false,
   size: 'medium',
