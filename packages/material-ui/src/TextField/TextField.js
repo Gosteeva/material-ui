@@ -307,6 +307,10 @@ TextField.propTypes = {
 };
 
 TextField.defaultProps = {
+  autoFocus: false,
+  disabled: false,
+  error: false,
+  fullWidth: false,
   required: false,
   select: false,
   variant: 'standard',

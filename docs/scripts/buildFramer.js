@@ -1,67 +1,80 @@
 /* eslint-disable no-console,max-len */
 
 import { mkdir, readFileSync, writeFileSync } from 'fs';
-// import fs from 'fs';
 import path from 'path';
 import * as reactDocgen from 'react-docgen';
 import Mustache from 'mustache';
 import { findComponents } from '../src/modules/utils/find';
 
-const ignoredComponents = [
-  'ClickAwayListener',
-  'Collapse',
-  'CssBaseline',
-  'ButtonBase',
-  'Fade',
-  'FormControl',
-  'FormControlLabel',
-  'FormHelperText',
-  'FormLabel',
-  'Grid',
-  'Grow',
-  'Hidden',
-  'Icon',
-  'InputAdornment',
-  'InputBase',
-  'InputLabel',
-  'NoSsr',
-  'Popover',
-  'Popper',
-  'Portal',
-  'RadioGroup',
-  'RootRef',
-  'Slide',
-  // TODO: Snackbar `shape` proptype
-  'Snackbar',
-  'SvgIcon',
-  'SwipeableDrawer',
-  'TouchRipple',
-  'Zoom',
-];
+// const ignoredComponents = [
+//   'ClickAwayListener',
+//   'Collapse',
+//   'CssBaseline',
+//   'ButtonBase',
+//   'Fade',
+//   'FormControl',
+//   'FormControlLabel',
+//   'FormHelperText',
+//   'FormLabel',
+//   'Grid',
+//   'Grow',
+//   'Hidden',
+//   'Icon',
+//   'InputAdornment',
+//   'InputBase',
+//   'InputLabel',
+//   'NoSsr',
+//   'Popover',
+//   'Popper',
+//   'Portal',
+//   'RadioGroup',
+//   'RootRef',
+//   'Slide',
+//   // TODO: Snackbar `shape` proptype
+//   'Snackbar',
+//   'SvgIcon',
+//   'SwipeableDrawer',
+//   'TouchRipple',
+//   'Zoom',
+// ];
 
-const ignoredProps = ['classes', 'className', 'component'];
-const additionalProps = {
+const supportedComponents = ['Button', 'TextField'];
+const ignoredProps = ['autoComplete', 'classes', 'className', 'component', 'id', 'Props', 'Ref',
+  'rows', 'rowsMax', 'value'];
+
+const propsValues = {
   Button: {
-    label: {
-      type: { name: 'string' },
-      required: false,
-      description: 'Label',
-      defaultValue: 'Label',
-    },
-    width: {
-      type: { name: 'number' },
-      required: false,
-      description: 'Width',
-      defaultValue: 100,
-    },
-    height: {
-      type: { name: 'number' },
-      required: false,
-      description: 'Height',
-      defaultValue: 38,
-    },
+    label: '\'Button\'',
+    width: 100,
+    height: 38,
+  },
+  TextField: {
+    label: '\'TextField\'',
+    width: 100,
+    height: 38,
   },
 };
+
+const additionalProps = (component) => ({
+  label: {
+    type: { name: 'string' },
+    required: false,
+    description: 'Label',
+    defaultValue: { value: propsValues[component].label },
+  },
+  width: {
+    type: { name: 'number' },
+    required: false,
+    description: 'Width',
+    defaultValue: { value: propsValues[component].width },
+  },
+  height: {
+    type: { name: 'number' },
+    required: false,
+    description: 'Height',
+    defaultValue: { value: propsValues[component].height },
+  },
+});
 
 function ensureExists(pat, mask, cb) {
   mkdir(pat, mask, err => {
@@ -104,32 +117,42 @@ function buildFramer(componentObject) {
     return;
   }
 
-  let reactAPI;
+  function getRactAPI() {
+    let reactAPI;
 
-  try {
-    reactAPI = reactDocgen.parse(src);
-  } catch (err) {
-    console.log('Error parsing src for', componentObject.filename);
-    throw err;
+    try {
+      reactAPI = reactDocgen.parse(src);
+    } catch (err) {
+      console.log('Error parsing src for', componentObject.filename);
+      throw err;
+    }
+
+    reactAPI.name = path.parse(componentObject.filename).name;
+
+    return reactAPI;
   }
 
-  reactAPI.name = path.parse(componentObject.filename).name;
+  const reactAPI = getRactAPI();
 
-  if (reactAPI.name !== 'Button') {
+  // if (reactAPI.name !== 'Button') {
+  //   return;
+  // }
+
+  if (!supportedComponents.includes(reactAPI.name)) {
     return;
   }
 
-  if (ignoredComponents.includes(reactAPI.name)) {
-    return;
+  // Add additional props, if the template values exist for this component
+  if (propsValues[reactAPI.name]) {
+    Object.assign(reactAPI.props, additionalProps(reactAPI.name));
   }
 
-  Object.assign(reactAPI.props, additionalProps[reactAPI.name]);
   reactAPI.propNames = Object.keys(reactAPI.props);
 
   // Relative location in the file system.
   reactAPI.filename = componentObject.filename.replace(rootDirectory, '');
 
-  // Build the options list for Enum / TS property types
+  // Build the options list for Enum PropType / TS property types
   function options(type, separator) {
     let optionsString = '';
     if (type.value) {
@@ -141,119 +164,90 @@ function buildFramer(componentObject) {
     return optionsString.slice(0, -separator.length);
   }
 
+  // Return true if a prop if in the ignoredProps list, description contains ignore.
+  function ignore(prop) {
+    // Test if the propName contains a (sub)string from ignoredProps
+    const reducer = (accumulator, currentValue) => accumulator || prop.name.includes(currentValue);
+    return prop.description.includes('@ignore') || ignoredProps.reduce(reducer, false);
+  }
+
   /**
    * Typyscrpt interface
    * @returns {string}
    */
-  function tsInterface() {
-    let tsProps = '';
-
-    reactAPI.propNames.forEach(propName => {
-      const prop = reactAPI.props[propName];
-      const type = Object.assign({}, prop.type);
-
-      // TODO: Refactor as case?
-      if (type.name === 'bool') {
-        type.name = 'boolean';
-      }
-      if (type.name === 'node') {
-        type.name = 'React.ReactNode';
-      }
-      if (type.name === 'element') {
-        type.name = 'React.ReactElement<any>';
-      }
-      if (type.name === 'func') {
-        type.name = '() => void';
-      }
-
-      if (prop.description === '@ignore' || ignoredProps.includes(propName)) {
-        return;
-      }
-
-      tsProps += `  ${propName}: ${type.value ? `${options(type, ' | ')}` : `${type.name}`};\n`;
-    });
-
-    // Remove the trailing \n
-    return tsProps.slice(0, -1);
-  }
-
-  /**
-   * Default props
-   * @returns {string}
-   */
-  function defaultProps() {
+  function getTemplateStrings() {
+    let tsInterface = '';
     let defaults = '';
-
-    reactAPI.propNames.forEach(propName => {
-      const prop = reactAPI.props[propName];
-      const type = prop.type;
-
-      if (type.name === 'Bool') {
-        type.name = 'Boolean';
-      }
-
-      if (prop.description === '@ignore' || ignoredProps.includes(propName)) {
-        return;
-      }
-
-      if (prop.defaultValue) {
-        defaults += `    ${propName}: ${prop.defaultValue.value},\n`;
-      }
-    });
-
-    // Remove the trailing \n
-    return defaults.slice(0, -1);
-  }
-
-  /**
-   * Property controls
-   * @returns {string}
-   */
-  function propertyControls() {
     let controls = '';
 
     reactAPI.propNames.forEach(propName => {
       const prop = reactAPI.props[propName];
-      const type = prop.type;
+      prop.name = propName;
 
-      if (type.name === 'bool') {
-        type.name = 'boolean';
-      }
-
-      if (prop.description.includes('@ignore') || ignoredProps.includes(propName) || propName === 'children') {
+      if (ignore(prop)) {
         return;
       }
 
+      const propTypeTS = Object.assign({}, prop.type);
+
+      // TODO: Refactor as case?
+      if (propTypeTS.name === 'bool') {
+        propTypeTS.name = 'boolean';
+      }
+      if (propTypeTS.name === 'node') {
+        propTypeTS.name = 'React.ReactNode';
+      }
+      if (propTypeTS.name === 'element') {
+        propTypeTS.name = 'React.ReactElement<any>';
+      }
+      if (propTypeTS.name === 'func') {
+        propTypeTS.name = '() => void';
+      }
+
+      tsInterface += `  ${propName}: ${propTypeTS.value ? `${options(propTypeTS, ' | ')}` : `${propTypeTS.name}`};\n`;
+
+      if (prop.defaultValue) {
+        defaults += `    ${propName}: ${prop.defaultValue.value},\n`;
+      }
+
+      const propTypeControls = Object.assign({}, prop.type);
+
+      if (propTypeControls.name === 'bool') {
+        propTypeControls.name = 'boolean';
+      }
+
       controls += `
-    ${propName}: {
-      type: ControlType.${capitalize(type.name)},
-      title: '${capitalize(propName)}',${type.value ? `\n      options: [${options(type, ', ')}],` : ''}
-    },`;
+      ${propName}: {
+        type: ControlType.${capitalize(propTypeControls.name)},
+        title: '${capitalize(propName)}',${propTypeControls.value ? `\n      options: [${options(propTypeControls, ', ')}],` : ''}
+      },`;
     });
 
-    return controls.slice(1);
+    return {
+      // Remove the trailing \n
+      tsInterface: tsInterface.slice(0, -1),
+      // Remove the trailing \n
+      defaultProps: defaults.slice(0, -1),
+      propertyControls: controls.slice(1),
+    };
   }
 
-  ensureExists(framerDirectory, 0o744, err => {
-    if (err) {
-      console.log('Error creating directory', framerDirectory);
-      return;
-    }
+  function writeFile() {
+    ensureExists(framerDirectory, 0o744, err => {
+      if (err) {
+        console.log('Error creating directory', framerDirectory);
+        return;
+      }
 
-    const template = readFileSync(path.join(__dirname, 'templates/label_as_children.txt'), 'utf8');
-
-    const fileString = Mustache.render(template, {
-      componentName: reactAPI.name,
-      tsInterface: tsInterface(),
-      defaultProps: defaultProps(),
-      propertyControls: propertyControls(),
+      const template = readFileSync(path.join(__dirname, 'templates/label_as_children.txt'), 'utf8');
+      const fileString = Mustache.render(template, getTemplateStrings());
+      writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString);
+      console.log('Built Framer component for', reactAPI.name);
     });
+  }
 
-    writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString);
-    console.log('Built Framer component for', reactAPI.name);
-    // console.log(reactAPI.props);
-    // console.log(propertyControls());
-  });
+  // console.log(reactAPI.props);
+  writeFile();
 }
 
 function run() {
