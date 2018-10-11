@@ -39,7 +39,9 @@ import { findComponents } from '../src/modules/utils/find';
 // ];
 
 const supportedComponents = ['Button', 'TextField'];
-const ignoredProps = ['autoComplete', 'classes', 'className', 'component', 'id', 'Props', 'Ref',
+
+// FIXME: 'id', - matches width
+const ignoredProps = ['autoComplete', 'classes', 'className', 'component', 'Props', 'Ref',
   'rows', 'rowsMax', 'value'];
 
 const propsValues = {
@@ -75,20 +77,6 @@ const additionalProps = (component) => ({
     defaultValue: { value: propsValues[component].height },
   },
 });
-
-function ensureExists(pat, mask, cb) {
-  mkdir(pat, mask, err => {
-    if (err) {
-      if (err.code === 'EEXIST') {
-        cb(null); // ignore the error if the folder already exists
-      } else {
-        cb(err); // something else went wrong
-      }
-    } else {
-      cb(null); // successfully created folder
-    }
-  });
-}
 
 // Read the command-line args
 const args = process.argv;
@@ -144,7 +132,9 @@ function buildFramer(componentObject) {
 
   // Add additional props, if the template values exist for this component
   if (propsValues[reactAPI.name]) {
+    // console.log(additionalProps(reactAPI.name));
     Object.assign(reactAPI.props, additionalProps(reactAPI.name));
+    console.log(reactAPI.props);
   }
 
   reactAPI.propNames = Object.keys(reactAPI.props);
@@ -171,10 +161,6 @@ function buildFramer(componentObject) {
     return prop.description.includes('@ignore') || ignoredProps.reduce(reducer, false);
   }
 
-  /**
-   * Typyscrpt interface
-   * @returns {string}
-   */
   function getTemplateStrings() {
     let tsInterface = '';
     let defaults = '';
@@ -224,12 +210,27 @@ function buildFramer(componentObject) {
     });
 
     return {
+      componentName: reactAPI.name,
       // Remove the trailing \n
       tsInterface: tsInterface.slice(0, -1),
       // Remove the trailing \n
       defaultProps: defaults.slice(0, -1),
       propertyControls: controls.slice(1),
     };
+  }
+
+  function ensureExists(pat, mask, cb) {
+    mkdir(pat, mask, err => {
+      if (err) {
+        if (err.code === 'EEXIST') {
+          cb(null); // ignore the error if the folder already exists
+        } else {
+          cb(err); // something else went wrong
+        }
+      } else {
+        cb(null); // successfully created folder
+      }
+    });
   }
 
   function writeFile() {

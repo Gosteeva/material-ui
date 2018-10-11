@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
-import Mui from '@material-ui/core/';
+import MuiButton from '@material-ui/core/Button';
 
 // Define type of property
 interface Props {
@@ -9,11 +9,13 @@ interface Props {
   disabled: boolean;
   disableFocusRipple: boolean;
   disableRipple: boolean;
+  fullWidth: boolean;
   href: string;
   mini: boolean;
   size: 'small' | 'medium' | 'large';
   variant: 'text' | 'flat' | 'outlined' | 'contained' | 'raised' | 'fab' | 'extendedFab';
   label: string;
+  width: number;
   height: number;
   onClick: () => void;
 }
@@ -24,10 +26,12 @@ export class Button extends React.Component<Props> {
     color: 'default',
     disabled: false,
     disableFocusRipple: false,
+    fullWidth: false,
     mini: false,
     size: 'medium',
     variant: 'text',
     label: 'Button',
+    width: 100,
     height: 38,
   };
 
@@ -54,6 +58,10 @@ export class Button extends React.Component<Props> {
         type: ControlType.Boolean,
         title: 'DisableRipple',
       },
+      fullWidth: {
+        type: ControlType.Boolean,
+        title: 'FullWidth',
+      },
       href: {
         type: ControlType.String,
         title: 'Href',
@@ -76,6 +84,10 @@ export class Button extends React.Component<Props> {
         type: ControlType.String,
         title: 'Label',
       },
+      width: {
+        type: ControlType.Number,
+        title: 'Width',
+      },
       height: {
         type: ControlType.Number,
         title: 'Height',
@@ -95,7 +107,7 @@ export class Button extends React.Component<Props> {
           justifyContent: 'center',
         }}
       >
-        <Mui {...other}>{label}</Mui>
+        <MuiButton {...other}>{label}</MuiButton>
       </div>
     );
   }
