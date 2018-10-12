@@ -311,6 +311,7 @@ TextField.defaultProps = {
   disabled: false,
   error: false,
   fullWidth: false,
+  multiline: false,
   required: false,
   select: false,
   variant: 'standard',

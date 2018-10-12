@@ -5,53 +5,9 @@ import path from 'path';
 import * as reactDocgen from 'react-docgen';
 import Mustache from 'mustache';
 import { findComponents } from '../src/modules/utils/find';
+import { additionalProps, componentSettings } from './framerConfig';
 
-const supportedComponents = ['Button', 'TextField'];
-
-const ignoredProps = {
-  all: ['classes', 'className', 'component', 'id', 'name', '.*Props', '.*Ref'],
-  Button: [],
-  TextField: ['rows', 'rowsMax', 'value'],
-};
-
-const propsValues = {
-  Button: {
-    label: '\'Button\'',
-    width: 100,
-    height: 38,
-  },
-  TextField: {
-    label: '\'TextField\'',
-    width: 100,
-    height: 38,
-  },
-};
-
-const additionalProps = (component) => ({
-  label: {
-    type: { name: 'string' },
-    required: false,
-    description: 'Label',
-    defaultValue: { value: propsValues[component].label },
-  },
-  width: {
-    type: { name: 'number' },
-    required: false,
-    description: 'Width',
-    defaultValue: { value: propsValues[component].width },
-  },
-  height: {
-    type: { name: 'number' },
-    required: false,
-    description: 'Height',
-    defaultValue: { value: propsValues[component].height },
-  },
-});
-
-const templates = {
-  Button: 'label_as_children.txt',
-  TextField: 'self_closing.txt',
-};
+const supportedComponents = Object.keys(componentSettings);
 
 // Read the command-line args
 const args = process.argv;
@@ -106,7 +62,7 @@ function buildFramer(componentObject) {
   }
 
   // Add additional props, if the template values exist for this component
-  if (propsValues[reactAPI.name]) {
+  if (componentSettings[reactAPI.name].propValues) {
     Object.assign(reactAPI.props, additionalProps(reactAPI.name));
   }
 
@@ -130,7 +86,8 @@ function buildFramer(componentObject) {
   // Return true if a prop is in the ignoredProps list, or description contains `@ignore`.
   function ignore(prop) {
     // Test if the propName contains a (sub)string from ignoredProps
-    const blacklist = ignoredProps.all.concat(ignoredProps[reactAPI.name]);
+    // const blacklist = ignoredProps.all.concat(ignoredProps[reactAPI.name]);
+    const blacklist = componentSettings.all.ignoredProps.concat(componentSettings[reactAPI.name].ignoredProps);
     const reducer = (accumulator, currentValue) => accumulator ||
       new RegExp(`^${currentValue}$`).test(prop.name);
 
@@ -216,7 +173,7 @@ function buildFramer(componentObject) {
         return;
       }
 
-      const template = readFileSync(path.join(__dirname, `templates/${templates[reactAPI.name]}`), 'utf8');
+      const template = readFileSync(path.join(__dirname, `templates/${componentSettings[reactAPI.name].template}`), 'utf8');
       const fileString = Mustache.render(template, getTemplateStrings());
       writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString);
       console.log('Built Framer component for', reactAPI.name);

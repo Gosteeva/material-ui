@@ -7,7 +7,6 @@ interface Props {
   children: React.ReactNode;
   color: 'default' | 'inherit' | 'primary' | 'secondary';
   disabled: boolean;
-  disableFocusRipple: boolean;
   disableRipple: boolean;
   fullWidth: boolean;
   href: string;
@@ -25,7 +24,6 @@ export class Button extends React.Component<Props> {
   static defaultProps = {
     color: 'default',
     disabled: false,
-    disableFocusRipple: false,
     disableRipple: false,
     fullWidth: false,
     mini: false,
@@ -50,10 +48,6 @@ export class Button extends React.Component<Props> {
       disabled: {
         type: ControlType.Boolean,
         title: 'Disabled',
-      },
-      disableFocusRipple: {
-        type: ControlType.Boolean,
-        title: 'DisableFocusRipple',
       },
       disableRipple: {
         type: ControlType.Boolean,

@@ -4,9 +4,7 @@ import MuiTextField from '@material-ui/core/TextField';
 
 // Define type of property
 interface Props {
-  autoComplete: string;
   autoFocus: boolean;
-  defaultValue: undefined | undefined;
   disabled: boolean;
   error: boolean;
   fullWidth: boolean;
@@ -31,8 +29,9 @@ export class TextField extends React.Component<Props> {
     autoFocus: false,
     disabled: false,
     error: false,
-    fullWidth: false,
+    fullWidth: true,
     label: 'TextField',
+    multiline: false,
     required: false,
     select: false,
     variant: 'standard',
@@ -42,18 +41,9 @@ export class TextField extends React.Component<Props> {
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-      autoComplete: {
-        type: ControlType.String,
-        title: 'AutoComplete',
-      },
       autoFocus: {
         type: ControlType.Boolean,
         title: 'AutoFocus',
-      },
-      defaultValue: {
-        type: ControlType.Union,
-        title: 'DefaultValue',
-      options: [undefined, undefined],
       },
       disabled: {
         type: ControlType.Boolean,
