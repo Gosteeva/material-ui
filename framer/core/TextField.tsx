@@ -11,7 +11,6 @@ interface Props {
   error: boolean;
   fullWidth: boolean;
   helperText: React.ReactNode;
-  id: string;
   label: string;
   margin: 'none' | 'dense' | 'normal';
   multiline: boolean;
@@ -26,7 +25,7 @@ interface Props {
   onClick: () => void;
 }
 
-export class Button extends React.Component<Props> {
+export class TextField extends React.Component<Props> {
   // Set default properties
   static defaultProps = {
     autoFocus: false,
@@ -71,10 +70,6 @@ export class Button extends React.Component<Props> {
       helperText: {
         type: ControlType.Node,
         title: 'HelperText',
-      },
-      id: {
-        type: ControlType.String,
-        title: 'Id',
       },
       label: {
         type: ControlType.String,

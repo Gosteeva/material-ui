@@ -6,43 +6,10 @@ import * as reactDocgen from 'react-docgen';
 import Mustache from 'mustache';
 import { findComponents } from '../src/modules/utils/find';
 
-// const ignoredComponents = [
-//   'ClickAwayListener',
-//   'Collapse',
-//   'CssBaseline',
-//   'ButtonBase',
-//   'Fade',
-//   'FormControl',
-//   'FormControlLabel',
-//   'FormHelperText',
-//   'FormLabel',
-//   'Grid',
-//   'Grow',
-//   'Hidden',
-//   'Icon',
-//   'InputAdornment',
-//   'InputBase',
-//   'InputLabel',
-//   'NoSsr',
-//   'Popover',
-//   'Popper',
-//   'Portal',
-//   'RadioGroup',
-//   'RootRef',
-//   'Slide',
-//   // TODO: Snackbar `shape` proptype
-//   'Snackbar',
-//   'SvgIcon',
-//   'SwipeableDrawer',
-//   'TouchRipple',
-//   'Zoom',
-// ];
-
 const supportedComponents = ['Button', 'TextField'];
 
-// FIXME: 'id', - matches width
 const ignoredProps = {
-  all: ['classes', 'className', 'component', 'name', 'Props', 'Ref'],
+  all: ['classes', 'className', 'component', 'id', 'name', '.*Props', '.*Ref'],
   Button: [],
   TextField: ['rows', 'rowsMax', 'value'],
 };
@@ -164,7 +131,9 @@ function buildFramer(componentObject) {
   function ignore(prop) {
     // Test if the propName contains a (sub)string from ignoredProps
     const blacklist = ignoredProps.all.concat(ignoredProps[reactAPI.name]);
-    const reducer = (accumulator, currentValue) => accumulator || prop.name.includes(currentValue);
+    const reducer = (accumulator, currentValue) => accumulator ||
+      new RegExp(`^${currentValue}$`).test(prop.name);
+
     return prop.description.includes('@ignore') || blacklist.reduce(reducer, false);
   }
 
