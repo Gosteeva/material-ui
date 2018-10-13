@@ -29,43 +29,35 @@ export class Checkbox extends React.Component<Props> {
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-      color: {
-        type: ControlType.Enum,
-        title: 'Color',
+    color: {
+      type: ControlType.Enum,
+      title: 'Color',
       options: ['primary', 'secondary', 'default'],
-      },
-      disabled: {
-        type: ControlType.Boolean,
-        title: 'Disabled',
-      },
-      disableRipple: {
-        type: ControlType.Boolean,
-        title: 'DisableRipple',
-      },
-      indeterminate: {
-        type: ControlType.Boolean,
-        title: 'Indeterminate',
-      },
-      onChange: {
-        type: ControlType.Func,
-        title: 'OnChange',
-      },
-      value: {
-        type: ControlType.String,
-        title: 'Value',
-      },
-      label: {
-        type: ControlType.String,
-        title: 'Label',
-      },
-      width: {
-        type: ControlType.Number,
-        title: 'Width',
-      },
-      height: {
-        type: ControlType.Number,
-        title: 'Height',
-      },
+    },
+    disabled: {
+      type: ControlType.Boolean,
+      title: 'Disabled',
+    },
+    disableRipple: {
+      type: ControlType.Boolean,
+      title: 'DisableRipple',
+    },
+    indeterminate: {
+      type: ControlType.Boolean,
+      title: 'Indeterminate',
+    },
+    onChange: {
+      type: ControlType.Func,
+      title: 'OnChange',
+    },
+    value: {
+      type: ControlType.String,
+      title: 'Value',
+    },
+    label: {
+      type: ControlType.String,
+      title: 'Label',
+    },
   };
 
   state = {

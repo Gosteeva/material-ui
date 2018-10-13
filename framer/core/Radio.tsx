@@ -11,7 +11,6 @@ interface Props {
   disableRipple: boolean;
   icon: React.ReactNode;
   onChange: () => void;
-  value: string;
   label: string;
   width: number;
   height: number;
@@ -31,47 +30,35 @@ export class Radio extends React.Component<Props> {
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-      checkedIcon: {
-        type: ControlType.Node,
-        title: 'CheckedIcon',
-      },
-      color: {
-        type: ControlType.Enum,
-        title: 'Color',
+    checkedIcon: {
+      type: ControlType.Node,
+      title: 'CheckedIcon',
+    },
+    color: {
+      type: ControlType.Enum,
+      title: 'Color',
       options: ['primary', 'secondary', 'default'],
-      },
-      disabled: {
-        type: ControlType.Boolean,
-        title: 'Disabled',
-      },
-      disableRipple: {
-        type: ControlType.Boolean,
-        title: 'DisableRipple',
-      },
-      icon: {
-        type: ControlType.Node,
-        title: 'Icon',
-      },
-      onChange: {
-        type: ControlType.Func,
-        title: 'OnChange',
-      },
-      value: {
-        type: ControlType.String,
-        title: 'Value',
-      },
-      label: {
-        type: ControlType.String,
-        title: 'Label',
-      },
-      width: {
-        type: ControlType.Number,
-        title: 'Width',
-      },
-      height: {
-        type: ControlType.Number,
-        title: 'Height',
-      },
+    },
+    disabled: {
+      type: ControlType.Boolean,
+      title: 'Disabled',
+    },
+    disableRipple: {
+      type: ControlType.Boolean,
+      title: 'DisableRipple',
+    },
+    icon: {
+      type: ControlType.Node,
+      title: 'Icon',
+    },
+    onChange: {
+      type: ControlType.Func,
+      title: 'OnChange',
+    },
+    label: {
+      type: ControlType.String,
+      title: 'Label',
+    },
   };
 
   state = {

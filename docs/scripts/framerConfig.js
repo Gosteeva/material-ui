@@ -18,8 +18,16 @@ export const componentSettings = {
     },
     template: 'selection_control.txt',
   },
+  Paper: {
+    ignoredProps: [],
+    propValues: {
+      width: 100,
+      height: 100,
+    },
+    template: 'unwrapped_children.txt',
+  },
   Radio: {
-    ignoredProps: ['checked', 'type'],
+    ignoredProps: ['checked', 'type', 'value'],
     propValues: {
       label: '\'Radio\'',
       width: 100,
@@ -35,6 +43,16 @@ export const componentSettings = {
       height: 56,
     },
     template: 'selection_control.txt',
+  },
+  MuiThemeProvider: {
+    ignoredProps: ['disableStylesGeneration', 'options', 'sheetsManager', 'theme'],
+    propValues: {
+      paletteType: 'light',
+      primary: '\'#3f51b5\'',
+      secondary: '\'#f50057\'',
+      error: '\'#f44336\'',
+    },
+    template: 'theme_provider.txt',
   },
   TextField: {
     // FIXME: defaultValue - fix `Union`
@@ -57,22 +75,37 @@ export const additionalProps = (component) => {
       description: 'FullWidth',
       defaultValue: { value: componentSettings[component].propValues.fullWidth },
     },
+    error: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.error },
+    },
     height: {
       type: { name: 'number' },
       required: false,
-      description: 'Height',
       defaultValue: { value: componentSettings[component].propValues.height },
     },
     label: {
       type: { name: 'string' },
       required: false,
-      description: 'Label',
       defaultValue: { value: componentSettings[component].propValues.label },
+    },
+    paletteType: {
+      type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },
+      required: false,
+      description: 'Theme palette type',
+      defaultValue: { value: '\'light\'' },
+    },
+    primary: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.primary },
+    },
+    secondary: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.secondary },
     },
     width: {
       type: { name: 'number' },
       required: false,
-      description: 'Width',
       defaultValue: { value: componentSettings[component].propValues.width },
     },
   };

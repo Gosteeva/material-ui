@@ -41,72 +41,64 @@ export class TextField extends React.Component<Props> {
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-      autoFocus: {
-        type: ControlType.Boolean,
-        title: 'AutoFocus',
-      },
-      disabled: {
-        type: ControlType.Boolean,
-        title: 'Disabled',
-      },
-      error: {
-        type: ControlType.Boolean,
-        title: 'Error',
-      },
-      fullWidth: {
-        type: ControlType.Boolean,
-        title: 'FullWidth',
-      },
-      helperText: {
-        type: ControlType.Node,
-        title: 'HelperText',
-      },
-      label: {
-        type: ControlType.String,
-        title: 'Label',
-      },
-      margin: {
-        type: ControlType.Enum,
-        title: 'Margin',
+    autoFocus: {
+      type: ControlType.Boolean,
+      title: 'AutoFocus',
+    },
+    disabled: {
+      type: ControlType.Boolean,
+      title: 'Disabled',
+    },
+    error: {
+      type: ControlType.Boolean,
+      title: 'Error',
+    },
+    fullWidth: {
+      type: ControlType.Boolean,
+      title: 'FullWidth',
+    },
+    helperText: {
+      type: ControlType.Node,
+      title: 'HelperText',
+    },
+    label: {
+      type: ControlType.String,
+      title: 'Label',
+    },
+    margin: {
+      type: ControlType.Enum,
+      title: 'Margin',
       options: ['none', 'dense', 'normal'],
-      },
-      multiline: {
-        type: ControlType.Boolean,
-        title: 'Multiline',
-      },
-      onChange: {
-        type: ControlType.Func,
-        title: 'OnChange',
-      },
-      placeholder: {
-        type: ControlType.String,
-        title: 'Placeholder',
-      },
-      required: {
-        type: ControlType.Boolean,
-        title: 'Required',
-      },
-      select: {
-        type: ControlType.Boolean,
-        title: 'Select',
-      },
-      type: {
-        type: ControlType.String,
-        title: 'Type',
-      },
-      variant: {
-        type: ControlType.Enum,
-        title: 'Variant',
+    },
+    multiline: {
+      type: ControlType.Boolean,
+      title: 'Multiline',
+    },
+    onChange: {
+      type: ControlType.Func,
+      title: 'OnChange',
+    },
+    placeholder: {
+      type: ControlType.String,
+      title: 'Placeholder',
+    },
+    required: {
+      type: ControlType.Boolean,
+      title: 'Required',
+    },
+    select: {
+      type: ControlType.Boolean,
+      title: 'Select',
+    },
+    type: {
+      type: ControlType.String,
+      title: 'Type',
+    },
+    variant: {
+      type: ControlType.Enum,
+      title: 'Variant',
       options: ['standard', 'outlined', 'filled'],
-      },
-      width: {
-        type: ControlType.Number,
-        title: 'Width',
-      },
-      height: {
-        type: ControlType.Number,
-        title: 'Height',
-      },
+    },
   };
 
   render() {

@@ -36,57 +36,45 @@ export class Button extends React.Component<Props> {
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-      children: {
-        type: ControlType.Node,
-        title: 'Children',
-      },
-      color: {
-        type: ControlType.Enum,
-        title: 'Color',
+    color: {
+      type: ControlType.Enum,
+      title: 'Color',
       options: ['default', 'inherit', 'primary', 'secondary'],
-      },
-      disabled: {
-        type: ControlType.Boolean,
-        title: 'Disabled',
-      },
-      disableRipple: {
-        type: ControlType.Boolean,
-        title: 'DisableRipple',
-      },
-      fullWidth: {
-        type: ControlType.Boolean,
-        title: 'FullWidth',
-      },
-      href: {
-        type: ControlType.String,
-        title: 'Href',
-      },
-      mini: {
-        type: ControlType.Boolean,
-        title: 'Mini',
-      },
-      size: {
-        type: ControlType.Enum,
-        title: 'Size',
+    },
+    disabled: {
+      type: ControlType.Boolean,
+      title: 'Disabled',
+    },
+    disableRipple: {
+      type: ControlType.Boolean,
+      title: 'DisableRipple',
+    },
+    fullWidth: {
+      type: ControlType.Boolean,
+      title: 'FullWidth',
+    },
+    href: {
+      type: ControlType.String,
+      title: 'Href',
+    },
+    mini: {
+      type: ControlType.Boolean,
+      title: 'Mini',
+    },
+    size: {
+      type: ControlType.Enum,
+      title: 'Size',
       options: ['small', 'medium', 'large'],
-      },
-      variant: {
-        type: ControlType.Enum,
-        title: 'Variant',
+    },
+    variant: {
+      type: ControlType.Enum,
+      title: 'Variant',
       options: ['text', 'flat', 'outlined', 'contained', 'raised', 'fab', 'extendedFab'],
-      },
-      label: {
-        type: ControlType.String,
-        title: 'Label',
-      },
-      width: {
-        type: ControlType.Number,
-        title: 'Width',
-      },
-      height: {
-        type: ControlType.Number,
-        title: 'Height',
-      },
+    },
+    label: {
+      type: ControlType.String,
+      title: 'Label',
+    },
   };
 
   render() {

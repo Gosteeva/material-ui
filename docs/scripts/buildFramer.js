@@ -7,7 +7,7 @@ import Mustache from 'mustache';
 import { findComponents } from '../src/modules/utils/find';
 import { additionalProps, componentSettings } from './framerConfig';
 
-const supportedComponents = Object.keys(componentSettings);
+// const DEBUG = true;
 
 // Read the command-line args
 const args = process.argv;
@@ -53,11 +53,14 @@ function buildFramer(componentObject) {
 
   const reactAPI = getRactAPI();
 
-  // if (reactAPI.name !== 'Button') {
-  //   return;
-  // }
+  if (typeof DEBUG !== 'undefined') {
+    if (reactAPI.name !== 'Button') {
+      return;
+    }
+  }
 
-  if (!supportedComponents.includes(reactAPI.name)) {
+  // Only supported components
+  if (!Object.keys(componentSettings).includes(reactAPI.name)) {
     return;
   }
 
@@ -86,12 +89,11 @@ function buildFramer(componentObject) {
   // Return true if a prop is in the ignoredProps list, or description contains `@ignore`.
   function ignore(prop) {
     // Test if the propName contains a (sub)string from ignoredProps
-    // const blacklist = ignoredProps.all.concat(ignoredProps[reactAPI.name]);
     const blacklist = componentSettings.all.ignoredProps.concat(componentSettings[reactAPI.name].ignoredProps);
     const reducer = (accumulator, currentValue) => accumulator ||
       new RegExp(`^${currentValue}$`).test(prop.name);
 
-    return prop.description.includes('@ignore') || blacklist.reduce(reducer, false);
+    return prop.description && prop.description.includes('@ignore') || blacklist.reduce(reducer, false);
   }
 
   function getTemplateStrings() {
@@ -112,6 +114,9 @@ function buildFramer(componentObject) {
       // TODO: Refactor as case?
       if (propTypeTS.name === 'bool') {
         propTypeTS.name = 'boolean';
+      }
+      if (propTypeTS.name === 'color') {
+        propTypeTS.name = 'string';
       }
       if (propTypeTS.name === 'node') {
         propTypeTS.name = 'React.ReactNode';
@@ -135,18 +140,21 @@ function buildFramer(componentObject) {
         propTypeControls.name = 'boolean';
       }
 
-      controls += `
-      ${propName}: {
-        type: ControlType.${capitalize(propTypeControls.name)},
-        title: '${capitalize(propName)}',${propTypeControls.value ? `\n      options: [${options(propTypeControls, ', ')}],` : ''}
-      },`;
+      const ignoredControls = ['children', 'width', 'height'];
+      if (!ignoredControls.includes(prop.name)) {
+        controls += `
+    ${propName}: {
+      type: ControlType.${capitalize(propTypeControls.name)},
+      title: '${capitalize(propName)}',${propTypeControls.value ? `\n      options: [${options(propTypeControls, ', ')}],` : ''}
+    },`;
+      }
     });
+
 
     return {
       componentName: reactAPI.name,
-      // Remove the trailing \n
+      // Omit the trailing \n
       tsInterface: tsInterface.slice(0, -1),
-      // Remove the trailing \n
       defaultProps: defaults.slice(0, -1),
       propertyControls: controls.slice(1),
     };
@@ -180,7 +188,9 @@ function buildFramer(componentObject) {
     });
   }
 
-  // console.log(reactAPI.props);
+  if (typeof DEBUG !== 'undefined') {
+    console.log(reactAPI.props);
+  }
   writeFile();
 }
 
