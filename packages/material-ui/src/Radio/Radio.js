@@ -116,6 +116,8 @@ Radio.propTypes = {
 
 Radio.defaultProps = {
   color: 'secondary',
+  disabled: false,
+  disableRipple: false,
 };
 
 export default withStyles(styles, { name: 'MuiRadio' })(Radio);

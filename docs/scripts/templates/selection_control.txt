@@ -1,0 +1,51 @@
+import * as React from 'react';
+import { PropertyControls, ControlType } from 'framer';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Mui{{componentName}} from '@material-ui/core/{{componentName}}';
+
+// Define type of property
+interface Props {
+{{{tsInterface}}}
+  onClick: () => void;
+}
+
+export class {{componentName}} extends React.Component<Props> {
+  // Set default properties
+  static defaultProps = {
+{{{defaultProps}}}
+  };
+
+  // Items shown in property panel
+  static propertyControls: PropertyControls<Props> = {
+{{{propertyControls}}}
+  };
+
+  state = {
+    checked: false,
+  };
+
+  handleChange = () => {
+    this.setState({
+      checked: !this.state.checked,
+    });
+  };
+
+  render() {
+    const { height, label, width, ...other } = this.props;
+
+{{=|| ||=}}
+    return (
+<FormControlLabel
+        control={<Mui||componentName|| checked={this.state.checked} onChange={this.handleChange} {...other} />}
+        label={label}
+        style={{
+          width,
+          height,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'start',
+        }}
+      />
+    );
+  }
+}

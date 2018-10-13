@@ -35,8 +35,8 @@ export class TextField extends React.Component<Props> {
     required: false,
     select: false,
     variant: 'standard',
-    width: 100,
-    height: 38,
+    width: 280,
+    height: 56,
   };
 
   // Items shown in property panel

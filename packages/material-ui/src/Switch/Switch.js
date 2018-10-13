@@ -190,6 +190,8 @@ Switch.propTypes = {
 
 Switch.defaultProps = {
   color: 'secondary',
+  disabled: false,
+  disableRipple: false,
 };
 
 export default withStyles(styles, { name: 'MuiSwitch' })(Switch);

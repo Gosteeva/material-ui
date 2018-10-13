@@ -9,6 +9,33 @@ export const componentSettings = {
     },
     template: 'label_as_children.txt',
   },
+  Checkbox: {
+    ignoredProps: ['checked', 'checkedIcon', 'icon', 'indeterminateIcon', 'type'],
+    propValues: {
+      label: '\'Checkbox\'',
+      width: 100,
+      height: 56,
+    },
+    template: 'selection_control.txt',
+  },
+  Radio: {
+    ignoredProps: ['checked', 'type'],
+    propValues: {
+      label: '\'Radio\'',
+      width: 100,
+      height: 56,
+    },
+    template: 'selection_control.txt',
+  },
+  Switch: {
+    ignoredProps: ['checked', 'type'],
+    propValues: {
+      label: '\'Switch\'',
+      width: 100,
+      height: 56,
+    },
+    template: 'selection_control.txt',
+  },
   TextField: {
     // FIXME: defaultValue - fix `Union`
     ignoredProps: ['autoComplete', 'defaultValue', 'rows', 'rowsMax', 'value'],
@@ -53,9 +80,9 @@ export const additionalProps = (component) => {
   // The props this component has default values for
   const propNames = Object.keys(componentSettings[component].propValues);
 
-  const reducer = (accumulator, currentValue) => {
-    accumulator[currentValue] = templates[currentValue];
-    return accumulator;
+  const reducer = (additionalPropsObj, propName) => {
+    additionalPropsObj[propName] = templates[propName];
+    return additionalPropsObj;
   };
 
   return propNames.reduce(reducer, {});
