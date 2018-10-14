@@ -4,9 +4,9 @@ components: FilledInput, FormControl, FormHelperText, Input, InputAdornment, Inp
 ---
 # Text Fields
 
-<p class="description">用户可以在文本框内输入或编辑文字</p>
+<p class="description">Text fields let users enter and edit text.</p>
 
-[文本框](https://material.io/design/components/text-fields.html)允许用户在界面中输入文本，通常，我们会在表单或者对话框中使用它们。
+[Text fields](https://material.io/design/components/text-fields.html) allow users to enter text into a UI. They typically appear in forms and dialogs.
 
 ## TextField
 
@@ -16,21 +16,21 @@ The `TextField` wrapper component is a complete form control including a label, 
 
 ## Outlined
 
-边框样式的`文本框`
+`TextField` supports outlined styling.
 
 {{"demo": "pages/demos/text-fields/OutlinedTextFields.js"}}
 
 ## Filled
 
-填充样式的`文本框`
+`TextField` supports filled styling.
 
 {{"demo": "pages/demos/text-fields/FilledTextFields.js"}}
 
 ## Components
 
-`TextField`是由这些基本组件组合而成( [`FormControl`](/api/form-control/), [`Input`](/api/input/), [`InputLabel`](/api/filled-input/), [`InputLabel`](/api/input-label/), [`OutlinedInput`](/api/outlined-input/), 和 [`FormHelperText`](/api/form-helper-text/) ) 您可以利用这一点，完成自己需要的组合来自定义自己的表单输入。
+`TextField` is composed of smaller components ( [`FormControl`](/api/form-control/), [`Input`](/api/input/), [`FilledInput`](/api/filled-input/), [`InputLabel`](/api/input-label/), [`OutlinedInput`](/api/outlined-input/), and [`FormHelperText`](/api/form-helper-text/) ) that you can leverage directly to significantly customize your form inputs.
 
-您可能注意到了， `TextField`组件相对于原生的 HTML input 组件中缺少了一些属性。 这是故意为之的， 该组件只负责处理最常用的一些属性，如果有需求，需要由用户自己使用下面 Demo 中演示的基础组件。 但是同时, 为了避免过于模版化，您仍然可以使用 `inputProps` (和 `inputProps`, `InputLabelProps` 属性) 来控制原生组件的属性。
+You might also have noticed that some native HTML input properties are missing from the `TextField` component. This is on purpose. The component takes care of the most used properties, then it's up to the user to use the underlying component shown in the following demo. Still, you can use `inputProps` (and `InputProps`, `InputLabelProps` properties) if you want to avoid some boilerplate.
 
 {{"demo": "pages/demos/text-fields/ComposedTextField.js"}}
 
