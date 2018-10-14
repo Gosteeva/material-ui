@@ -1,36 +1,36 @@
 ---
-title: React纸片组件
-components: 纸片, 纸片视图
+title: Chip React component
+components: Chip
 ---
-# 纸片
+# Chips
 
-<p class="description">纸片视图是用来表示输入框、属性或操作的紧凑元素。</p>
+<p class="description">Chips are compact elements that represent an input, attribute, or action.</p>
 
-[纸片](https://material.io/design/components/chips.html) 允许用户输入信息、进行选择、筛选内容或触发操作。
+[Chips](https://material.io/design/components/chips.html) allow users to enter information, make selections, filter content, or trigger actions.
 
-虽然我们将纸片包含在这里作为独立组件，但更常见的作法是用在表单中作为一种用户输入，因此本篇演示的内容并不会显示具体的上下文关联内容。
+While included here as a standalone component, the most common use will be in some form of input, so some of the behaviour demonstrated here is not shown in context.
 
-## 纸片, 纸片视图
+## Chip
 
-以下是纸片的一个例子, 使用了图片， SVG 图标，“字母” (和字符串) 来作为 头像。
+Examples of Chips, using an image Avatar, SVG Icon Avatar, "Letter" and (string) Avatar.
 
-- 带有 `onClick` 属性的纸片定义了在获得焦点、鼠标悬浮、单击时的动画。
-- 定义了`onDelete` 属性的纸片将显示一个删除图标, 并在鼠标悬浮时执行动画。
+- Chips with the `onClick` property defined change appearance on focus, hover, and click.
+- Chips with the `onDelete` property defined will display a delete icon which changes appearance on hover.
 
 {{"demo": "pages/demos/chips/Chips.js"}}
 
-### 轮廓纸片
+### Outlined Chips
 
-轮廓纸片提供了另一种风格。
+Outlined chips offer an alternative style.
 
 {{"demo": "pages/demos/chips/OutlinedChips.js"}}
 
-## 纸片区块
+## Chip Playground
 
 {{"demo": "pages/demos/chips/ChipsPlayground.js"}}
 
-## 纸片组
+## Chip array
 
-下面是一个通过组呈现多个纸片的示例。 删除纸片会将其从纸片组的队列中删除。 请注意，因为没有定义`onClick` 属性，所以这些纸片在被点击或触碰时可以获取焦点，但无法获取深度。
+An example of rendering multiple Chips from an array of values. Deleting a chip removes it from the array. Note that since no `onClick` property is defined, the Chip can be focused, but does not gain depth while clicked or touched.
 
 {{"demo": "pages/demos/chips/ChipsArray.js"}}
