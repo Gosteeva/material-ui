@@ -1,17 +1,17 @@
 ---
-title: React 徽章组件
+title: Badge React component
 components: Badge
 ---
 # Badge
 
-<p class="description">徽章会在其子项（右）的右上角生成一个小徽章。</p>
+<p class="description">Badge generates a small badge to the top-right of its child(ren).</p>
 
-## 简单的徽章
+## Simple Badges
 
-包含文本的徽章示例，使用主要和次要颜色。 徽章适用于其后代。
+Examples of badges containing text, using primary and secondary colors. The badge is applied to its children.
 
-{{"演示": "pages/demos/badges/SimpleBadge.js"}}
+{{"demo": "pages/demos/badges/SimpleBadge.js"}}
 
-## 自定义徽章
+## Customized Badge
 
-{{"演示": "pages/demos/badges/CustomizedBadge.js"}}
+{{"demo": "pages/demos/badges/CustomizedBadge.js"}}
