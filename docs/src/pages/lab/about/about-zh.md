@@ -2,7 +2,7 @@
 
 <p class="description">This package hosts the incubator components that are not yet ready to move to the core.</p>
 
-## 安装
+## Installation
 
 Install the package in your project directory with:
 
