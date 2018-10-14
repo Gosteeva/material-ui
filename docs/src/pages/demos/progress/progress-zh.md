@@ -2,15 +2,15 @@
 title: Circular Progress, Linear Progress React component
 components: CircularProgress, LinearProgress
 ---
-# 进度
+# Progress
 
-<p class="description">进度指示器用以表示一个不确定的等待时间或显示一个处理过程的时间长短。</p>
+<p class="description">Progress indicators express an unspecified wait time or display the length of a process.</p>
 
-[进度指示器](https://material.io/design/components/progress-indicators.html) 通知用户当前处理过程的状态，例如加载一个应用，提交一个表单或保存一些更新。 它们与应用程序状态进行通信并指示可用的操作，例如用户是否可从当前页面离开。
+[Progress indicators](https://material.io/design/components/progress-indicators.html) inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates. They communicate an app’s state and indicate available actions, such as whether users can navigate away from the current screen.
 
-**确定的** 指示器显示一个操作消耗多长时间。
+**Determinate** indicators display how long an operation will take.
 
-**未确定**指示器可视化一个不确定的操作等待时间。
+**Indeterminate** indicators visualize an unspecified wait time.
 
 #### Progress as a group
 
