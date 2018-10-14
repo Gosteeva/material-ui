@@ -1,10 +1,10 @@
-# CSS in JS
+# 在 JS 中的 CSS
 
-<p class="description">You can leverage our styling solution, even if you are not using our components.</p>
+<p class="description">即使您没有使用我们的组件, 您也可以利用我们的造型解决方案。</p>
 
-Material-UI aims to provide strong foundations for building dynamic UIs. For the sake of simplicity, **we expose our styling solution to users**. You can use it, but you don't have to. This styling solution is [interoperable with](/guides/interoperability/) all the other major solutions.
+材料 UI 旨在为构建动态 ui 提供强大的基础。 为了简单起见, ** 我们向用户公开我们的样式解决方案 **。 You can use it, but you don't have to. 此样式解决方案与所有其他主要解决方案 [ 可互操作 ](/guides/interoperability/)。
 
-## Material-UI's styling solution
+## 材质-UI 的样式解决方案
 
 In previous versions, Material-UI has used LESS, then a custom inline-style solution to write the style of the components, but these approaches have proven to be limited. Most recently, we have [moved toward](https://github.com/oliviertassinari/a-journey-toward-better-style) a *CSS-in-JS* solution. It **unlocks many great features** (theme nesting, dynamic styles, self-support, etc.). We think that it's the future:
 
