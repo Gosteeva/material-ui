@@ -1,11 +1,11 @@
 ---
-title: React Paper 组件
+title: Paper React component
 components: Paper
 ---
 # Paper
 
-<p class="description">在“材质设计”中，纸张的物理属性将转换为屏幕。 </p>
+<p class="description">In Material Design, the physical properties of paper are translated to the screen. </p>
 
-应用程序的背景类似于纸张的平坦，不透明的纹理，应用程序的行为模仿纸张在多张纸张中重新调整大小，改组和绑定在一起的能力。
+The background of an application resembles the flat, opaque texture of a sheet of paper, and an application’s behavior mimics paper’s ability to be re-sized, shuffled, and bound together in multiple sheets.
 
-{{"演示": "pages/demos/paper/PaperSheet.js"}}
+{{"demo": "pages/demos/paper/PaperSheet.js"}}
