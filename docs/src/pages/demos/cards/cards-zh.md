@@ -1,41 +1,41 @@
 ---
-title: React 卡片组件
-components: 卡片, 卡片操作区域, 卡片操作, 卡片内容, 卡片标题, 卡片媒体, 折叠, 纸张
+title: Card React component
+components: Card, CardActionArea, CardActions, CardContent, CardHeader, CardMedia, Collapse, Paper
 ---
-# 卡片
+# Cards
 
-<p class="description">卡片包含和一个主题相关的内容和操作。</p>
+<p class="description">Cards contain content and actions about a single subject.</p>
 
-[卡片](https://material.io/design/components/cards.html) 是显示一个主题下内容和操作的容器。
+[Cards](https://material.io/design/components/cards.html) are surfaces that display content and actions on a single topic.
 
-他们应该易用于查看相关内容且便于操作。诸如文本和图像的元素，应以能够清晰明确地表示层次结构的方式来展示。
+They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.
 
-## 简单卡片
+## Simple Card
 
-尽管卡片支持多操作、多UI控件和过长的菜单，但请克制使用，切记，卡片只是那些复杂且详细信息的入口。
+Although cards can support multiple actions, UI controls, and an overflow menu, use restraint and remember that cards are entry points to more complex and detailed information.
 
 {{"demo": "pages/demos/cards/SimpleCard.js"}}
 
-## 多媒体内容
+## Media
 
-下面是一个使用图像来增强内容的卡片示例。
+Example of a card using an image to reinforce the content.
 
 {{"demo": "pages/demos/cards/MediaCard.js"}}
 
-默认情况下，我们使用给`<div>` 元素加一个 *背景图片* 的方式来显示多媒体元素。 但在某些情况下，可能会产生一些不可预知的问题。 例如, 您可能希望显示一个视频或一张响应式的图片。 对于这些用例, 请使用 `component` 属性:
+By default, we use the combination of a `<div>` element and a *background image* to display the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use the `component` property for these use cases:
 
 {{"demo": "pages/demos/cards/ImgMediaCard.js"}}
 
-## UI控件
+## UI Controls
 
-卡片中的补充操作可使用图标、文本和 UI 控件显式调用, 通常放在一个卡片的底部。
+Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.
 
-下面是一个媒体控制卡片的例子。
+Here's an example of a media control card.
 
 {{"demo": "pages/demos/cards/MediaControlCard.js"}}
 
-## 复杂交互
+## Complex Interaction
 
-在桌面上, 卡片内容可以展开。
+On desktop, card content can expand.
 
 {{"demo": "pages/demos/cards/RecipeReviewCard.js"}}
