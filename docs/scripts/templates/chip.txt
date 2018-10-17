@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
 import Mui{{componentName}} from '@material-ui/core/{{componentName}}';
+import { Icon } from "./Icon";
 
 // Define type of property
 interface Props {
 {{{tsInterface}}}
+  onClick: () => void;
 }
 
-export default class {{componentName}} extends React.Component<Props> {
+export class {{componentName}} extends React.Component<Props> {
   // Set default properties
   static defaultProps = {
 {{{defaultProps}}}
@@ -19,11 +21,11 @@ export default class {{componentName}} extends React.Component<Props> {
   };
 
   render() {
-    const { children, width, height, ...other } = this.props;
+    const { deletable, deleteIcon, height, icon, width, ...other } = this.props;
 
 {{=|| ||=}}
     return (
-      <Mui||componentName||
+      <div
         style={{
           width,
           height,
@@ -31,10 +33,14 @@ export default class {{componentName}} extends React.Component<Props> {
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        {...other}
       >
-        {children}
-      </Mui||componentName||>
+        <MuiChip
+          icon={<Icon icon={icon} />}
+          onDelete = {deletable ? () => {} : undefined}
+          deleteIcon={deleteIcon === '' ? undefined : <Icon icon={deleteIcon} />}
+          {...other}
+         />
+      </div>
     );
   }
 }

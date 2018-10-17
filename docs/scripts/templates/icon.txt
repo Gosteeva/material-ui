@@ -19,16 +19,16 @@ export class {{componentName}} extends React.Component<Props> {
 {{{propertyControls}}}
   };
 
-  static capitalize(string: string) {
+  static function capitalize(string: string) {
     return string.charAt(0).toUpperCase() + string.substr(1);
   }
 
 {{=|| ||=}}
   render() {
     const { height, icon: iconProp, theme, width, ...other } = this.props;
-    const IconProp = this.capitalize(iconProp);
-    const icon = Object.keys(Icons).includes(IconProp) ? IconProp : 'Add';
-    const Icon = Icons[`${icon}${theme === 'Filled' ? '' : theme}`];
-    return <Icon style={{ width, height}} {...other} />;
+    const iconName = `${this.capitalize(iconProp)}${theme === 'Filled' ? '' : theme}`;
+    const Icon = Object.keys(Icons).includes(iconName) ? Icons[iconName] : undefined;
+
+    return Icon ? <Icon style={{ width, height}} {...other} /> : null;
   }
 }

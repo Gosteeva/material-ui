@@ -1,5 +1,15 @@
 export const componentSettings = {
   all: { ignoredProps: ['classes', 'className', 'component', 'id', 'name', '.*Props', '.*Ref'] },
+  Avatar: {
+    ignoredProps: ['alt', 'imgProps', 'sizes', 'src', 'srcSet'],
+    propValues: {
+      icon: '\'face\'',
+      label: '\'MB\'',
+      width: 40,
+      height: 40,
+    },
+    template: 'avatar.txt',
+  },
   Button: {
     ignoredProps: ['disableFocusRipple'],
     propValues: {
@@ -18,10 +28,23 @@ export const componentSettings = {
     },
     template: 'selection_control.txt',
   },
+  Chip: {
+    ignoredProps: ['children', 'onDelete'],
+    propValues: {
+      clickable: true,
+      deletable: false,
+      deleteIcon: '\'\'',
+      icon: '\'\'',
+      label: '\'Chip\'',
+      width: 100,
+      height: 32,
+    },
+    template: 'chip.txt',
+  },
   Icon: {
     ignoredProps: ['children', 'fontSize'],
     propValues: {
-      icon: '\'Add\'',
+      icon: '\'add\'',
       theme: 'Filled',
       width: 24,
       height: 24,
@@ -81,9 +104,22 @@ export const additionalProps = (component) => {
   const templates = {
     fullWidth: {
       type: { name: 'boolean' },
-      required: false,
-      description: 'FullWidth',
+      description: 'TextField - fullWidth',
       defaultValue: { value: componentSettings[component].propValues.fullWidth },
+    },
+    clickable: {
+      type: { name: 'boolean' },
+      description: 'Chip - clickable (change default to `true`)',
+      defaultValue: { value: componentSettings[component].propValues.clickable },
+    },
+    deletable: {
+      type: { name: 'boolean' },
+      description: 'Chip - deletable',
+      defaultValue: { value: componentSettings[component].propValues.deletable },
+    },
+    deleteIcon: {
+      type: { name: 'string' },
+      defaultValue: { value: componentSettings[component].propValues.icon },
     },
     error: {
       type: { name: 'color' },
@@ -91,7 +127,6 @@ export const additionalProps = (component) => {
     },
     height: {
       type: { name: 'number' },
-      required: false,
       defaultValue: { value: componentSettings[component].propValues.height },
     },
     icon: {
@@ -100,12 +135,10 @@ export const additionalProps = (component) => {
     },
     label: {
       type: { name: 'string' },
-      required: false,
       defaultValue: { value: componentSettings[component].propValues.label },
     },
     paletteType: {
       type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },
-      required: false,
       description: 'Theme palette type',
       defaultValue: { value: '\'light\'' },
     },
@@ -128,13 +161,11 @@ export const additionalProps = (component) => {
           { value: '\'Sharp\'' },
           ],
       },
-      required: false,
       description: 'Icon theme',
       defaultValue: { value: '\'Filled\'' },
     },
     width: {
       type: { name: 'number' },
-      required: false,
       defaultValue: { value: componentSettings[component].propValues.width },
     },
   };
