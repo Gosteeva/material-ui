@@ -1,0 +1,34 @@
+import * as React from "react";
+import { PropertyControls, ControlType } from "framer";
+import * as Icons from '@material-ui/icons';
+
+// Define type of property
+interface Props {
+{{{tsInterface}}}
+  onClick: () => void;
+}
+
+export class {{componentName}} extends React.Component<Props> {
+  // Set default properties
+  static defaultProps = {
+{{{defaultProps}}}
+  };
+
+  // Items shown in property panel
+  static propertyControls: PropertyControls<Props> = {
+{{{propertyControls}}}
+  };
+
+  static capitalize(string: string) {
+    return string.charAt(0).toUpperCase() + string.substr(1);
+  }
+
+{{=|| ||=}}
+  render() {
+    const { height, icon: iconProp, theme, width, ...other } = this.props;
+    const IconProp = this.capitalize(iconProp);
+    const icon = Object.keys(Icons).includes(IconProp) ? IconProp : 'Add';
+    const Icon = Icons[`${icon}${theme === 'Filled' ? '' : theme}`];
+    return <Icon style={{ width, height}} {...other} />;
+  }
+}

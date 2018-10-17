@@ -18,6 +18,16 @@ export const componentSettings = {
     },
     template: 'selection_control.txt',
   },
+  Icon: {
+    ignoredProps: ['children', 'fontSize'],
+    propValues: {
+      icon: '\'Add\'',
+      theme: 'Filled',
+      width: 24,
+      height: 24,
+    },
+    template: 'icon.txt',
+  },
   Paper: {
     ignoredProps: [],
     propValues: {
@@ -84,6 +94,10 @@ export const additionalProps = (component) => {
       required: false,
       defaultValue: { value: componentSettings[component].propValues.height },
     },
+    icon: {
+      type: { name: 'string' },
+      defaultValue: { value: componentSettings[component].propValues.icon },
+    },
     label: {
       type: { name: 'string' },
       required: false,
@@ -102,6 +116,21 @@ export const additionalProps = (component) => {
     secondary: {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.secondary },
+    },
+    theme: {
+      type: {
+        name: 'Enum',
+        value: [
+          { value: '\'Filled\'' },
+          { value: '\'Outlined\'' },
+          { value: '\'Rounded\'' },
+          { value: '\'TwoTone\'' },
+          { value: '\'Sharp\'' },
+          ],
+      },
+      required: false,
+      description: 'Icon theme',
+      defaultValue: { value: '\'Filled\'' },
     },
     width: {
       type: { name: 'number' },
