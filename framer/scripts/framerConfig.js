@@ -57,6 +57,7 @@ export const componentSettings = {
     propValues: {
       width: 100,
       height: 100,
+      elevation: 2,
     },
     template: 'unwrapped_children.txt',
   },
@@ -96,6 +97,15 @@ export const componentSettings = {
       height: 56,
     },
     template: 'selection_control.txt',
+  },
+  Typography: {
+    ignoredProps: ['children', 'internalDeprecatedVariant'],
+    propValues: {
+      label: '\'Typography\'',
+      width: 100,
+      height: 38,
+    },
+    template: 'label_as_children.txt',
   },
   MuiThemeProvider: {
     ignoredProps: ['disableStylesGeneration', 'options', 'sheetsManager', 'theme'],
@@ -140,6 +150,10 @@ export const additionalProps = (component) => {
     deleteIcon: {
       type: { name: 'string' },
       defaultValue: { value: componentSettings[component].propValues.icon },
+    },
+    elevation: {
+      type: { name: 'number', min: 0, max: 24 },
+      defaultValue: { value: componentSettings[component].propValues.elevation },
     },
     error: {
       type: { name: 'color' },

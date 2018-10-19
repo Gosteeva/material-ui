@@ -134,19 +134,31 @@ function buildFramer(componentObject) {
         defaults += `    ${propName}: ${prop.defaultValue.value},\n`;
       }
 
+      function otherValues(others) {
+        let result = '';
+        const keys = Object.keys(others);
+        if (keys.length > 0) {
+           result += keys.reduce((acc, key) => `${acc}\n      ${key}: ${others[key]},`, '');
+        }
+        return result;
+      }
+
       const propTypeControls = Object.assign({}, prop.type);
 
       if (propTypeControls.name === 'bool') {
         propTypeControls.name = 'boolean';
       }
 
-      // console.log('HIDDEN', propTypeControls.hidden);
       const ignoredControls = ['children', 'width', 'height'];
+      const { name, value, hidden, ...other } = propTypeControls;
+
       if (!ignoredControls.includes(prop.name)) {
         controls += `
     ${propName}: {
-      type: ControlType.${capitalize(propTypeControls.name)},
-      title: '${capitalize(propName)}',${propTypeControls.value ? `\n      options: [${options(propTypeControls, ', ')}],` : ''}${propTypeControls.hidden ? `\n      hidden: ${propTypeControls.hidden},` : ''}
+      type: ControlType.${capitalize(name)},
+      title: '${capitalize(propName)}',${value ? `
+      options: [${options(propTypeControls, ', ')}],` : ''}${hidden ? `
+      hidden: ${hidden},` : ''}${otherValues(other)}
     },`;
       }
     });
