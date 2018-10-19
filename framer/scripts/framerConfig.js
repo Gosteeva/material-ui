@@ -99,7 +99,7 @@ export const componentSettings = {
     template: 'selection_control.txt',
   },
   Typography: {
-    ignoredProps: ['children', 'internalDeprecatedVariant'],
+    ignoredProps: ['children', 'gutterBottom', 'internalDeprecatedVariant', 'paragraph'],
     propValues: {
       label: '\'Typography\'',
       width: 100,
