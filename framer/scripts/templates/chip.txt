@@ -31,7 +31,6 @@ export class {{componentName}} extends React.Component<Props> {
           height,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
         }}
       >
         <MuiChip

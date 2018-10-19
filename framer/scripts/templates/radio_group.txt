@@ -1,0 +1,57 @@
+import * as React from 'react';
+import { PropertyControls, ControlType } from 'framer';
+import Mui{{componentName}} from '@material-ui/core/{{componentName}}';
+import MuiFormControl from '@material-ui/core/FormControl';
+import MuiFormLabel from '@material-ui/core/FormLabel';
+import { Radio } from './Radio';
+
+// Define type of property
+interface Props {
+{{{tsInterface}}}
+}
+
+export class {{componentName}} extends React.Component<Props> {
+  // Set default properties
+  static defaultProps = {
+{{{defaultProps}}}
+  };
+
+  // Items shown in property panel
+  static propertyControls: PropertyControls<Props> = {
+{{{propertyControls}}}
+  };
+
+  state = {
+    value: 'radioLabel1',
+  };
+
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
+
+  render() {
+    const { label, ...other } = this.props;
+
+{{=|| ||=}}
+    return (
+      <div style={{ padding: 8 }}>
+        <MuiFormControl component="fieldset">
+          <MuiFormLabel component="legend">{label}</MuiFormLabel>
+          <MuiRadioGroup
+            value={this.state.value}
+            onChange={this.handleChange}
+            style={{ margin: '8px 0' }}
+            {...other}
+          >
+            {Object.keys(RadioGroup.propertyControls).map(key => {
+              const label = `${this.props[key]}`;
+              if (key.indexOf('radioLabel') === 0 && label !== '') {
+                  return <Radio value={key} label={label}/>;
+              }
+            })}
+          </MuiRadioGroup>
+        </MuiFormControl>
+      </div>
+    );
+  }
+}

@@ -31,6 +31,7 @@ export const componentSettings = {
   Chip: {
     ignoredProps: ['children', 'onDelete'],
     propValues: {
+      avatar: 'false',
       clickable: true,
       deletable: false,
       deleteIcon: '\'\'',
@@ -60,13 +61,32 @@ export const componentSettings = {
     template: 'unwrapped_children.txt',
   },
   Radio: {
-    ignoredProps: ['checked', 'type', 'value'],
+    ignoredProps: ['checked', 'type'],
     propValues: {
       label: '\'Radio\'',
-      width: 100,
-      height: 56,
+      width: '\'100%\'',
+      height: 48,
     },
     template: 'selection_control.txt',
+  },
+  RadioGroup: {
+    ignoredProps: ['children', 'value'],
+    propValues: {
+      label: '\'Radio group\'',
+      radioLabel1: '\'Radio 1\'',
+      radioLabel2: '\'Radio 2\'',
+      radioLabel3: '',
+      radioLabel4: '',
+      radioLabel5: '',
+      radioLabel6: '',
+      radioLabel7: '',
+      radioLabel8: '',
+      radioLabel9: '',
+      radioLabel10: '',
+      width: 200,
+      height: 200,
+    },
+    template: 'radio_group.txt',
   },
   Switch: {
     ignoredProps: ['checked', 'type'],
@@ -102,10 +122,10 @@ export const componentSettings = {
 
 export const additionalProps = (component) => {
   const templates = {
-    fullWidth: {
+    avatar: {
       type: { name: 'boolean' },
-      description: 'TextField - fullWidth',
-      defaultValue: { value: componentSettings[component].propValues.fullWidth },
+      description: 'Chip - wrap icon in an Avatar',
+      defaultValue: { value: componentSettings[component].propValues.avatar },
     },
     clickable: {
       type: { name: 'boolean' },
@@ -125,6 +145,11 @@ export const additionalProps = (component) => {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.error },
     },
+    fullWidth: {
+      type: { name: 'boolean' },
+      description: 'TextField - fullWidth',
+      defaultValue: { value: componentSettings[component].propValues.fullWidth },
+    },
     height: {
       type: { name: 'number' },
       defaultValue: { value: componentSettings[component].propValues.height },
@@ -136,6 +161,91 @@ export const additionalProps = (component) => {
     label: {
       type: { name: 'string' },
       defaultValue: { value: componentSettings[component].propValues.label },
+    },
+    radioLabel1: {
+      type: { name: 'string' },
+      defaultValue: { value: componentSettings[component].propValues.radioLabel1 },
+    },
+    radioLabel2: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel1 === '';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.radioLabel2 },
+    },
+    radioLabel3: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel2 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    radioLabel4: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel3 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    radioLabel5: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel4 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    radioLabel6: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel5 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    radioLabel7: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel6 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    radioLabel8: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel7 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    radioLabel9: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel8 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    radioLabel10: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.radioLabel9 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
     },
     paletteType: {
       type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },

@@ -4,7 +4,7 @@ import { mkdir, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import * as reactDocgen from 'react-docgen';
 import Mustache from 'mustache';
-import { findComponents } from '../src/modules/utils/find';
+import { findComponents } from '../../docs/src/modules/utils/find';
 import { additionalProps, componentSettings } from './framerConfig';
 
 // const DEBUG = true;
@@ -53,11 +53,11 @@ function buildFramer(componentObject) {
 
   const reactAPI = getRactAPI();
 
-  if (typeof DEBUG !== 'undefined') {
-    if (reactAPI.name !== 'Button') {
-      return;
-    }
-  }
+  // if (typeof DEBUG !== 'undefined') {
+  //   if (reactAPI.name !== 'RadioGroup') {
+  //     return;
+  //   }
+  // }
 
   // Only supported components
   if (!Object.keys(componentSettings).includes(reactAPI.name)) {
@@ -140,12 +140,13 @@ function buildFramer(componentObject) {
         propTypeControls.name = 'boolean';
       }
 
+      // console.log('HIDDEN', propTypeControls.hidden);
       const ignoredControls = ['children', 'width', 'height'];
       if (!ignoredControls.includes(prop.name)) {
         controls += `
     ${propName}: {
       type: ControlType.${capitalize(propTypeControls.name)},
-      title: '${capitalize(propName)}',${propTypeControls.value ? `\n      options: [${options(propTypeControls, ', ')}],` : ''}
+      title: '${capitalize(propName)}',${propTypeControls.value ? `\n      options: [${options(propTypeControls, ', ')}],` : ''}${propTypeControls.hidden ? `\n      hidden: ${propTypeControls.hidden},` : ''}
     },`;
       }
     });
