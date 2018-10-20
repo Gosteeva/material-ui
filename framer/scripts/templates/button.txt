@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
 import Mui«componentName» from '@material-ui/core/«componentName»';
+import { Icon } from './Icon';
 
 // Define type of property
 interface Props {
@@ -20,9 +21,8 @@ export class «componentName» extends React.Component<Props> {
 «& propertyControls»
   };
 
-
   render() {
-    const { height, label, width, ...other } = this.props;
+    const { height, icon, label, variant, width, ...other } = this.props;
 
     return (
       <div
@@ -34,7 +34,10 @@ export class «componentName» extends React.Component<Props> {
           justifyContent: 'center',
         }}
       >
-        <Mui«componentName» {...other}>{label}</Mui«componentName»>
+        <MuiButton {{variant}} {...other}>
+            <Icon icon={icon} style={variant === 'extendedFab' ? {marginRight: 8} : {}}/>
+            {variant !== 'fab' ? label : ''}
+        </MuiButton>
       </div>
     );
   }

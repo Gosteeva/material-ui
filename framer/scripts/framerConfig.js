@@ -17,6 +17,7 @@ export const componentSettings = {
   Button: {
     ignoredProps: ['disableFocusRipple'],
     propValues: {
+      icon: '\'\'',
       label: '\'Button\'',
       width: 100,
       height: 38,

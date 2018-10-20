@@ -35,7 +35,7 @@ export class «componentName» extends React.Component<Props> {
     const { height, label, width, ...other } = this.props;
 
     return (
-<FormControlLabel
+      <FormControlLabel
         control={<Mui«componentName» checked={this.state.checked} onChange={this.handleChange} {...other} />}
         label={label}
         style={{
