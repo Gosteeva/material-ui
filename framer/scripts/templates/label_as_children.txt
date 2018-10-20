@@ -24,18 +24,6 @@ export class «componentName» extends React.Component<Props> {
   render() {
     const { height, label, width, ...other } = this.props;
 
-    return (
-      <div
-        style={{
-          width,
-          height,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Mui«componentName» {...other}>{label}</Mui«componentName»>
-      </div>
-    );
+    return (<Mui«componentName» {...other}>{label}</Mui«componentName»>;
   }
 }
