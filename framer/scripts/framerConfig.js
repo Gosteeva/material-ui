@@ -88,11 +88,6 @@ export const componentSettings = {
     },
     template: 'unwrapped_self_closing.txt',
   },
-  Card: {
-    ignoredProps: [],
-    propValues: {},
-    template: 'media_card.txt',
-  },
   Paper: {
     ignoredProps: [],
     propValues: {
