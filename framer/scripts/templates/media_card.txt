@@ -1,0 +1,103 @@
+import * as React from 'react';
+import { PropertyControls, ControlType } from 'framer';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import MuiButton from '@material-ui/core/Button';
+import MuiTypography from '@material-ui/core/Typography';
+
+// Define type of property
+interface Props {
+    imagePath?: string;
+    imageUrl?: string;
+    title?: string;
+    subtitle?: string;
+    body?: string;
+    action1: string;
+    action2: string;
+    icon1: string;
+    icon2: string;
+}
+
+export class MediaCard extends React.Component<Props> {
+  // Set default properties
+    static defaultProps = {
+        width: 292,
+        height: 216,
+        imagePath: '',
+        imageUrl: '',
+        title: 'Materially Different',
+        subtitle: 'by Olivier Tassinari',
+        body:
+            'Discover what it takes to make Material-UI, the leading React Material Design component library.',
+        icon1: 'share',
+        icon2: 'more_vert',
+    };
+
+  // Items shown in property panel
+    static propertyControls: PropertyControls = {
+        imagePath: {
+            type: ControlType.Image,
+            title: 'Image',
+            hidden(props) {
+                return props.imageUrl !== '';
+            }
+        },
+        imageUrl: {
+            type: ControlType.String,
+            title: 'Image URL',
+            hidden(props) {
+                return props.imagePath !== '';
+            }
+        },
+        title: { type: ControlType.String, title: 'Title' },
+        subtitle: { type: ControlType.String, title: 'Subtitle' },
+        body: { type: ControlType.String, title: 'Body text' },
+        action1: { type: ControlType.String, title: 'Action one' },
+        action2: { type: ControlType.String, title: 'Action two' },
+        icon1: { type: ControlType.String, title: 'icon one' },
+        icon2: { type: ControlType.String, title: 'icon two' },
+    };
+
+render() {
+    const { action1, action2, body, icon1, icon2, imagePath, imageUrl, subtitle, title, ...other } = this.props;
+
+{{=<< >>=}}
+    return (
+        <Card {...other}>
+            <CardActionArea>
+                {(imagePath || imageUrl) && <CardMedia
+                    // className={classes.media}
+                    style={{ paddingTop: '56.25%' }}
+                    image={imagePath || imageUrl}
+                    title={title}
+                />}
+                <CardContent>
+                    <MuiTypography gutterBottom variant="h5" component="h2">
+                        {title}
+                    </MuiTypography>
+                    <MuiTypography gutterBottom variant="subtitle1" color="textSecondary">
+                         {subtitle}
+                    </MuiTypography>
+                    <MuiTypography component="p" color="textPrimary">
+                        {body}
+                    </MuiTypography>
+                </CardContent>
+            </CardActionArea>
+            {(action1 !== '' || icon1 !== '') && <CardActions>
+                {action1 !== '' && <MuiButton size="small" color="primary">
+                    {action1}
+                </MuiButton>}
+                {action2 !== '' && <MuiButton size="small" color="primary">
+                    {action2}
+                </MuiButton>}
+                <div style={{flex: 1}} />
+                {icon1 !== '' && <IconButton icon={icon1} />}
+                {icon2 !== '' && <IconButton icon={icon2} />}
+            </CardActions>}
+        </Card>
+    );
+  }
+}

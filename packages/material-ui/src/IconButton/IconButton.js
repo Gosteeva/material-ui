@@ -130,6 +130,7 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   color: 'default',
   disabled: false,
+  disableRipple: false,
 };
 
 export default withStyles(styles, { name: 'MuiIconButton' })(IconButton);

@@ -8,7 +8,7 @@ export const componentSettings = {
       width: 40,
       height: 40,
     },
-    template: 'avatar.txt',
+    template: 'icon_as_children.txt',
   },
   Button: {
     ignoredProps: ['disableFocusRipple'],
@@ -42,6 +42,16 @@ export const componentSettings = {
     },
     template: 'chip.txt',
   },
+  CircularProgress: {
+    ignoredProps: [],
+    propValues: {
+      width: 44,
+      height: 44,
+      thickness: 4,
+      progressValue: 50,
+    },
+    template: 'self_closing.txt',
+  },
   Icon: {
     ignoredProps: ['children', 'fontSize'],
     propValues: {
@@ -51,6 +61,32 @@ export const componentSettings = {
       height: 24,
     },
     template: 'icon.txt',
+  },
+  IconButton: {
+    ignoredProps: [],
+    propValues: {
+      icon: '\'favorite\'',
+      label: '\'T\'',
+      width: 48,
+      height: 48,
+    },
+    template: 'icon_as_children.txt',
+  },
+  LinearProgress: {
+    ignoredProps: [],
+    propValues: {
+      width: '\'100%\'',
+      height: 5,
+      // thickness: 4,
+      progressValue: 50,
+      valueBuffer: 75,
+    },
+    template: 'unwrapped_self_closing.txt',
+  },
+  Card: {
+    ignoredProps: [],
+    propValues: {},
+    template: 'media_card.txt',
   },
   Paper: {
     ignoredProps: [],
@@ -137,6 +173,15 @@ export const additionalProps = (component) => {
       description: 'Chip - wrap icon in an Avatar',
       defaultValue: { value: componentSettings[component].propValues.avatar },
     },
+    valueBuffer: {
+      type: {
+        name: 'number',
+        hidden(props) {
+          return props.variant !== 'buffer';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.valueBuffer },
+    },
     clickable: {
       type: { name: 'boolean' },
       description: 'Chip - clickable (change default to `true`)',
@@ -175,6 +220,24 @@ export const additionalProps = (component) => {
     label: {
       type: { name: 'string' },
       defaultValue: { value: componentSettings[component].propValues.label },
+    },
+    paletteType: {
+      type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },
+      description: 'Theme palette type',
+      defaultValue: { value: '\'light\'' },
+    },
+    progressValue: {
+      type: {
+        name: 'number',
+        hidden(props) {
+          return props.variant === 'indeterminate' || props.variant === 'query';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.progressValue },
+    },
+    primary: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.primary },
     },
     radioLabel1: {
       type: { name: 'string' },
@@ -261,15 +324,6 @@ export const additionalProps = (component) => {
       },
       defaultValue: { value: '\'\'' },
     },
-    paletteType: {
-      type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },
-      description: 'Theme palette type',
-      defaultValue: { value: '\'light\'' },
-    },
-    primary: {
-      type: { name: 'color' },
-      defaultValue: { value: componentSettings[component].propValues.primary },
-    },
     secondary: {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.secondary },
@@ -288,6 +342,10 @@ export const additionalProps = (component) => {
       description: 'Icon theme',
       defaultValue: { value: '\'Filled\'' },
     },
+    thickness: {
+      type: { name: 'number', min: 0, max: 22 },
+      defaultValue: { value: componentSettings[component].propValues.thickness },
+    },
     width: {
       type: { name: 'number' },
       defaultValue: { value: componentSettings[component].propValues.width },
@@ -298,7 +356,8 @@ export const additionalProps = (component) => {
   const propNames = Object.keys(componentSettings[component].propValues);
 
   const reducer = (additionalPropsObj, propName) => {
-    additionalPropsObj[propName] = templates[propName];
+    const targetPropName = propName === 'progressValue' ? 'value' : propName;
+    additionalPropsObj[targetPropName] = templates[propName];
     return additionalPropsObj;
   };
 
