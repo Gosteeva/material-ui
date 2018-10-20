@@ -3,6 +3,8 @@ export const componentSettings = {
   Avatar: {
     ignoredProps: ['alt', 'imgProps', 'sizes', 'src', 'srcSet'],
     propValues: {
+      backgroundColor: '\'#bdbdbd\'',
+      color: '\'#fafafa\'',
       icon: '\'face\'',
       imageFile: '\'\'',
       imageUrl: '\'\'',
@@ -10,7 +12,7 @@ export const componentSettings = {
       width: 40,
       height: 40,
     },
-    template: 'icon_as_children.txt',
+    template: 'avatar.txt',
   },
   Button: {
     ignoredProps: ['disableFocusRipple'],
@@ -19,7 +21,7 @@ export const componentSettings = {
       width: 100,
       height: 38,
     },
-    template: 'label_as_children.txt',
+    template: 'button.txt',
   },
   Checkbox: {
     ignoredProps: ['checked', 'checkedIcon', 'icon', 'indeterminateIcon', 'type'],
@@ -174,6 +176,14 @@ export const additionalProps = (component) => {
       type: { name: 'boolean' },
       description: 'Chip - wrap icon in an Avatar',
       defaultValue: { value: componentSettings[component].propValues.avatar },
+    },
+    color: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.color },
+    },
+    backgroundColor: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.backgroundColor },
     },
     valueBuffer: {
       type: {

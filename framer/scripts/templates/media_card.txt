@@ -27,7 +27,7 @@ export class MediaCard extends React.Component<Props> {
   // Set default properties
     static defaultProps = {
         width: 300,
-        height: 240,
+        height: 230,
         imageFile: '',
         imageUrl: '',
         title: 'Materially Different',

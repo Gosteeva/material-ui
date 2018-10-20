@@ -110,7 +110,7 @@ function buildFramer(componentObject) {
       }
 
       /**
-       * PropTypes
+       * TS Interface
        */
       const propTypeTS = Object.assign({}, prop.type);
 
