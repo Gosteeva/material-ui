@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import MuiButton from '@material-ui/core/Button';
 import MuiTypography from '@material-ui/core/Typography';
+import { IconButton } from './IconButton';
 
 // Define type of property
 interface Props {
@@ -29,7 +30,7 @@ export class MediaCard extends React.Component<Props> {
         imagePath: '',
         imageUrl: '',
         title: 'Materially Different',
-        subtitle: 'by Olivier Tassinari',
+        subtitle: 'by Laura Philips',
         body:
             'Discover what it takes to make Material-UI, the leading React Material Design component library.',
         icon1: 'share',
@@ -69,21 +70,20 @@ render() {
         <Card {...other}>
             <CardActionArea>
                 {(imagePath || imageUrl) && <CardMedia
-                    // className={classes.media}
                     style={{ paddingTop: '56.25%' }}
                     image={imagePath || imageUrl}
                     title={title}
                 />}
                 <CardContent>
-                    <MuiTypography gutterBottom variant="h5" component="h2">
+                    {title && <MuiTypography gutterBottom variant="h5" component="h2">
                         {title}
-                    </MuiTypography>
-                    <MuiTypography gutterBottom variant="subtitle1" color="textSecondary">
+                    </MuiTypography>}
+                    {subtitle && <MuiTypography gutterBottom variant="subtitle1" color="textSecondary">
                          {subtitle}
-                    </MuiTypography>
-                    <MuiTypography component="p" color="textPrimary">
+                    </MuiTypography>}
+                    {body && <MuiTypography component="p" color="textPrimary">
                         {body}
-                    </MuiTypography>
+                    </MuiTypography>}
                 </CardContent>
             </CardActionArea>
             {(action1 !== '' || icon1 !== '') && <CardActions>
