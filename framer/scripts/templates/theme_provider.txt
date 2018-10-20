@@ -1,21 +1,22 @@
+{{=« »=}}
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 // Define type of property
 interface Props {
-{{{tsInterface}}}
+«& tsInterface»
 }
 
 export class Theme extends React.Component<Props> {
   // Set default properties
   static defaultProps = {
-{{{defaultProps}}}
+«& defaultProps»
   };
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-{{{propertyControls}}}
+«& propertyControls»
   };
 
   render() {

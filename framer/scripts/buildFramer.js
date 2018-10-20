@@ -109,6 +109,9 @@ function buildFramer(componentObject) {
         return;
       }
 
+      /**
+       * PropTypes
+       */
       const propTypeTS = Object.assign({}, prop.type);
 
       // TODO: Refactor as case?
@@ -116,6 +119,9 @@ function buildFramer(componentObject) {
         propTypeTS.name = 'boolean';
       }
       if (propTypeTS.name === 'color') {
+        propTypeTS.name = 'string';
+      }
+      if (propTypeTS.name === 'file') {
         propTypeTS.name = 'string';
       }
       if (propTypeTS.name === 'node') {
@@ -130,10 +136,16 @@ function buildFramer(componentObject) {
 
       tsInterface += `  ${propName}: ${propTypeTS.value ? `${options(propTypeTS, ' | ')}` : `${propTypeTS.name}`};\n`;
 
+      /**
+       * Default values
+       */
       if (prop.defaultValue) {
         defaults += `    ${propName}: ${prop.defaultValue.value},\n`;
       }
 
+      /**
+       * UI Control types
+       */
       function otherValues(others) {
         let result = '';
         const keys = Object.keys(others);

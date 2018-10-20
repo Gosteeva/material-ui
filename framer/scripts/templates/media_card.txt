@@ -1,3 +1,4 @@
+{{=« »=}}
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
 import Card from '@material-ui/core/Card';
@@ -11,7 +12,7 @@ import { IconButton } from './IconButton';
 
 // Define type of property
 interface Props {
-    imagePath?: string;
+    imageFile?: string;
     imageUrl?: string;
     title?: string;
     subtitle?: string;
@@ -25,16 +26,16 @@ interface Props {
 export class MediaCard extends React.Component<Props> {
   // Set default properties
     static defaultProps = {
-        width: 292,
-        height: 216,
-        imagePath: '',
+        width: 300,
+        height: 240,
+        imageFile: '',
         imageUrl: '',
         title: 'Materially Different',
         subtitle: 'by Laura Philips',
         body:
             'Discover what it takes to make Material-UI, the leading React Material Design component library.',
-        icon1: 'share',
-        icon2: 'more_vert',
+        icon1: 'Share',
+        icon2: 'MoreVert',
     };
 
   // Items shown in property panel
@@ -43,10 +44,10 @@ export class MediaCard extends React.Component<Props> {
             type: ControlType.Image,
             title: 'Image',
             hidden(props) {
-                return props.imageUrl !== '';
+                return props.imageFile !== '';
             }
         },
-        imageUrl: {
+        imageFile: {
             type: ControlType.String,
             title: 'Image URL',
             hidden(props) {
@@ -63,15 +64,14 @@ export class MediaCard extends React.Component<Props> {
     };
 
 render() {
-    const { action1, action2, body, icon1, icon2, imagePath, imageUrl, subtitle, title, ...other } = this.props;
+    const { action1, action2, body, icon1, icon2, imageFile, imageUrl, subtitle, title, ...other } = this.props;
 
-{{=<< >>=}}
     return (
         <Card {...other}>
             <CardActionArea>
-                {(imagePath || imageUrl) && <CardMedia
+                {(imageFile || imageUrl) && <CardMedia
                     style={{ paddingTop: '56.25%' }}
-                    image={imagePath || imageUrl}
+                    image={imageFile || imageUrl}
                     title={title}
                 />}
                 <CardContent>

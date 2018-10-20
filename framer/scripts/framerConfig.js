@@ -4,6 +4,8 @@ export const componentSettings = {
     ignoredProps: ['alt', 'imgProps', 'sizes', 'src', 'srcSet'],
     propValues: {
       icon: '\'face\'',
+      imageFile: '\'\'',
+      imageUrl: '\'\'',
       label: '\'MB\'',
       width: 40,
       height: 40,
@@ -95,7 +97,7 @@ export const componentSettings = {
       height: 100,
       elevation: 2,
     },
-    template: 'unwrapped_children.txt',
+    template: 'children.txt',
   },
   Radio: {
     ignoredProps: ['checked', 'type'],
@@ -216,6 +218,29 @@ export const additionalProps = (component) => {
     icon: {
       type: { name: 'string' },
       defaultValue: { value: componentSettings[component].propValues.icon },
+    },
+    imageFile: {
+      type: {
+        name: 'image',
+        title: '\'Image File\'',
+        hidden(props) {
+          return props.imageUrl !== '';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.imageFile },
+    },
+    imageUrl: {
+      type: {
+        name: 'string',
+        title: '\'Image URL\'',
+        hidden(props) {
+          return props.imageFile !== '';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.imageUrl },
+      hidden(props) {
+        return props.imageFile !== '';
+      },
     },
     label: {
       type: { name: 'string' },

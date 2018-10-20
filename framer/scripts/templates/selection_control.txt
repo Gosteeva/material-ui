@@ -1,23 +1,24 @@
+{{=« »=}}
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
+import Mui«componentName» from '@material-ui/core/«componentName»';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Mui{{componentName}} from '@material-ui/core/{{componentName}}';
 
 // Define type of property
 interface Props {
-{{{tsInterface}}}
+«& tsInterface»
   onClick: () => void;
 }
 
-export class {{componentName}} extends React.Component<Props> {
+export class «componentName» extends React.Component<Props> {
   // Set default properties
   static defaultProps = {
-{{{defaultProps}}}
+«& defaultProps»
   };
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-{{{propertyControls}}}
+«& propertyControls»
   };
 
   state = {
@@ -33,10 +34,9 @@ export class {{componentName}} extends React.Component<Props> {
   render() {
     const { height, label, width, ...other } = this.props;
 
-{{=|| ||=}}
     return (
 <FormControlLabel
-        control={<Mui||componentName|| checked={this.state.checked} onChange={this.handleChange} {...other} />}
+        control={<Mui«componentName» checked={this.state.checked} onChange={this.handleChange} {...other} />}
         label={label}
         style={{
           width,

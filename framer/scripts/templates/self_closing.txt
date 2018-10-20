@@ -1,28 +1,28 @@
+{{=« »=}}
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
-import Mui{{componentName}} from '@material-ui/core/{{componentName}}';
+import Mui«componentName» from '@material-ui/core/«componentName»';
 
 // Define type of property
 interface Props {
-{{{tsInterface}}}
+«& tsInterface»
   onClick: () => void;
 }
 
-export class {{componentName}} extends React.Component<Props> {
+export class «componentName» extends React.Component<Props> {
   // Set default properties
   static defaultProps = {
-{{{defaultProps}}}
+«& defaultProps»
   };
 
   // Items shown in property panel
   static propertyControls: PropertyControls<Props> = {
-{{{propertyControls}}}
+«& propertyControls»
   };
 
   render() {
     const { height, width, ...other } = this.props;
 
-{{=|| ||=}}
     return (
       <div
         style={{
@@ -33,7 +33,7 @@ export class {{componentName}} extends React.Component<Props> {
           justifyContent: 'center',
         }}
       >
-        <Mui||componentName|| {...other} />
+        <Mui«componentName» {...other} />
       </div>
     );
   }
