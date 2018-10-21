@@ -18,6 +18,7 @@ export const componentSettings = {
     ignoredProps: ['disableFocusRipple'],
     propValues: {
       icon: '\'\'',
+      theme: 'Filled',
       label: '\'Button\'',
       width: 100,
       height: 38,
@@ -41,6 +42,7 @@ export const componentSettings = {
       deletable: false,
       deleteIcon: '\'\'',
       icon: '\'\'',
+      theme: 'Filled',
       label: '\'Chip\'',
       width: 100,
       height: 32,
@@ -249,7 +251,12 @@ export const additionalProps = (component) => {
       },
     },
     label: {
-      type: { name: 'string' },
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.variant && props.variant === 'fab';
+        },
+      },
       defaultValue: { value: componentSettings[component].propValues.label },
     },
     paletteType: {

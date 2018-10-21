@@ -86,6 +86,7 @@
     "babel-plugin-transform-dev-warning": "^0.1.0",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.10",
+    "case": "^1.5.5",
     "chai": "^4.1.2",
     "clean-css": "^4.1.11",
     "clipboard-copy": "^2.0.0",

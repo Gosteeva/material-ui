@@ -1,12 +1,13 @@
 {{=« »=}}
 import * as React from 'react';
+import { pascal } from 'naming-style';
 import { PropertyControls, ControlType } from 'framer';
 import * as Icons from '@material-ui/icons';
 
 // Define type of property
 interface Props {
 «& tsInterface»
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export class «componentName» extends React.Component<Props> {
@@ -20,14 +21,9 @@ export class «componentName» extends React.Component<Props> {
 «& propertyControls»
   };
 
-
-  static function capitalize(string: string) {
-    return string.charAt(0).toUpperCase() + string.substr(1);
-  }
-
   render() {
     const { height, icon: iconProp, theme, width, ...other } = this.props;
-    const iconName = `${this.capitalize(iconProp)}${theme === 'Filled' ? '' : theme}`;
+    const iconName = `${iconProp && pascal(iconProp)}${theme === 'Filled' ? '' : theme}`;
     const Icon = Object.keys(Icons).includes(iconName) ? Icons[iconName] : undefined;
 
     return Icon ? <Icon style={{ width, height}} {...other} /> : null;

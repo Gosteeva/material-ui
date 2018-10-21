@@ -22,7 +22,7 @@ export class «componentName» extends React.Component<Props> {
   };
 
   render() {
-    const { height, icon, label, variant, width, ...other } = this.props;
+    const { height, icon, label, theme, variant, width, ...other } = this.props;
 
     return (
       <div
@@ -35,7 +35,7 @@ export class «componentName» extends React.Component<Props> {
         }}
       >
         <MuiButton {{variant}} {...other}>
-            <Icon icon={icon} style={variant === 'extendedFab' ? {marginRight: 8} : {}}/>
+            <Icon icon={icon} theme={theme} style={variant !== 'fab' ? {marginRight: 8} : {}}/>
             {variant !== 'fab' ? label : ''}
         </MuiButton>
       </div>

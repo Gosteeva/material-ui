@@ -6,7 +6,7 @@ import { Icon } from './Icon';
 // Define type of property
 interface Props {
 {{{tsInterface}}}
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export class {{componentName}} extends React.Component<Props> {

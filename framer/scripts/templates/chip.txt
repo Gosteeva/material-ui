@@ -22,7 +22,7 @@ export class «componentName» extends React.Component<Props> {
   };
 
   render() {
-    const { deletable, deleteIcon, height, icon, width, ...other } = this.props;
+    const { deletable, deleteIcon, height, icon, theme, width, ...other } = this.props;
 
     return (
       <div
@@ -34,7 +34,7 @@ export class «componentName» extends React.Component<Props> {
         }}
       >
         <Mui«componentName»
-          icon={<Icon icon={icon} />}
+          icon={<Icon icon={icon} theme={theme} />}
           onDelete = {deletable ? () => {} : undefined}
           deleteIcon={deleteIcon === '' ? undefined : <Icon icon={deleteIcon} />}
           {...other}

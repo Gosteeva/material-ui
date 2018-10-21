@@ -4,6 +4,7 @@ import { mkdir, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
 import * as reactDocgen from 'react-docgen';
 import Mustache from 'mustache';
+import Case from 'case';
 import { findComponents } from '../../docs/src/modules/utils/find';
 import { additionalProps, componentSettings } from './framerConfig';
 
@@ -24,10 +25,6 @@ if (args.length < 4) {
 
 const rootDirectory = path.resolve(__dirname, '../../');
 const framerDirectory = path.resolve(rootDirectory, args[3]);
-
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.substr(1);
-}
 
 function buildFramer(componentObject) {
   const src = readFileSync(componentObject.filename, 'utf8');
@@ -167,8 +164,8 @@ function buildFramer(componentObject) {
       if (!ignoredControls.includes(prop.name)) {
         controls += `
     ${propName}: {
-      type: ControlType.${capitalize(name)},
-      title: '${capitalize(propName)}',${value ? `
+      type: ControlType.${Case.pascal(name)},
+      title: '${Case.sentence(propName)}',${value ? `
       options: [${options(propTypeControls, ', ')}],` : ''}${hidden ? `
       hidden: ${hidden},` : ''}${otherValues(other)}
     },`;
