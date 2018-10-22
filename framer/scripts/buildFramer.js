@@ -172,7 +172,6 @@ function buildFramer(componentObject) {
       }
     });
 
-
     return {
       componentName: reactAPI.name,
       // Omit the trailing \n

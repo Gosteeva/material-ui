@@ -1,0 +1,44 @@
+{{=« »=}}
+import * as React from 'react';
+import { PropertyControls, ControlType } from 'framer';
+import Mui«componentName» from '@material-ui/core/«componentName»';
+import { Icon } from './Icon';
+
+// Define type of property
+interface Props {
+«& tsInterface»
+  onClick: () => void;
+}
+
+export class «componentName» extends React.Component<Props> {
+  // Set default properties
+  static defaultProps = {
+«& defaultProps»
+  };
+
+  // Items shown in property panel
+  static propertyControls: PropertyControls<Props> = {
+«& propertyControls»
+  };
+
+  render() {
+    const { badgeColor: color, badgeContent: content, children, icon, theme, width, height, ...other } = this.props;
+    const badgeContent = icon === '' ? (content) : (<Icon icon={icon} theme={theme} style={{width: '75%', height: '75%'}} />);
+
+    return (
+      <MuiBadge
+        {...{badgeContent, color}}
+        style={{
+          width,
+          height,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        {...other}
+      >
+        {children}
+      </MuiBadge>
+    );
+  }
+}

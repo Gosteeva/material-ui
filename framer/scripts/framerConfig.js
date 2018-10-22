@@ -14,6 +14,18 @@ export const componentSettings = {
     },
     template: 'avatar.txt',
   },
+  Badge: {
+    ignoredProps: ['color', 'disableFocusRipple'],
+    propValues: {
+      icon: '\'\'',
+      theme: 'Filled',
+      badgeContent: '\'8\'',
+      badgeColor: '\'primary\'',
+      width: 22,
+      height: 22,
+    },
+    template: 'badge.txt',
+  },
   Button: {
     ignoredProps: ['disableFocusRipple'],
     propValues: {
@@ -178,7 +190,7 @@ export const additionalProps = (component) => {
     },
     badgeContent: {
       type: { name: 'string' },
-      defaultValue: { value: componentSettings[component].propValues.badge },
+      defaultValue: { value: componentSettings[component].propValues.badgeContent },
     },
     color: {
       type: { name: 'color' },
