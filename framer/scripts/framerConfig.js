@@ -15,7 +15,7 @@ export const componentSettings = {
     template: 'avatar.txt',
   },
   Badge: {
-    ignoredProps: ['color', 'disableFocusRipple'],
+    ignoredProps: ['children', 'color', 'disableFocusRipple'],
     propValues: {
       icon: '\'\'',
       theme: 'Filled',
@@ -125,16 +125,16 @@ export const componentSettings = {
     ignoredProps: ['children', 'value'],
     propValues: {
       label: '\'Radio group\'',
-      radioLabel1: '\'Radio 1\'',
-      radioLabel2: '\'Radio 2\'',
-      radioLabel3: '',
-      radioLabel4: '',
-      radioLabel5: '',
-      radioLabel6: '',
-      radioLabel7: '',
-      radioLabel8: '',
-      radioLabel9: '',
-      radioLabel10: '',
+      itemLabel1: '\'Radio 1\'',
+      itemLabel2: '\'Radio 2\'',
+      itemLabel3: '',
+      itemLabel4: '',
+      itemLabel5: '',
+      itemLabel6: '',
+      itemitemLabel7: '',
+      itemLabel8: '',
+      itemLabel9: '',
+      itemitemLabel10: '',
       width: 200,
       height: 200,
     },
@@ -298,87 +298,87 @@ export const additionalProps = (component) => {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.primary },
     },
-    radioLabel1: {
+    itemLabel1: {
       type: { name: 'string' },
-      defaultValue: { value: componentSettings[component].propValues.radioLabel1 },
+      defaultValue: { value: componentSettings[component].propValues.itemLabel1 },
     },
-    radioLabel2: {
+    itemLabel2: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel1 === '';
+          return props.itemLabel1 === '' && props.itemLabel2 === '';
         },
       },
-      defaultValue: { value: componentSettings[component].propValues.radioLabel2 },
+      defaultValue: { value: componentSettings[component].propValues.itemLabel2 },
     },
-    radioLabel3: {
+    itemLabel3: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel2 === '';
-        },
-      },
-      defaultValue: { value: '\'\'' },
-    },
-    radioLabel4: {
-      type: {
-        name: 'string',
-        hidden(props) {
-          return props.radioLabel3 === '';
+          return props.itemLabel2 === '' && props.itemLabel3 === '';
         },
       },
       defaultValue: { value: '\'\'' },
     },
-    radioLabel5: {
+    itemLabel4: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel4 === '';
+          return props.itemLabel3 === '' && props.itemLabel4 === '';
         },
       },
       defaultValue: { value: '\'\'' },
     },
-    radioLabel6: {
+    itemLabel5: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel5 === '';
+          return props.itemLabel4 === '' && props.itemLabel5 === '';
         },
       },
       defaultValue: { value: '\'\'' },
     },
-    radioLabel7: {
+    itemLabel6: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel6 === '';
+          return props.itemLabel5 === '' && props.itemLabel6 === '';
         },
       },
       defaultValue: { value: '\'\'' },
     },
-    radioLabel8: {
+    itemitemLabel7: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel7 === '';
+          return props.itemLabel6 === '' && props.itemitemLabel7 === '';
         },
       },
       defaultValue: { value: '\'\'' },
     },
-    radioLabel9: {
+    itemLabel8: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel8 === '';
+          return props.itemitemLabel7 === '' && props.itemLabel8 === '';
         },
       },
       defaultValue: { value: '\'\'' },
     },
-    radioLabel10: {
+    itemLabel9: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.radioLabel9 === '';
+          return props.itemLabel8 === '' && props.itemLabel9 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    itemitemLabel10: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.itemLabel9 === '' && props.itemitemLabel10 === '';
         },
       },
       defaultValue: { value: '\'\'' },

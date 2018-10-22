@@ -9,7 +9,6 @@ import { Radio } from './Radio';
 // Define type of property
 interface Props {
 «& tsInterface»
-  onClick: () => void;
 }
 
 export class «componentName» extends React.Component<Props> {
@@ -47,7 +46,7 @@ export class «componentName» extends React.Component<Props> {
           >
             {Object.keys(RadioGroup.propertyControls).map(key => {
               const label = `${this.props[key]}`;
-              if (key.indexOf('radioLabel') === 0 && label !== '') {
+              if (key.indexOf('itemLabel') === 0 && label !== '') {
                   return <Radio value={key} label={label}/>;
               }
             })}
