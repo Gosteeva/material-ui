@@ -73,11 +73,12 @@ export const componentSettings = {
     ignoredProps: [],
     propValues: {
       icon: '\'favorite\'',
-      label: '\'T\'',
+      badgeContent: '\'\'',
+      badgeColor: '\'default\'',
       width: 48,
       height: 48,
     },
-    template: 'icon_as_children.txt',
+    template: 'icon_button.txt',
   },
   LinearProgress: {
     ignoredProps: [],
@@ -175,6 +176,10 @@ export const additionalProps = (component) => {
       description: 'Chip - wrap icon in an Avatar',
       defaultValue: { value: componentSettings[component].propValues.avatar },
     },
+    badgeContent: {
+      type: { name: 'string' },
+      defaultValue: { value: componentSettings[component].propValues.badge },
+    },
     color: {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.color },
@@ -183,14 +188,18 @@ export const additionalProps = (component) => {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.backgroundColor },
     },
-    valueBuffer: {
+    badgeColor: {
       type: {
-        name: 'number',
-        hidden(props) {
-          return props.variant !== 'buffer';
-        },
+        name: 'Enum',
+        value: [
+          { value: '\'default\'' },
+          { value: '\'primary\'' },
+          { value: '\'secondary\'' },
+          { value: '\'error\'' },
+        ],
       },
-      defaultValue: { value: componentSettings[component].propValues.valueBuffer },
+      description: 'IconButton badge theme',
+      defaultValue: { value: componentSettings[component].propValues.badgeColor },
     },
     clickable: {
       type: { name: 'boolean' },
@@ -383,6 +392,15 @@ export const additionalProps = (component) => {
     thickness: {
       type: { name: 'number', min: 0, max: 22 },
       defaultValue: { value: componentSettings[component].propValues.thickness },
+    },
+    valueBuffer: {
+      type: {
+        name: 'number',
+        hidden(props) {
+          return props.variant !== 'buffer';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.valueBuffer },
     },
     width: {
       type: { name: 'number' },
