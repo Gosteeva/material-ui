@@ -22,9 +22,8 @@ export class «componentName» extends React.Component<Props> {
 «& propertyControls»
   };
 
-
   state = {
-    value: 'radioLabel1',
+    value: 'itemLabel1',
   };
 
   handleChange = event => {
@@ -32,14 +31,15 @@ export class «componentName» extends React.Component<Props> {
   };
 
   render() {
-    const { label, ...other } = this.props;
+    const { itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, itemLabel7, itemLabel8, itemLabel9, itemLabel10, label, ...other } = this.props;
+    const { value } = this.state;
 
     return (
       <div style={{ padding: 8 }}>
         <MuiFormControl component="fieldset">
           <MuiFormLabel component="legend">{label}</MuiFormLabel>
           <MuiRadioGroup
-            value={this.state.value}
+            value={value}
             onChange={this.handleChange}
             style={{ margin: '8px 0' }}
             {...other}

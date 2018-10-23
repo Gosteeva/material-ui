@@ -1,0 +1,51 @@
+{{=« »=}}
+import * as React from 'react';
+import { PropertyControls, ControlType } from 'framer';
+import MuiAppBar from '@material-ui/core/AppBar';
+import MuiTabs from '@material-ui/core/Tabs';
+import MuiTab from '@material-ui/core/Tab';
+
+// Define type of property
+interface Props {
+«& tsInterface»
+}
+
+export class «componentName» extends React.Component<Props> {
+  // Set default properties
+  static defaultProps = {
+«& defaultProps»
+  };
+
+  // Items shown in property panel
+  static propertyControls: PropertyControls<Props> = {
+«& propertyControls»
+  };
+
+  state = {
+    value: '0',
+  };
+
+  handleChange = (event, value) => {
+    this.setState({ value });
+  };
+
+render() {
+    const { itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, itemLabel7, itemLabel8, itemLabel9, itemLabel10, ...other } = this.props;
+    const { value } = this.state;
+
+    return (
+      <div>
+        <MuiAppBar>
+          <MuiTabs value={value} onChange={this.handleChange} {...other}>
+            {Object.keys(Tabs.propertyControls).map(key => {
+              const label = `${this.props[key]}`;
+              if (key.indexOf('itemLabel') === 0 && label !== '') {
+                return <MuiTab label={label} />;
+              }
+            })}
+          </MuiTabs>
+        </MuiAppBar>
+      </div>
+    );
+  }
+}

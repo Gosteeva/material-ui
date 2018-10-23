@@ -131,10 +131,10 @@ export const componentSettings = {
       itemLabel4: '',
       itemLabel5: '',
       itemLabel6: '',
-      itemitemLabel7: '',
+      itemLabel7: '',
       itemLabel8: '',
       itemLabel9: '',
-      itemitemLabel10: '',
+      itemLabel10: '',
       width: 200,
       height: 200,
     },
@@ -148,6 +148,24 @@ export const componentSettings = {
       height: 56,
     },
     template: 'selection_control.txt',
+  },
+  Tabs: {
+    ignoredProps: ['children', 'onChange', 'ScrollButtonComponent', 'value'],
+    propValues: {
+      itemLabel1: '\'Tab 1\'',
+      itemLabel2: '\'Tab 2\'',
+      itemLabel3: '\'Tab 3\'',
+      itemLabel4: '',
+      itemLabel5: '',
+      itemLabel6: '',
+      itemLabel7: '',
+      itemLabel8: '',
+      itemLabel9: '',
+      itemLabel10: '',
+      width: 200,
+      height: 100,
+    },
+    template: 'tabs.txt',
   },
   Typography: {
     ignoredProps: ['children', 'gutterBottom', 'internalDeprecatedVariant', 'paragraph'],
@@ -347,11 +365,11 @@ export const additionalProps = (component) => {
       },
       defaultValue: { value: '\'\'' },
     },
-    itemitemLabel7: {
+    itemLabel7: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.itemLabel6 === '' && props.itemitemLabel7 === '';
+          return props.itemLabel6 === '' && props.itemLabel7 === '';
         },
       },
       defaultValue: { value: '\'\'' },
@@ -360,7 +378,7 @@ export const additionalProps = (component) => {
       type: {
         name: 'string',
         hidden(props) {
-          return props.itemitemLabel7 === '' && props.itemLabel8 === '';
+          return props.itemLabel7 === '' && props.itemLabel8 === '';
         },
       },
       defaultValue: { value: '\'\'' },
@@ -374,11 +392,11 @@ export const additionalProps = (component) => {
       },
       defaultValue: { value: '\'\'' },
     },
-    itemitemLabel10: {
+    itemLabel10: {
       type: {
         name: 'string',
         hidden(props) {
-          return props.itemLabel9 === '' && props.itemitemLabel10 === '';
+          return props.itemLabel9 === '' && props.itemLabel10 === '';
         },
       },
       defaultValue: { value: '\'\'' },

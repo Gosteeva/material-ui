@@ -6,7 +6,6 @@ import Mui«componentName» from '@material-ui/core/«componentName»';
 // Define type of property
 interface Props {
 «& tsInterface»
-  onClick: () => void;
 }
 
 export class «componentName» extends React.Component<Props> {
@@ -20,10 +19,9 @@ export class «componentName» extends React.Component<Props> {
 «& propertyControls»
   };
 
-
   render() {
     const { height, label, width, ...other } = this.props;
 
-    return (<Mui«componentName» {...other}>{label}</Mui«componentName»>;
+    return <Mui«componentName» {...other}>{label}</Mui«componentName»>;
   }
 }

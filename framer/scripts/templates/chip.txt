@@ -22,7 +22,7 @@ export class «componentName» extends React.Component<Props> {
   };
 
   render() {
-    const { deletable, deleteIcon, height, icon, theme, width, ...other } = this.props;
+    const { avatar, deletable, deleteIcon, height, icon, theme, width, ...other } = this.props;
 
     return (
       <div

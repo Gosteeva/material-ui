@@ -7,7 +7,6 @@ import { Icon } from './Icon';
 // Define type of property
 interface Props {
 «& tsInterface»
-  onClick: () => void;
 }
 
 export class «componentName» extends React.Component<Props> {
@@ -22,7 +21,7 @@ export class «componentName» extends React.Component<Props> {
   };
 
   render() {
-    const { badgeColor: color, badgeContent: content, children, icon, theme, width, height, ...other } = this.props;
+    const { badgeColor: color, badgeContent: content, icon, theme, width, height, ...other } = this.props;
     const badgeContent = icon === '' ? (content) : (<Icon icon={icon} theme={theme} style={{width: '75%', height: '75%'}} />);
 
     return (
@@ -36,9 +35,7 @@ export class «componentName» extends React.Component<Props> {
           justifyContent: 'center',
         }}
         {...other}
-      >
-        {children}
-      </MuiBadge>
+      />
     );
   }
 }
