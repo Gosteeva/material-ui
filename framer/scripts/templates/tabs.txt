@@ -4,6 +4,7 @@ import { PropertyControls, ControlType } from 'framer';
 import MuiAppBar from '@material-ui/core/AppBar';
 import MuiTabs from '@material-ui/core/Tabs';
 import MuiTab from '@material-ui/core/Tab';
+import { Icon } from './Icon';
 
 // Define type of property
 interface Props {
@@ -22,27 +23,29 @@ export class «componentName» extends React.Component<Props> {
   };
 
   state = {
-    value: '0',
+    value: 0,
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
-render() {
-    const { itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5, itemLabel6, itemLabel7, itemLabel8, itemLabel9, itemLabel10, ...other } = this.props;
+  render() {
+    const { appBarColor, itemLabel1, itemLabel2, itemLabel3, itemLabel4, itemLabel5,
+      itemLabel6, itemLabel7, itemLabel8, itemLabel9, itemLabel10, icon1, icon2, icon3,
+      icon4, icon5, icon6, icon7, icon8, icon9, icon10, ...other } = this.props;
     const { value } = this.state;
+
+    const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const labels = items.map((item, index) => ((label => label === '' ? undefined : label)(this.props[`itemLabel${item}`])));
+    const icons = items.map((item, index) => (this.props[`icon${item}`]));
 
     return (
       <div>
-        <MuiAppBar>
+        <MuiAppBar color={appBarColor}>
           <MuiTabs value={value} onChange={this.handleChange} {...other}>
-            {Object.keys(Tabs.propertyControls).map(key => {
-              const label = `${this.props[key]}`;
-              if (key.indexOf('itemLabel') === 0 && label !== '') {
-                return <MuiTab label={label} />;
-              }
-            })}
+            // Only Render a Tab if there is an icon and/or label
+            {items.map((item, index) => ((labels[index] !== undefined || icons[index] !== '') && <MuiTab key={item} label={labels[index]} icon={<Icon icon={icons[index]} />} />))}
           </MuiTabs>
         </MuiAppBar>
       </div>

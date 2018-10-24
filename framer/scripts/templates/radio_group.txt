@@ -47,7 +47,7 @@ export class «componentName» extends React.Component<Props> {
             {Object.keys(RadioGroup.propertyControls).map(key => {
               const label = `${this.props[key]}`;
               if (key.indexOf('itemLabel') === 0 && label !== '') {
-                  return <Radio value={key} label={label}/>;
+                  return <Radio key={key} value={key} label={label}/>;
               }
             })}
           </MuiRadioGroup>

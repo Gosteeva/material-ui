@@ -2,9 +2,9 @@
 
 import { mkdir, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
-import * as reactDocgen from 'react-docgen';
 import Mustache from 'mustache';
 import Case from 'case';
+import * as reactDocgen from 'react-docgen';
 import { findComponents } from '../../docs/src/modules/utils/find';
 import { additionalProps, componentSettings } from './framerConfig';
 
@@ -204,7 +204,7 @@ function buildFramer(componentObject) {
 
       const template = readFileSync(path.join(__dirname, `templates/${componentSettings[reactAPI.name].template}`), 'utf8');
       const fileString = Mustache.render(template, getTemplateStrings());
-      writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString);
+      writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString, { flag: 'w' });
       console.log('Built Framer component for', reactAPI.name);
     });
   }
@@ -219,8 +219,14 @@ function run() {
   const components = findComponents(path.resolve(rootDirectory, args[2]));
 
   components.forEach(component => {
-    // console.log('Building Framer component for', component);
-    buildFramer(component);
+    if (args[4]) {
+      if (args[4] === path.parse(component.filename).name) {
+        buildFramer(component);
+      }
+    } else {
+      // console.log('Building Framer component for', component);
+      buildFramer(component);
+    }
   });
 }
 

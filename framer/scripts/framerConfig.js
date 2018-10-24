@@ -115,9 +115,10 @@ export const componentSettings = {
   Radio: {
     ignoredProps: ['checked', 'type'],
     propValues: {
+      appBarColor: '\'primary\'',
       label: '\'Radio\'',
       width: '\'100%\'',
-      height: 48,
+      height: 64,
     },
     template: 'selection_control.txt',
   },
@@ -127,7 +128,7 @@ export const componentSettings = {
       label: '\'Radio group\'',
       itemLabel1: '\'Radio 1\'',
       itemLabel2: '\'Radio 2\'',
-      itemLabel3: '',
+      itemLabel3: '\'Radio 3\'',
       itemLabel4: '',
       itemLabel5: '',
       itemLabel6: '',
@@ -152,6 +153,17 @@ export const componentSettings = {
   Tabs: {
     ignoredProps: ['children', 'onChange', 'ScrollButtonComponent', 'value'],
     propValues: {
+      appBarColor: '\'primary\'',
+      icon1: '\'phone\'',
+      icon2: '\'favorite\'',
+      icon3: '\'person_pin\'',
+      icon4: '',
+      icon5: '',
+      icon6: '',
+      icon7: '',
+      icon8: '',
+      icon9: '',
+      icon10: '',
       itemLabel1: '\'Tab 1\'',
       itemLabel2: '\'Tab 2\'',
       itemLabel3: '\'Tab 3\'',
@@ -162,8 +174,8 @@ export const componentSettings = {
       itemLabel8: '',
       itemLabel9: '',
       itemLabel10: '',
-      width: 200,
-      height: 100,
+      width: 500,
+      height: 48,
     },
     template: 'tabs.txt',
   },
@@ -201,6 +213,17 @@ export const componentSettings = {
 
 export const additionalProps = (component) => {
   const templates = {
+    appBarColor: {
+      type: {
+        name: 'Enum',
+        value: [
+          { value: '\'default\'' },
+          { value: '\'primary\'' },
+          { value: '\'secondary\'' },
+          { value: '\'inherit\'' },
+        ],
+      },
+    },
     avatar: {
       type: { name: 'boolean' },
       description: 'Chip - wrap icon in an Avatar',
@@ -289,33 +312,6 @@ export const additionalProps = (component) => {
         return props.imageFile !== '';
       },
     },
-    label: {
-      type: {
-        name: 'string',
-        hidden(props) {
-          return props.variant && props.variant === 'fab';
-        },
-      },
-      defaultValue: { value: componentSettings[component].propValues.label },
-    },
-    paletteType: {
-      type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },
-      description: 'Theme palette type',
-      defaultValue: { value: '\'light\'' },
-    },
-    progressValue: {
-      type: {
-        name: 'number',
-        hidden(props) {
-          return props.variant === 'indeterminate' || props.variant === 'query';
-        },
-      },
-      defaultValue: { value: componentSettings[component].propValues.progressValue },
-    },
-    primary: {
-      type: { name: 'color' },
-      defaultValue: { value: componentSettings[component].propValues.primary },
-    },
     itemLabel1: {
       type: { name: 'string' },
       defaultValue: { value: componentSettings[component].propValues.itemLabel1 },
@@ -336,7 +332,7 @@ export const additionalProps = (component) => {
           return props.itemLabel2 === '' && props.itemLabel3 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: componentSettings[component].propValues.itemLabel3 },
     },
     itemLabel4: {
       type: {
@@ -400,6 +396,118 @@ export const additionalProps = (component) => {
         },
       },
       defaultValue: { value: '\'\'' },
+    },
+    icon1: {
+      type: { name: 'string' },
+      defaultValue: { value: componentSettings[component].propValues.icon1 },
+    },
+    icon2: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon1 === '' && props.icon2 === '';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.icon2 },
+    },
+    icon3: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon2 === '' && props.icon3 === '';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.icon3 },
+    },
+    icon4: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon3 === '' && props.icon4 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    icon5: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon4 === '' && props.icon5 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    icon6: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon5 === '' && props.icon6 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    icon7: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon6 === '' && props.icon7 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    icon8: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon7 === '' && props.icon8 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    icon9: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon8 === '' && props.icon9 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    icon10: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.icon9 === '' && props.icon10 === '';
+        },
+      },
+      defaultValue: { value: '\'\'' },
+    },
+    label: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.variant && props.variant === 'fab';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.label },
+    },
+    paletteType: {
+      type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },
+      description: 'Theme palette type',
+      defaultValue: { value: '\'light\'' },
+    },
+    progressValue: {
+      type: {
+        name: 'number',
+        hidden(props) {
+          return props.variant === 'indeterminate' || props.variant === 'query';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.progressValue },
+    },
+    primary: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.primary },
     },
     secondary: {
       type: { name: 'color' },
