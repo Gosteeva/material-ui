@@ -26,6 +26,34 @@ export const componentSettings = {
     },
     template: 'badge.txt',
   },
+  BottomNavigation: {
+    ignoredProps: ['children', 'onChange', 'ScrollButtonComponent', 'value'],
+    propValues: {
+      icon1: '\'restore\'',
+      icon2: '\'favorite\'',
+      icon3: '\'location_on\'',
+      icon4: '\'folder\'',
+      icon5: '',
+      icon6: '',
+      icon7: '',
+      icon8: '',
+      icon9: '',
+      icon10: '',
+      itemLabel1: '\'Recents\'',
+      itemLabel2: '\'Favorites\'',
+      itemLabel3: '\'Nearby\'',
+      itemLabel4: '\'Saved\'',
+      itemLabel5: '',
+      itemLabel6: '',
+      itemLabel7: '',
+      itemLabel8: '',
+      itemLabel9: '',
+      itemLabel10: '',
+      width: 500,
+      height: 56,
+    },
+    template: 'bottom_navigation.txt',
+  },
   Button: {
     ignoredProps: ['disableFocusRipple'],
     propValues: {
@@ -175,7 +203,7 @@ export const componentSettings = {
       itemLabel9: '',
       itemLabel10: '',
       width: 500,
-      height: 48,
+      height: 64,
     },
     template: 'tabs.txt',
   },
@@ -341,7 +369,7 @@ export const additionalProps = (component) => {
           return props.itemLabel3 === '' && props.itemLabel4 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: componentSettings[component].propValues.itemLabel4 },
     },
     itemLabel5: {
       type: {
@@ -426,7 +454,7 @@ export const additionalProps = (component) => {
           return props.icon3 === '' && props.icon4 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: componentSettings[component].propValues.icon4 },
     },
     icon5: {
       type: {

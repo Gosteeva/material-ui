@@ -2,9 +2,9 @@
 
 import { mkdir, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
+import * as reactDocgen from 'react-docgen';
 import Mustache from 'mustache';
 import Case from 'case';
-import * as reactDocgen from 'react-docgen';
 import { findComponents } from '../../docs/src/modules/utils/find';
 import { additionalProps, componentSettings } from './framerConfig';
 
@@ -204,7 +204,7 @@ function buildFramer(componentObject) {
 
       const template = readFileSync(path.join(__dirname, `templates/${componentSettings[reactAPI.name].template}`), 'utf8');
       const fileString = Mustache.render(template, getTemplateStrings());
-      writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString, { flag: 'w' });
+      writeFileSync(path.resolve(framerDirectory, `${reactAPI.name}.tsx`), fileString);
       console.log('Built Framer component for', reactAPI.name);
     });
   }
