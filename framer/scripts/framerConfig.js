@@ -226,6 +226,16 @@ export const componentSettings = {
     },
     template: 'theme_provider.txt',
   },
+  SnackbarContent: {
+    ignoredProps: [],
+    propValues: {
+      width: 568,
+      height: 48,
+      message: '\'I love candy. I love cookies. I love cupcakes.\'',
+      label: '\'Nom nom nom\'',
+    },
+    template: 'snackbar_content.txt',
+  },
   TextField: {
     // FIXME: defaultValue - fix `Union`
     ignoredProps: ['autoComplete', 'defaultValue', 'rows', 'rowsMax', 'value'],
@@ -518,6 +528,10 @@ export const additionalProps = (component) => {
         },
       },
       defaultValue: { value: componentSettings[component].propValues.label },
+    },
+    message: {
+      type: { name: 'string' },
+      defaultValue: { value: componentSettings[component].propValues.message },
     },
     paletteType: {
       type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },

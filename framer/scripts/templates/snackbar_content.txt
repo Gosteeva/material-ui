@@ -1,7 +1,8 @@
 {{=« »=}}
 import * as React from 'react';
 import { PropertyControls, ControlType } from 'framer';
-import Mui«componentName» from '@material-ui/core/«componentName»';
+import MuiSnackbarContent from '@material-ui/core/SnackbarContent';
+import MuiButton from '@material-ui/core/Button';
 
 // Define type of property
 interface Props {
@@ -20,8 +21,10 @@ export class «componentName» extends React.Component<Props> {
   };
 
   render() {
-    const { height, width, ...other } = this.props;
+    const { height, label, width, ...other } = this.props;
 
-    return <Mui«componentName» {...other} />
+    const action = label !== '' ? <MuiButton color="secondary" size="small">{label}</MuiButton> : undefined;
+
+    return <MuiSnackbarContent action={action} {...other} />;
   }
 }

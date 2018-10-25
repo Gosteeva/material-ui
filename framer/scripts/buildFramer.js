@@ -224,7 +224,7 @@ function run() {
         buildFramer(component);
       }
     } else {
-      // console.log('Building Framer component for', component);
+      // console.log('Building Framer X component for', component);
       buildFramer(component);
     }
   });
