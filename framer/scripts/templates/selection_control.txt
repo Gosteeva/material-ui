@@ -48,4 +48,18 @@ export class «componentName» extends React.Component<Props> {
       />
     );
   }
+
+  render() {
+    const { height, label, width, ...other } = this.props;
+
+    const control = <Mui«componentName» checked={this.state.checked} onChange={this.handleChange} {...other} />;
+
+    return (
+      label === '' ? control : <FormControlLabel
+        control={control}
+        label={label}
+        style={{ width, height }}
+      />
+    );
+  }
 }

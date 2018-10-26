@@ -111,7 +111,7 @@ function buildFramer(componentObject) {
        */
       const propTypeTS = Object.assign({}, prop.type);
 
-      // TODO: Refactor as case?
+      // TODO: Refactor as switch?
       if (propTypeTS.name === 'bool') {
         propTypeTS.name = 'boolean';
       }

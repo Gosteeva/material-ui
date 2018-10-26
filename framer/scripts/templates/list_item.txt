@@ -1,0 +1,83 @@
+{{=« »=}}
+import * as React from 'react';
+import { PropertyControls, ControlType } from 'framer';
+import MuiListItem from '@material-ui/core/ListItem';
+import MuiListItemIcon from '@material-ui/core/ListItemIcon';
+import MuiListItemAvatar from '@material-ui/core/ListItemAvatar';
+import MuiListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import MuiListItemText from '@material-ui/core/ListItemText';
+import { Avatar } from './Avatar';
+import { Checkbox } from './Checkbox';
+import { Switch } from './Switch';
+import { Icon } from './Icon';
+import { IconButton } from './IconButton';
+
+// Define type of property
+interface Props {
+«& tsInterface»
+}
+
+export class «componentName» extends React.Component<Props> {
+  // Set default properties
+  static defaultProps = {
+«& defaultProps»
+  };
+
+  // Items shown in property panel
+  static propertyControls: PropertyControls<Props> = {
+«& propertyControls»
+  };
+
+  render() {
+    const { height, imageFile, imageUrl, inset, label, primaryAction, primaryIcon, secondaryAction, secondaryIcon,
+    secondaryLabel, width,  ...other } = this.props;
+
+    let primary = null;
+    let secondary = null;
+
+    switch (primaryAction) {
+      case 'icon':
+        primary = (<MuiListItemIcon>
+          <Icon icon={primaryIcon} />
+        </MuiListItemIcon>);
+        break;
+      case 'avatar':
+        primary = (<MuiListItemAvatar><Avatar icon={primaryIcon} imageFile={imageFile} imageUrl={imageUrl}/></MuiListItemAvatar>);
+        break;
+      case 'checkbox':
+        primary = (<Checkbox label='' />);
+        break;
+    }
+
+    switch (secondaryAction) {
+      case 'icon':
+        secondary = (<MuiListItemIcon>
+          <Icon icon={secondaryIcon} />
+        </MuiListItemIcon>);
+        break;
+      case 'iconButton':
+        secondary = (<MuiListItemIcon>
+          <IconButton icon={secondaryIcon} />
+        </MuiListItemIcon>);
+        break;
+      case 'checkbox':
+        secondary = (<Checkbox label='' />);
+        break;
+      case 'switch':
+        secondary = (<Switch label='' />);
+        break;
+    }
+
+    return (
+      <MuiListItem {...other}>
+        {primary}
+        <MuiListItemText
+          inset={inset}
+          primary={label}
+          secondary={secondaryLabel ? secondaryLabel : null}
+        />
+        {secondary}
+      </MuiListItem>
+    );
+  }
+}

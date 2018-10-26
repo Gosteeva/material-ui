@@ -55,7 +55,7 @@ export const componentSettings = {
     template: 'bottom_navigation.txt',
   },
   Button: {
-    ignoredProps: ['disableFocusRipple'],
+    ignoredProps: ['children', 'disableFocusRipple'],
     propValues: {
       icon: '\'\'',
       theme: 'Filled',
@@ -70,7 +70,7 @@ export const componentSettings = {
     propValues: {
       label: '\'Checkbox\'',
       width: 100,
-      height: 56,
+      height: 48,
     },
     template: 'selection_control.txt',
   },
@@ -120,6 +120,23 @@ export const componentSettings = {
     },
     template: 'icon_button.txt',
   },
+  ListItem: {
+    ignoredProps: ['ContainerComponent', 'ContainerProps'],
+    propValues: {
+      width: 568,
+      height: 48,
+      inset: false,
+      label: '\'Primary label\'',
+      secondaryLabel: '\'\'',
+      primaryAction: '\'icon\'',
+      primaryIcon: '\'star\'',
+      imageFile: '\'\'',
+      imageUrl: '\'\'',
+      secondaryAction: '\'none\'',
+      secondaryIcon: '\'\'',
+    },
+    template: 'list_item.txt',
+  },
   LinearProgress: {
     ignoredProps: [],
     propValues: {
@@ -146,7 +163,7 @@ export const componentSettings = {
       appBarColor: '\'primary\'',
       label: '\'Radio\'',
       width: '\'100%\'',
-      height: 64,
+      height: 48,
     },
     template: 'selection_control.txt',
   },
@@ -174,7 +191,7 @@ export const componentSettings = {
     propValues: {
       label: '\'Switch\'',
       width: 100,
-      height: 56,
+      height: 48,
     },
     template: 'selection_control.txt',
   },
@@ -279,19 +296,6 @@ export const additionalProps = (component) => {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.backgroundColor },
     },
-    badgeColor: {
-      type: {
-        name: 'Enum',
-        value: [
-          { value: '\'default\'' },
-          { value: '\'primary\'' },
-          { value: '\'secondary\'' },
-          { value: '\'error\'' },
-        ],
-      },
-      description: 'IconButton badge theme',
-      defaultValue: { value: componentSettings[component].propValues.badgeColor },
-    },
     clickable: {
       type: { name: 'boolean' },
       description: 'Chip - clickable (change default to `true`)',
@@ -332,7 +336,7 @@ export const additionalProps = (component) => {
         name: 'image',
         title: '\'Image File\'',
         hidden(props) {
-          return props.imageUrl !== '';
+          return props.primaryAction && props.primaryAction !== 'avatar';
         },
       },
       defaultValue: { value: componentSettings[component].propValues.imageFile },
@@ -342,13 +346,15 @@ export const additionalProps = (component) => {
         name: 'string',
         title: '\'Image URL\'',
         hidden(props) {
-          return props.imageFile !== '';
+          return props.imageFile !== '' || (props.primaryAction && props.primaryAction !== 'avatar');
         },
       },
       defaultValue: { value: componentSettings[component].propValues.imageUrl },
-      hidden(props) {
-        return props.imageFile !== '';
-      },
+    },
+    inset: {
+      type: { name: 'boolean' },
+      description: 'ListItem/ListItemText - inset',
+      defaultValue: { value: componentSettings[component].propValues.inset },
     },
     itemLabel1: {
       type: { name: 'string' },
@@ -538,6 +544,34 @@ export const additionalProps = (component) => {
       description: 'Theme palette type',
       defaultValue: { value: '\'light\'' },
     },
+    primary: {
+      type: { name: 'color' },
+      defaultValue: { value: componentSettings[component].propValues.primary },
+    },
+    primaryAction: {
+      type: {
+        name: 'Enum',
+        value: [
+          { value: '\'none\'' },
+          { value: '\'icon\'' },
+          { value: '\'avatar\'' },
+          { value: '\'checkbox\'' },
+        ],
+      },
+      defaultValue: { value: componentSettings[component].propValues.primaryAction },
+    },
+    primaryIcon: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return (
+            props.primaryAction !== 'icon' && props.primaryAction !== 'avatar' ||
+            props.imageFile !== '' || props.imageUrl !== ''
+          );
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.primaryIcon },
+    },
     progressValue: {
       type: {
         name: 'number',
@@ -547,13 +581,34 @@ export const additionalProps = (component) => {
       },
       defaultValue: { value: componentSettings[component].propValues.progressValue },
     },
-    primary: {
-      type: { name: 'color' },
-      defaultValue: { value: componentSettings[component].propValues.primary },
-    },
     secondary: {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.secondary },
+    },
+    secondaryAction: {
+      type: {
+        name: 'Enum',
+        value: [
+          { value: '\'none\'' },
+          { value: '\'icon\'' },
+          { value: '\'iconButton\'' },
+          { value: '\'checkbox\'' },
+          { value: '\'switch\'' },
+        ],
+      },
+    },
+    secondaryIcon: {
+      type: {
+        name: 'string',
+        hidden(props) {
+          return props.secondaryAction !== 'icon' && props.secondaryAction !== 'iconButton';
+        },
+      },
+      defaultValue: { value: componentSettings[component].propValues.secondaryIcon },
+    },
+    secondaryLabel: {
+      type: { name: 'string' },
+      defaultValue: { value: componentSettings[component].propValues.secondaryLabel },
     },
     theme: {
       type: {

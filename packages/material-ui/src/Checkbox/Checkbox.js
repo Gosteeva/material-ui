@@ -155,6 +155,8 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   checkedIcon: <CheckBoxIcon />,
   color: 'secondary',
+  disabled: false,
+  disableRipple: false,
   icon: <CheckBoxOutlineBlankIcon />,
   indeterminate: false,
   indeterminateIcon: <IndeterminateCheckBoxIcon />,
