@@ -7,7 +7,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 // Define type of property
 interface Props {
 «& tsInterface»
-  onClick: () => void;
 }
 
 export class «componentName» extends React.Component<Props> {

@@ -6,7 +6,6 @@ import Mui«componentName» from '@material-ui/core/«componentName»';
 // Define type of property
 interface Props {
 «& tsInterface»
-  onClick: () => void;
 }
 
 export class «componentName» extends React.Component<Props> {

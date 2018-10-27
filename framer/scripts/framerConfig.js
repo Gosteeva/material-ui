@@ -3,12 +3,13 @@ export const componentSettings = {
   Avatar: {
     ignoredProps: ['alt', 'imgProps', 'sizes', 'src', 'srcSet'],
     propValues: {
-      backgroundColor: '\'#bdbdbd\'',
-      color: '\'#fafafa\'',
-      icon: '\'face\'',
-      imageFile: '\'\'',
-      imageUrl: '\'\'',
-      label: '\'MB\'',
+      backgroundColor: "'#bdbdbd'",
+      color: "'#fafafa'",
+      icon: "'face'",
+      randomImage: true,
+      imageFile: "''",
+      imageUrl: "''",
+      label: "'MB'",
       width: 40,
       height: 40,
     },
@@ -17,10 +18,10 @@ export const componentSettings = {
   Badge: {
     ignoredProps: ['children', 'color', 'disableFocusRipple'],
     propValues: {
-      icon: '\'\'',
+      icon: "''",
       theme: 'Filled',
-      badgeContent: '\'8\'',
-      badgeColor: '\'primary\'',
+      badgeContent: "'8'",
+      badgeColor: "'primary'",
       width: 22,
       height: 22,
     },
@@ -29,20 +30,20 @@ export const componentSettings = {
   BottomNavigation: {
     ignoredProps: ['children', 'onChange', 'ScrollButtonComponent', 'value'],
     propValues: {
-      icon1: '\'restore\'',
-      icon2: '\'favorite\'',
-      icon3: '\'location_on\'',
-      icon4: '\'folder\'',
+      icon1: "'restore'",
+      icon2: "'favorite'",
+      icon3: "'location_on'",
+      icon4: "'folder'",
       icon5: '',
       icon6: '',
       icon7: '',
       icon8: '',
       icon9: '',
       icon10: '',
-      itemLabel1: '\'Recents\'',
-      itemLabel2: '\'Favorites\'',
-      itemLabel3: '\'Nearby\'',
-      itemLabel4: '\'Saved\'',
+      itemLabel1: "'Recents'",
+      itemLabel2: "'Favorites'",
+      itemLabel3: "'Nearby'",
+      itemLabel4: "'Saved'",
       itemLabel5: '',
       itemLabel6: '',
       itemLabel7: '',
@@ -57,9 +58,9 @@ export const componentSettings = {
   Button: {
     ignoredProps: ['children', 'disableFocusRipple'],
     propValues: {
-      icon: '\'\'',
+      icon: "''",
       theme: 'Filled',
-      label: '\'Button\'',
+      label: "'Button'",
       width: 100,
       height: 38,
     },
@@ -68,7 +69,7 @@ export const componentSettings = {
   Checkbox: {
     ignoredProps: ['checked', 'checkedIcon', 'icon', 'indeterminateIcon', 'type'],
     propValues: {
-      label: '\'Checkbox\'',
+      label: "'Checkbox'",
       width: 100,
       height: 48,
     },
@@ -77,13 +78,13 @@ export const componentSettings = {
   Chip: {
     ignoredProps: ['children', 'onDelete'],
     propValues: {
-      avatar: 'false',
+      avatar: false,
       clickable: true,
       deletable: false,
-      deleteIcon: '\'\'',
-      icon: '\'\'',
+      deleteIcon: "''",
+      icon: "''",
       theme: 'Filled',
-      label: '\'Chip\'',
+      label: "'Chip'",
       width: 100,
       height: 32,
     },
@@ -102,7 +103,7 @@ export const componentSettings = {
   Icon: {
     ignoredProps: ['children', 'fontSize'],
     propValues: {
-      icon: '\'add\'',
+      icon: "'add'",
       theme: 'Filled',
       width: 24,
       height: 24,
@@ -112,9 +113,9 @@ export const componentSettings = {
   IconButton: {
     ignoredProps: [],
     propValues: {
-      icon: '\'favorite\'',
-      badgeContent: '\'\'',
-      badgeColor: '\'default\'',
+      icon: "'favorite'",
+      badgeContent: "''",
+      badgeColor: "'default'",
       width: 48,
       height: 48,
     },
@@ -126,27 +127,27 @@ export const componentSettings = {
       width: 568,
       height: 48,
       inset: false,
-      label: '\'Primary label\'',
-      secondaryLabel: '\'\'',
-      primaryAction: '\'icon\'',
-      primaryIcon: '\'star\'',
-      imageFile: '\'\'',
-      imageUrl: '\'\'',
-      secondaryAction: '\'none\'',
-      secondaryIcon: '\'\'',
+      label: "'Primary label'",
+      secondaryLabel: "''",
+      primaryAction: "'icon'",
+      primaryIcon: "'star'",
+      imageFile: "''",
+      imageUrl: "''",
+      secondaryAction: "'none'",
+      secondaryIcon: "''",
     },
     template: 'list_item.txt',
   },
   LinearProgress: {
     ignoredProps: [],
     propValues: {
-      width: '\'100%\'',
+      width: "'100%'",
       height: 5,
       // thickness: 4,
       progressValue: 50,
       valueBuffer: 75,
     },
-    template: 'unwrapped_self_closing.txt',
+    template: 'self_closing.txt',
   },
   Paper: {
     ignoredProps: [],
@@ -160,9 +161,9 @@ export const componentSettings = {
   Radio: {
     ignoredProps: ['checked', 'type'],
     propValues: {
-      appBarColor: '\'primary\'',
-      label: '\'Radio\'',
-      width: '\'100%\'',
+      appBarColor: "'primary'",
+      label: "'Radio'",
+      width: "'100%'",
       height: 48,
     },
     template: 'selection_control.txt',
@@ -170,11 +171,11 @@ export const componentSettings = {
   RadioGroup: {
     ignoredProps: ['children', 'value'],
     propValues: {
-      label: '\'Radio group\'',
-      itemLabel1: '\'Radio 1\'',
-      itemLabel2: '\'Radio 2\'',
-      itemLabel3: '\'Radio 3\'',
-      itemLabel4: '',
+      label: "'Radio group'",
+      itemLabel1: "'Radio 1'",
+      itemLabel2: "'Radio 2'",
+      itemLabel3: "'Radio 3'",
+      itemLabel4: "''",
       itemLabel5: '',
       itemLabel6: '',
       itemLabel7: '',
@@ -189,7 +190,7 @@ export const componentSettings = {
   Switch: {
     ignoredProps: ['checked', 'type'],
     propValues: {
-      label: '\'Switch\'',
+      label: "'Switch'",
       width: 100,
       height: 48,
     },
@@ -198,21 +199,21 @@ export const componentSettings = {
   Tabs: {
     ignoredProps: ['children', 'onChange', 'ScrollButtonComponent', 'value'],
     propValues: {
-      appBarColor: '\'primary\'',
-      icon1: '\'phone\'',
-      icon2: '\'favorite\'',
-      icon3: '\'person_pin\'',
-      icon4: '',
+      appBarColor: "'primary'",
+      icon1: "'phone'",
+      icon2: "'favorite'",
+      icon3: "'person_pin'",
+      icon4: "''",
       icon5: '',
       icon6: '',
       icon7: '',
       icon8: '',
       icon9: '',
       icon10: '',
-      itemLabel1: '\'Tab 1\'',
-      itemLabel2: '\'Tab 2\'',
-      itemLabel3: '\'Tab 3\'',
-      itemLabel4: '',
+      itemLabel1: "'Tab 1'",
+      itemLabel2: "'Tab 2'",
+      itemLabel3: "'Tab 3'",
+      itemLabel4: "''",
       itemLabel5: '',
       itemLabel6: '',
       itemLabel7: '',
@@ -227,7 +228,7 @@ export const componentSettings = {
   Typography: {
     ignoredProps: ['children', 'gutterBottom', 'internalDeprecatedVariant', 'paragraph'],
     propValues: {
-      label: '\'Typography\'',
+      label: "'Typography'",
       width: 100,
       height: 38,
     },
@@ -237,9 +238,9 @@ export const componentSettings = {
     ignoredProps: ['disableStylesGeneration', 'options', 'sheetsManager', 'theme'],
     propValues: {
       paletteType: 'light',
-      primary: '\'#3f51b5\'',
-      secondary: '\'#f50057\'',
-      error: '\'#f44336\'',
+      primary: "'#3f51b5'",
+      secondary: "'#f50057'",
+      error: "'#f44336'",
     },
     template: 'theme_provider.txt',
   },
@@ -248,8 +249,8 @@ export const componentSettings = {
     propValues: {
       width: 568,
       height: 48,
-      message: '\'I love candy. I love cookies. I love cupcakes.\'',
-      label: '\'Nom nom nom\'',
+      message: "'I love candy. I love cookies. I love cupcakes.'",
+      label: "'Nom nom nom'",
     },
     template: 'snackbar_content.txt',
   },
@@ -257,7 +258,7 @@ export const componentSettings = {
     // FIXME: defaultValue - fix `Union`
     ignoredProps: ['autoComplete', 'defaultValue', 'rows', 'rowsMax', 'value'],
     propValues: {
-      label: '\'TextField\'',
+      label: "'TextField'",
       width: 280,
       height: 56,
       fullWidth: true,
@@ -266,16 +267,16 @@ export const componentSettings = {
   },
 };
 
-export const additionalProps = (component) => {
+export const additionalProps = component => {
   const templates = {
     appBarColor: {
       type: {
         name: 'Enum',
         value: [
-          { value: '\'default\'' },
-          { value: '\'primary\'' },
-          { value: '\'secondary\'' },
-          { value: '\'inherit\'' },
+          { value: "'default'" },
+          { value: "'primary'" },
+          { value: "'secondary'" },
+          { value: "'inherit'" },
         ],
       },
     },
@@ -295,6 +296,17 @@ export const additionalProps = (component) => {
     backgroundColor: {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.backgroundColor },
+    },
+    badgeColor: {
+      type: {
+        name: 'Enum',
+        value: [
+          { value: "'default'" },
+          { value: "'primary'" },
+          { value: "'secondary'" },
+          { value: "'error'" },
+        ],
+      },
     },
     clickable: {
       type: { name: 'boolean' },
@@ -334,7 +346,7 @@ export const additionalProps = (component) => {
     imageFile: {
       type: {
         name: 'image',
-        title: '\'Image File\'',
+        title: "'Image File'",
         hidden(props) {
           return props.primaryAction && props.primaryAction !== 'avatar';
         },
@@ -344,9 +356,11 @@ export const additionalProps = (component) => {
     imageUrl: {
       type: {
         name: 'string',
-        title: '\'Image URL\'',
+        title: "'Image URL'",
         hidden(props) {
-          return props.imageFile !== '' || (props.primaryAction && props.primaryAction !== 'avatar');
+          return (
+            props.imageFile !== '' || (props.primaryAction && props.primaryAction !== 'avatar')
+          );
         },
       },
       defaultValue: { value: componentSettings[component].propValues.imageUrl },
@@ -394,7 +408,7 @@ export const additionalProps = (component) => {
           return props.itemLabel4 === '' && props.itemLabel5 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     itemLabel6: {
       type: {
@@ -403,7 +417,7 @@ export const additionalProps = (component) => {
           return props.itemLabel5 === '' && props.itemLabel6 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     itemLabel7: {
       type: {
@@ -412,7 +426,7 @@ export const additionalProps = (component) => {
           return props.itemLabel6 === '' && props.itemLabel7 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     itemLabel8: {
       type: {
@@ -421,7 +435,7 @@ export const additionalProps = (component) => {
           return props.itemLabel7 === '' && props.itemLabel8 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     itemLabel9: {
       type: {
@@ -430,7 +444,7 @@ export const additionalProps = (component) => {
           return props.itemLabel8 === '' && props.itemLabel9 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     itemLabel10: {
       type: {
@@ -439,7 +453,7 @@ export const additionalProps = (component) => {
           return props.itemLabel9 === '' && props.itemLabel10 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     icon1: {
       type: { name: 'string' },
@@ -479,7 +493,7 @@ export const additionalProps = (component) => {
           return props.icon4 === '' && props.icon5 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     icon6: {
       type: {
@@ -488,7 +502,7 @@ export const additionalProps = (component) => {
           return props.icon5 === '' && props.icon6 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     icon7: {
       type: {
@@ -497,7 +511,7 @@ export const additionalProps = (component) => {
           return props.icon6 === '' && props.icon7 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     icon8: {
       type: {
@@ -506,7 +520,7 @@ export const additionalProps = (component) => {
           return props.icon7 === '' && props.icon8 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     icon9: {
       type: {
@@ -515,7 +529,7 @@ export const additionalProps = (component) => {
           return props.icon8 === '' && props.icon9 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     icon10: {
       type: {
@@ -524,7 +538,7 @@ export const additionalProps = (component) => {
           return props.icon9 === '' && props.icon10 === '';
         },
       },
-      defaultValue: { value: '\'\'' },
+      defaultValue: { value: "''" },
     },
     label: {
       type: {
@@ -540,9 +554,9 @@ export const additionalProps = (component) => {
       defaultValue: { value: componentSettings[component].propValues.message },
     },
     paletteType: {
-      type: { name: 'segmentedEnum', value: [{ value: '\'dark\'' }, { value: '\'light\'' }] },
+      type: { name: 'segmentedEnum', value: [{ value: "'dark'" }, { value: "'light'" }] },
       description: 'Theme palette type',
-      defaultValue: { value: '\'light\'' },
+      defaultValue: { value: "'light'" },
     },
     primary: {
       type: { name: 'color' },
@@ -552,10 +566,10 @@ export const additionalProps = (component) => {
       type: {
         name: 'Enum',
         value: [
-          { value: '\'none\'' },
-          { value: '\'icon\'' },
-          { value: '\'avatar\'' },
-          { value: '\'checkbox\'' },
+          { value: "'none'" },
+          { value: "'icon'" },
+          { value: "'avatar'" },
+          { value: "'checkbox'" },
         ],
       },
       defaultValue: { value: componentSettings[component].propValues.primaryAction },
@@ -565,8 +579,9 @@ export const additionalProps = (component) => {
         name: 'string',
         hidden(props) {
           return (
-            props.primaryAction !== 'icon' && props.primaryAction !== 'avatar' ||
-            props.imageFile !== '' || props.imageUrl !== ''
+            (props.primaryAction !== 'icon' && props.primaryAction !== 'avatar') ||
+            props.imageFile !== '' ||
+            props.imageUrl !== ''
           );
         },
       },
@@ -581,6 +596,11 @@ export const additionalProps = (component) => {
       },
       defaultValue: { value: componentSettings[component].propValues.progressValue },
     },
+    randomImage: {
+      type: { name: 'boolean' },
+      description: 'Avatar - use random image',
+      defaultValue: { value: componentSettings[component].propValues.randomImage },
+    },
     secondary: {
       type: { name: 'color' },
       defaultValue: { value: componentSettings[component].propValues.secondary },
@@ -589,11 +609,11 @@ export const additionalProps = (component) => {
       type: {
         name: 'Enum',
         value: [
-          { value: '\'none\'' },
-          { value: '\'icon\'' },
-          { value: '\'iconButton\'' },
-          { value: '\'checkbox\'' },
-          { value: '\'switch\'' },
+          { value: "'none'" },
+          { value: "'icon'" },
+          { value: "'iconButton'" },
+          { value: "'checkbox'" },
+          { value: "'switch'" },
         ],
       },
     },
@@ -614,15 +634,15 @@ export const additionalProps = (component) => {
       type: {
         name: 'Enum',
         value: [
-          { value: '\'Filled\'' },
-          { value: '\'Outlined\'' },
-          { value: '\'Rounded\'' },
-          { value: '\'TwoTone\'' },
-          { value: '\'Sharp\'' },
-          ],
+          { value: "'Filled'" },
+          { value: "'Outlined'" },
+          { value: "'Rounded'" },
+          { value: "'TwoTone'" },
+          { value: "'Sharp'" },
+        ],
       },
       description: 'Icon theme',
-      defaultValue: { value: '\'Filled\'' },
+      defaultValue: { value: "'Filled'" },
     },
     thickness: {
       type: { name: 'number', min: 0, max: 22 },

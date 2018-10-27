@@ -43,7 +43,7 @@ export class AppBar extends React.Component<Props> {
       title: 'Action 2',
       hidden(props) {
         return props.action1 === '' && props.action2 !== '';
-      }
+      },
     },
     icon1: { type: ControlType.String, title: 'Icon 1' },
     icon1Badge: { type: ControlType.String, title: 'Icon 1 badge' },
@@ -52,7 +52,7 @@ export class AppBar extends React.Component<Props> {
       title: 'Icon 2',
       hidden(props) {
         return props.icon1 === '' && props.icon2 !== '';
-      }
+      },
     },
     icon2Badge: { type: ControlType.String, title: 'Icon 2 badge' },
   };
@@ -60,27 +60,38 @@ export class AppBar extends React.Component<Props> {
   render() {
     const { action1, action2, icon1, icon1Badge, icon2, icon2Badge, leftIcon, title } = this.props;
     return (
-      <div style={{flexGrow: 1}}>
+      <div style={{ flexGrow: 1 }}>
         <MuiAppBar position="static">
           <Toolbar>
-            {leftIcon && <IconButton icon={leftIcon} style={{marginLeft: -12, marginRight: 20}} color="inherit" />}
-            <Typography variant="h6" color="inherit" style={{flexGrow: 1}}>
+            {leftIcon && (
+              <IconButton
+                icon={leftIcon}
+                style={{ marginLeft: -12, marginRight: 20 }}
+                color="inherit"
+              />
+            )}
+            <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
               {title}
             </Typography>
             {action1 && <Button color="inherit">{action1}</Button>}
             {action2 && <Button color="inherit">{action2}</Button>}
-            {icon1 && <IconButton
-              icon={icon1}
-              badgeColor='secondary'
-              badgeContent={icon1Badge}
-              style={{marginRight: 8}}
-              color="inherit"
-            />}
-            {icon2 && <IconButton
-              icon={icon2}
-              badgeContent={icon2Badge}
-              style={{marginRight: 8}}
-              color="inherit" />}
+            {icon1 && (
+              <IconButton
+                icon={icon1}
+                badgeColor="secondary"
+                badgeContent={icon1Badge}
+                style={{ marginRight: 8 }}
+                color="inherit"
+              />
+            )}
+            {icon2 && (
+              <IconButton
+                icon={icon2}
+                badgeContent={icon2Badge}
+                style={{ marginRight: 8 }}
+                color="inherit"
+              />
+            )}
           </Toolbar>
         </MuiAppBar>
       </div>

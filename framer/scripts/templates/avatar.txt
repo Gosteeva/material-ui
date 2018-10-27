@@ -20,8 +20,23 @@ export class «componentName» extends React.Component<Props> {
 «& propertyControls»
   };
 
+  state = {
+    randomImage: ''
+  };
+
+  componentDidMount() {
+    fetch('https://randomuser.me/api/?inc=picture')
+      .then((response) => {
+        return response.json();
+      })
+      .then((json) => {
+        this.setState({ random: json.results[0].picture.thumbnail });
+      });
+  }
+
   render() {
-    const { backgroundColor, color, height, icon, imageFile, imageUrl, label, width, ...other } = this.props;
+    const { backgroundColor, color, height, icon, imageFile, imageUrl, label, randomImage, width, ...other } = this.props;
+    const {random} = this.state;
 
     return (
       <div
@@ -33,8 +48,8 @@ export class «componentName» extends React.Component<Props> {
           justifyContent: 'center',
         }}
       >
-      {(imageFile || imageUrl) ? <Mui«componentName» src={imageFile || imageUrl} /> :
-        <Mui«componentName» style={{color, backgroundColor}} {...other}>{icon === '' ? label : <Icon icon={icon} />}</Mui«componentName»>}
+      {(imageFile || imageUrl || randomImage) ? <MuiAvatar src={imageFile || imageUrl || random} /> :
+        <MuiAvatar style={{color, backgroundColor}} {...other}>{icon === '' ? label : <Icon icon={icon} />}</MuiAvatar>}
       </div>
     );
   }

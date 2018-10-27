@@ -29,7 +29,7 @@ export class MediaCard extends React.Component<Props> {
     height: 230,
     action1: 'View',
     imageFile: '',
-    imageUrl: 'https://source.unsplash.com/random',
+    imageUrl: 'https://source.unsplash.com/random/320x180',
     title: 'Material Improvement',
     subtitle: 'by Laura Philips',
     body:
@@ -45,14 +45,14 @@ export class MediaCard extends React.Component<Props> {
       title: 'Image file',
       hidden(props) {
         // return props.imageUrl !== '';
-      }
+      },
     },
     imageUrl: {
       type: ControlType.String,
       title: 'Image URL',
       hidden(props) {
         return props.imageFile !== '';
-      }
+      },
     },
     title: { type: ControlType.String, title: 'Title' },
     subtitle: { type: ControlType.String, title: 'Subtitle' },
@@ -63,7 +63,7 @@ export class MediaCard extends React.Component<Props> {
       title: 'Action two',
       hidden(props) {
         return props.action1 === '' && props.action2 === '';
-      }
+      },
     },
     icon1: { type: ControlType.String, title: 'Icon one' },
     icon2: {
@@ -71,44 +71,69 @@ export class MediaCard extends React.Component<Props> {
       title: 'Icon two',
       hidden(props) {
         return props.icon1 === '' && props.icon2;
-      }
+      },
     },
   };
 
   render() {
-    const { action1, action2, body, icon1, icon2, imageFile, imageUrl, subtitle, title, ...other } = this.props;
+    const {
+      action1,
+      action2,
+      body,
+      icon1,
+      icon2,
+      imageFile,
+      imageUrl,
+      subtitle,
+      title,
+      ...other
+    } = this.props;
 
     return (
       <Card {...other}>
         <CardActionArea>
-          {(imageFile || imageUrl) && <CardMedia
-            style={{ paddingTop: '56.25%' }}
-            image={imageFile || imageUrl}
-            title={title}
-          />}
+          {(imageFile || imageUrl) && (
+            <CardMedia
+              style={{ paddingTop: '56.25%' }}
+              image={imageFile || imageUrl}
+              title={title}
+            />
+          )}
           <CardContent>
-            {title && <MuiTypography gutterBottom variant="h5" component="h2">
-              {title}
-            </MuiTypography>}
-            {subtitle && <MuiTypography gutterBottom variant="subtitle1" color="textSecondary">
-              {subtitle}
-            </MuiTypography>}
-            {body && <MuiTypography component="p" color="textPrimary">
-              {body}
-            </MuiTypography>}
+            {title && (
+              <MuiTypography gutterBottom variant="h5" component="h2">
+                {title}
+              </MuiTypography>
+            )}
+            {subtitle && (
+              <MuiTypography gutterBottom variant="subtitle1" color="textSecondary">
+                {subtitle}
+              </MuiTypography>
+            )}
+            {body && (
+              <MuiTypography component="p" color="textPrimary">
+                {body}
+              </MuiTypography>
+            )}
           </CardContent>
         </CardActionArea>
-        {(action1 !== '' || icon1 !== '') && <CardActions>
-          {action1 !== '' && <MuiButton size="small" color="primary">
-            {action1}
-          </MuiButton>}
-          {action2 !== '' && <MuiButton size="small" color="primary">
-            {action2}
-          </MuiButton>}
-          <div style={{flex: 1}} />
-          {icon1 !== '' && <IconButton icon={icon1} />}
-          {icon2 !== '' && <IconButton icon={icon2} />}
-        </CardActions>}
+        {(action1 !== '' || icon1 !== '') && (
+          <CardActions>
+            {action1 !== '' && (
+              <MuiButton size="small" color="primary">
+                {action1}
+              </MuiButton>
+            )}
+            {action2 !== '' && (
+              <MuiButton size="small" color="primary">
+                {action2}
+              </MuiButton>
+            )}
+            <div style={{ flex: 1 }} />
+            {icon1 !== '' && <IconButton icon={icon1} />}
+            {icon2 !== '' && <IconButton icon={icon2} />}
+          </CardActions>
+        )}
       </Card>
     );
   }
