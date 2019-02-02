@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 function Head(props) {
   const { title, router, description } = props;
+  const url = `https://material-ui.com${router.pathname}`;
 
   return (
     <NextHead>
@@ -26,6 +27,8 @@ function Head(props) {
       <meta property="og:description" content={description} />
       <meta property="og:image" content="https://material-ui.com/static/brand.png" />
       <meta property="og:ttl" content="604800" />
+      <link rel="alternate" href={url} hrefLang="x-default" />
+      <link rel="alternate" href={`${url}?lang=zh`} hrefLang="zh" />
     </NextHead>
   );
 }
