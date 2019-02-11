@@ -93,7 +93,7 @@ To workaround the issue, you can force the "shrink" state of the label.
 or
 
 ```jsx
-<InputLabel shrink>Contagem</InputLabel>
+<InputLabel shrink>Count</InputLabel>
 ```
 
 ## Formatted inputs
