@@ -1,10 +1,10 @@
-# Projets liés
+# Related projects
 
-<p class="description">Nous avons soigneusement préparé une liste de bibliothèques qui méritent d’être examinées.</p>
+<p class="description">We have carefully curated a list of libraries that are worth having a look at.</p>
 
-Les problèmes résolus par Material-UI étant limités, nous essayons de jouer avec autres bibliothèques. N'hésitez pas à soumettre une pull request pour ajouter plus de projets; nous les accepterons s'ils correspondent à nos critères.
+Because the scope of problems Material-UI solves is limited, we try to play nicely with other libraries. Feel free to submit a pull request to add more projects; we will accept them if they match our criteria.
 
-## Projets spécifiques à une interface utilisateur
+## Material-UI Specific Projects
 
 - [create-mui-theme](https://react-theming.github.io/create-mui-theme/) Online tool for creating Material-UI themes via Material Design Color Tool
 - [dx-react-chart-material-ui](https://devexpress.github.io/devextreme-reactive/react/chart/) A chart for Material-UI that visualizes data using a variety of series types, including bar, line, area, scatter, pie, and more ([custom license](https://js.devexpress.com/licensing/)).
@@ -28,7 +28,7 @@ Les problèmes résolus par Material-UI étant limités, nous essayons de jouer 
 - [Wertarbyte](https://mui.wertarbyte.com/) Wertarbyte are using Material-UI for many of their projects. This is a collection of complementary components they have built.
 - [Advanced Filter Builder](https://github.com/logipro/logi-filter-builder) Component will help your users create powerful filter criterias.
 
-## Projets complémentaires
+## Complementary Projects
 
 - [downshift](https://github.com/paypal/downshift) Primitive to build simple, flexible, WAI-ARIA compliant enhanced input React components
 - [react-admin](https://github.com/marmelab/react-admin) An admin framework combining material-ui with Redux, redux-form, redux-saga, and recompose
