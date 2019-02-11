@@ -1,14 +1,14 @@
 ---
-title: Composant React Liste
+title: List React component
 components: Collapse, Divider, List, ListItem, ListItemAvatar, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader
 ---
-# Listes (Lists)
+# Lists
 
-<p class="description">Les listes sont des index continus et verticaux de texte ou d’images.</p>
+<p class="description">Lists are continuous, vertical indexes of text or images.</p>
 
 [Lists](https://material.io/design/components/lists.html) are a continuous group of text or images. They are composed of items containing primary and supplemental actions, which are represented by icons and text.
 
-## Liste simplifié
+## Simple List
 
 {{"demo": "pages/demos/lists/SimpleList.js"}}
 
@@ -32,11 +32,11 @@ You can find a [demo with React Router following this section](/guides/compositi
 
 {{"demo": "pages/demos/lists/NestedList.js"}}
 
-## Liste des répertoires
+## Folder List
 
 {{"demo": "pages/demos/lists/FolderList.js"}}
 
-## Interactif
+## Interactive
 
 Below is an interactive demo that lets you explore the visual results of the different settings:
 
@@ -52,9 +52,9 @@ You should change the list item alignment when displaying 3 lines or more, set t
 
 {{"demo": "pages/demos/lists/AlignItemsList.js"}}
 
-## Liste des contrôles
+## List Controls
 
-### Case à cocher
+### Checkbox
 
 A checkbox can either be a primary action or a secondary action.
 
@@ -66,7 +66,7 @@ The checkbox is the secondary action for the list item and a separate target.
 
 {{"demo": "pages/demos/lists/CheckboxListSecondary.js"}}
 
-### Interrupteur (switch)
+### Switch
 
 The switch is the secondary action and a separate target.
 
