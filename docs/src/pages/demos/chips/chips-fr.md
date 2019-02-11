@@ -1,21 +1,21 @@
 ---
-title: Composant React Puce
+title: Chip React component
 components: Chip
 ---
-# Puces (Chips)
+# Chips
 
-<p class="description">Les puces sont des éléments compacts qui représentent une entrée, un attribut ou une action.</p>
+<p class="description">Chips are compact elements that represent an input, attribute, or action.</p>
 
-[Les puces](https://material.io/design/components/chips.html) permettent aux utilisateurs de saisir des informations, d'effectuer des sélections, de filtrer le contenu ou de déclencher des actions.
+[Chips](https://material.io/design/components/chips.html) allow users to enter information, make selections, filter content, or trigger actions.
 
-Bien qu’il soit inclus ici en tant que composant autonome, l’utilisation la plus courante sera sous une forme quelconque d’entrée, de sorte que le comportement présenté ici est un comportement non présenté dans son contexte.
+While included here as a standalone component, the most common use will be in some form of input, so some of the behaviour demonstrated here is not shown in context.
 
 ## Chip
 
-Exemples de puces, utilisant une image Avatar, icône SVG Avatar, "Lettre" et (chaîne) Avatar.
+Examples of Chips, using an image Avatar, SVG Icon Avatar, "Letter" and (string) Avatar.
 
-- Les puces avec la propriété `onClick` définie changent l’apparence sur le focus, survolent, puis cliquent sur.
-- Les puces avec la propriété `onDelete` définie afficheront une icône de suppression qui change d’apparence en survol.
+- Chips with the `onClick` property defined change appearance on focus, hover, and click.
+- Chips with the `onDelete` property defined will display a delete icon which changes appearance on hover.
 
 {{"demo": "pages/demos/chips/Chips.js"}}
 
@@ -25,12 +25,12 @@ Outlined chips offer an alternative style.
 
 {{"demo": "pages/demos/chips/OutlinedChips.js"}}
 
-## Tableau de puce
+## Chip array
 
-An example of rendering multiple Chips from an array of values. Supprimer une puce la supprime du tablea. Notez que puisqu'aucun `onClick` propriété est définie, la puce peut être concentré, mais ne pas profondeur de gain tandis que vous cliquez dessus ou touché.
+An example of rendering multiple Chips from an array of values. Deleting a chip removes it from the array. Note that since no `onClick` property is defined, the Chip can be focused, but does not gain depth while clicked or touched.
 
 {{"demo": "pages/demos/chips/ChipsArray.js"}}
 
-## Terrain de jeu de puce
+## Chip Playground
 
 {{"demo": "pages/demos/chips/ChipsPlayground.js"}}
