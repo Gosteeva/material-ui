@@ -1,41 +1,41 @@
 ---
-title: Componente de Card(Tarjetas)
+title: Card React component
 components: Card, CardActionArea, CardActions, CardContent, CardHeader, CardMedia, Collapse, Paper
 ---
-# Tarjetas
+# Cards
 
-<p class="description">Las tarjetas contienen información y acciones sobre un tema.</p>
+<p class="description">Cards contain content and actions about a single subject.</p>
 
-Las [Tarjetas](https://material.io/design/components/cards.html) son superficies que muestran contenido y acciones sobre un tema particular.
+[Cards](https://material.io/design/components/cards.html) are surfaces that display content and actions on a single topic.
 
-Deben se fáciles de leer y la información que muestran debe ser relevante y accionable. Elementos como texto e imagenes deben ser colocados sobre tarjetas de manera lógica y jerarquica.
+They should be easy to scan for relevant and actionable information. Elements, like text and images, should be placed on them in a way that clearly indicates hierarchy.
 
-## Tarjeta simple
+## Simple Card
 
-Aunque las tarjetas pueden soportar multiples acciones, controles de la interfaz y varios menus debemos usarlas con precaución ya que son puntos de ingreso a información mas detallada.
+Although cards can support multiple actions, UI controls, and an overflow menu, use restraint and remember that cards are entry points to more complex and detailed information.
 
 {{"demo": "pages/demos/cards/SimpleCard.js"}}
 
-## Interacción compleja
+## Complex Interaction
 
-En desktop, el contenido de las tarjetas puede expandirse.
+On desktop, card content can expand.
 
 {{"demo": "pages/demos/cards/RecipeReviewCard.js"}}
 
-## Multimedia
+## Media
 
-Un ejemplo de una tarjeta usando una imagen para reforzar contenido.
+Example of a card using an image to reinforce the content.
 
 {{"demo": "pages/demos/cards/MediaCard.js"}}
 
-Por defecto usamos una combinacion de un `<div>` y una *imagen de fondo* para mostrar contenido multimedia. Esto puede ser problemático en ciertas situaciones. Por ejemplo, cuando queremos mostrar un video o una imagen responsiva. En estos casos podemos usar la propiedad `component`:
+By default, we use the combination of a `<div>` element and a *background image* to display the media. It can be problematic in some situations. For instance, you might want to display a video or a responsive image. Use the `component` property for these use cases:
 
 {{"demo": "pages/demos/cards/ImgMediaCard.js"}}
 
-## Controles de IU
+## UI Controls
 
-Acciones adicionales dentro de las tarjetas son iniciadas explícitamente usando iconos, texto, controles de IU, localizados de manera típica en el pie de la tarjeta.
+Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.
 
-Aca un ejemplo de una tarjeta con control multimedia.
+Here's an example of a media control card.
 
 {{"demo": "pages/demos/cards/MediaControlCard.js"}}
