@@ -16,7 +16,7 @@ If you wish to add support for a component or feature not highlighted here, plea
   - **[Toggle buttons](https://material.io/design/components/buttons.html#buttons-toggle-buttons) ~** ([Lab](/lab/about/))
   - **[Icon toggle buttons](https://material.io/design/components/buttons.html#toggle-button) ✓** (Custom Checkbox)
 - **[Buttons: Floating Action Button](https://material.io/design/components/buttons-floating-action-button.html) ✓** 
-  - Transições: 
+  - Transitions: 
     - **[Speed dial](https://material.io/design/components/buttons-floating-action-button.html#types-of-transitions) ~** ([Lab](/lab/about/))
     - [Menu](https://material.io/design/components/buttons-floating-action-button.html#types-of-transitions)
     - [Morph](https://material.io/design/components/buttons-floating-action-button.html#types-of-transitions)
@@ -35,7 +35,7 @@ If you wish to add support for a component or feature not highlighted here, plea
   - **Pagination ✓**
 - **[Dialogs](https://material.io/design/components/dialogs.html) ✓** 
   - **[Alert dialog](https://material.io/design/components/dialogs.html#alert-dialog) ✓**
-  - **[Diálogos simples](https://material.io/design/components/dialogs.html#simple-dialog) ✓** (Pode ser composto com Dialog e a List.)
+  - **[Simple dialogs](https://material.io/design/components/dialogs.html#simple-dialog) ✓** (Can be composed with Dialog and List.)
   - **[Confirmation dialogs](https://material.io/design/components/dialogs.html#confirmation-dialog) ✓**
   - **[Full screen dialogs](https://material.io/design/components/dialogs.html#full-screen-dialog) ✓**
 - **[Dividers](https://material.io/design/components/dividers.html) ✓** 
@@ -43,8 +43,8 @@ If you wish to add support for a component or feature not highlighted here, plea
   - **[Inset](https://material.io/design/components/dividers.html#types) ✓**
   - **[Middle](https://material.io/design/components/dividers.html#types) ✓**
   - **[Subheader](https://material.io/design/components/dividers.html#types) ✓**
-- **[Painéis de Expansão](https://material.io/archive/guidelines/components/expansion-panels.html) ✓** (*Legado Material v1*)
-- **[Listas de Imagem](https://material.io/design/components/image-lists.html) ✓** (também conhecido como Grade Lista)
+- **[Expansion Panels](https://material.io/archive/guidelines/components/expansion-panels.html) ✓** (*Legacy Material v1*)
+- **[Image lists](https://material.io/design/components/image-lists.html) ✓** (AKA Grid Lists)
 - **[Lists](https://material.io/design/components/lists.html) ✓** 
   - [Types:](https://material.io/design/components/lists.html#types) 
     - **Single line ✓**
@@ -59,7 +59,7 @@ If you wish to add support for a component or feature not highlighted here, plea
     - **Switch ✓**
     - Reorder
 - **[Menus](https://material.io/design/components/menus.html) ✓** 
-  - **[Dropdown menu](https://material.io/design/components/menus.html#dropdown-menu) ✓** (Pode ser composto) 
+  - **[Dropdown menu](https://material.io/design/components/menus.html#dropdown-menu) ✓** (Can be composed) 
     - [Cascade](https://material.io/design/components/menus.html#dropdown-menu)
   - [Exposed dropdown menus](https://material.io/design/components/menus.html#exposed-dropdown-menu) 
     - **Text field dropdown menu ✓** (Select)
