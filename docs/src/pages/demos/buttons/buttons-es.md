@@ -1,103 +1,103 @@
 ---
-title: Botón componente React
+title: Button React component
 components: Button, Fab, IconButton, ButtonBase, Zoom
 ---
-# Botones
+# Buttons
 
-<p class="description">Los botones permiten a los usuarios ejecutar acciones, y tomar decisiones, con un solo toque.</p>
+<p class="description">Buttons allow users to take actions, and make choices, with a single tap.</p>
 
-Los [botones](https://material.io/design/components/buttons.html) indican acciones que los usuarios pueden tomar. Suelen ponerse a lo largo de la interfaz, en lugares como:
+[Buttons](https://material.io/design/components/buttons.html) communicate actions that users can take. They are typically placed throughout your UI, in places like:
 
 - Dialogs
-- Ventanas modal
-- Formularios
-- Tarjetas
-- Barras de herramientas
+- Modal windows
+- Forms
+- Cards
+- Toolbars
 
-## Botones contenidos
+## Contained Buttons
 
-Los [botones contenidos](https://material.io/design/components/buttons.html#contained-button) son de alto énfasis, distinguidos por el uso de elevación y relleno. Contienen acciones que son primarias para tu aplicación.
+[Contained buttons](https://material.io/design/components/buttons.html#contained-button) are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.
 
-El último ejemplo de esta demostración muestra cómo usar un botón de subir archivos.
+The last example of this demo show how to use an upload button.
 
 {{"demo": "pages/demos/buttons/ContainedButtons.js"}}
 
-## Botones de texto
+## Text Buttons
 
-Los [botones de texto](https://material.io/design/components/buttons.html#text-button) se suelen usar para acciones menos notables, incluyendo las que se encuentran:
+[Text buttons](https://material.io/design/components/buttons.html#text-button) are typically used for less-pronounced actions, including those located:
 
-- En diálogos
-- En tarjetas
+- In dialogs
+- In cards
 
-En las tarjetas, los botones de texto ayudan a mantener un énfasis en el contenido de la tarjeta.
+In cards, text buttons help maintain an emphasis on card content.
 
 {{"demo": "pages/demos/buttons/TextButtons.js"}}
 
-## Botones descritos
+## Outlined Buttons
 
-[Botones descritos](https://material.io/design/components/buttons.html#outlined-button) son de énfasis medio. Contienen acciones que son importantes, pero no primarias en la app.
+[Outlined buttons](https://material.io/design/components/buttons.html#outlined-button) are medium-emphasis buttons. They contain actions that are important, but aren’t the primary action in an app.
 
-### Alternativos
+### Alternatives
 
-Los botones delineados también son una alternativa de menos énfasis que los botones contenidos, o de mayor énfasis que los botones de texto.
+Outlined buttons are also a lower emphasis alternative to contained buttons, or a higher emphasis alternative to text buttons.
 
 {{"demo": "pages/demos/buttons/OutlinedButtons.js"}}
 
-## Botones de acción flotantes
+## Floating Action Buttons
 
-Un [botón de acción flotante](https://material.io/design/components/buttons-floating-action-button.html) (BAF) desempeña la acción principal, o más común, en una pantalla. Aparece en frente de todo el contenido de la pantalla, normalmente como una forma circular con un icono en el centro. BAFs existen en dos formas: regular, y extendido.
+A [floating action button](https://material.io/design/components/buttons-floating-action-button.html) (FAB) performs the primary, or most common, action on a screen. It appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
 
-Solo usa un BAF si es la manera más apta para presentar la acción primaria de una pantalla.
+Only use a FAB if it is the most suitable way to present a screen’s primary action.
 
-Se recomienda solo un botón flotante por pantalla para representar la acción más común.
+Only one floating action button is recommended per screen to represent the most common action.
 
 {{"demo": "pages/demos/buttons/FloatingActionButtons.js"}}
 
-El botón de acción flotante aparece en la página animado como un pedazo de material en expansión, por defecto.
+The floating action button animates onto the screen as an expanding piece of material, by default.
 
-Un botón de acción flotante que aparece en varias páginas (como páginas en pestañas) debe desaparecerse por un momento, y luego aparecer de nuevo si su acción cambia.
+A floating action button that spans multiple lateral screens (such as tabbed screens) should briefly disappear, then reappear if its action changes.
 
-La transición Zoom se puede usar para lograr esto. Ten en cuenta que ya que las animaciones de salida y de entrada son desencadenados al mismo tiempo, usamos `enterDelay` para permitir que termine la animación del Botón de acción flotante que sale antes de que entre el nuevo.
+The Zoom transition can be used to achieve this. Note that since both the exiting and entering animations are triggered at the same time, we use `enterDelay` to allow the outgoing Floating Action Button's animation to finish before the new one enters.
 
 {{"demo": "pages/demos/buttons/FloatingActionButtonZoom.js"}}
 
-## Tamaños
+## Sizes
 
-Te gustan botones más grandes o más pequeños? Usa el atributo `size`.
+Fancy larger or smaller buttons? Use the `size` property.
 
 {{"demo": "pages/demos/buttons/ButtonSizes.js"}}
 
-## Botones con iconos y títulos
+## Buttons with icons and label
 
-Tal vez te gustaría tener iconos para un botón en particular para mejorar la experiencia del usuario de la aplicación porque se reconocen más fácilmente que el texto. Por ejemplo, si tienes un botón para borrar puedes ponerle un icono de papelera.
+Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.
 
 {{"demo": "pages/demos/buttons/IconLabelButtons.js"}}
 
-## Botónes con iconos
+## Icon Buttons
 
-Los botones de iconos suelen encontrarse en las barras de aplicaciones y las barras de herramientas.
+Icon buttons are commonly found in app bars and toolbars.
 
-Iconos son también apropiados para botones de cambio que permiten marcar o desmarcar una sola opción, tal como poner o quitar una estrella de un elemento.
+Icons are also appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item.
 
 {{"demo": "pages/demos/buttons/IconButtons.js"}}
 
-## Botones personalizados
+## Customized Buttons
 
-Si has leído la [página de documentación de anulación](/customization/overrides/) pero no te sientes cómodo intentándolo, a continuación hay ejemplos de como cambiar el color principal de un Botón usandos clases, y usando un tema; y de un Botón estilo Bootstrap.
+If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here are examples of how you can change the main color of a Button using classes, and using a theme; and of a Bootstrap style Button.
 
-⚠️ A pesar de que la especificación de material design anima a usar temas, estos ejemplos no son comunes.
+⚠️ While the material design specification encourages theming, these examples are off the beaten path.
 
 {{"demo": "pages/demos/buttons/CustomizedButtons.js"}}
 
-## Botones complejos
+## Complex Buttons
 
-Los Botones de texto, los Botones contenidos, los Botones de acción flotantes y los Botones con iconos se construyen sobre el mismo componente: el `ButtonBase`. Puedes aprovecharte de este componente básico para construir interacciones personalizadas.
+The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons are built on top of the same component: the `ButtonBase`. You can take advantage of this lower level component to build custom interactions.
 
 {{"demo": "pages/demos/buttons/ButtonBases.js"}}
 
-## Librería externa de routing
+## Third-party routing library
 
-Un uso común es usar el botón para empezar la navigación a una página nueva. El componente `ButtonBase` provee un atributo para tratar este uso: `component`. Ya que muchos de nuestros componentes interactivos dependen de `ButtonBase`, puedes aprovecharte de él en todas partes:
+One common use case is to use the button to trigger a navigation to a new page. The `ButtonBase` component provides a property to handle this use case: `component`. Given that a lot of our interactive components rely on `ButtonBase`, you should be able to take advantage of it everywhere:
 
 ```jsx
 import { Link } from 'react-router-dom'
@@ -108,7 +108,7 @@ import Button from '@material-ui/core/Button';
 </Button>
 ```
 
-o si quieres evitar un choque de atributos:
+or if you want to avoid properties collision:
 
 ```jsx
 import { Link } from 'react-router-dom'
@@ -121,4 +121,4 @@ const MyLink = props => <Link to="/open-collective" {...props} />
 </Button>
 ```
 
-*Nota: Crear `MyLink` es necesario para prevenir una montura inesperada. Puedes leer más en nuestra [guía de atributos de componentes](/guides/composition/#component-property).*
+*Note: Creating `MyLink` is necessary to prevent unexpected unmounting. You can read more about it in our [component property guide](/guides/composition/#component-property).*
