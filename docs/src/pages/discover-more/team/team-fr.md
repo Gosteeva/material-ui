@@ -1,11 +1,11 @@
-# Équipe
+# Team
 
-<p class="description">Un aperçu de l'équipe fondatrice et des principaux contributeurs à Material-UI.</p>
+<p class="description">An overview of the founding team and core contributors to Material-UI.</p>
 
-Material-UI est géré par un petit groupe de contributeurs essentiels, avec le soutien et la participation massifs de notre communauté. Le développement du projet et de son écosystème est guidé par une équipe internationale, dont certaines ont choisi de figurer ci-dessous.
+Material-UI is maintained by a small group of invaluable core contributors, with the massive support and involvement of our community. The development of the project and its ecosystem is guided by an international team, some of whom have chosen to be featured below.
 
 {{"demo": "pages/discover-more/team/Team.js", "hideHeader": true}}
 
-Impliquez-vous dans le développement de Material-UI en [ouvrant un problème](https://github.com/mui-org/material-ui/issues/new) ou soumettre une demande de tirage. Lisez nos [directives de contribution](https://github.com/mui-org/material-ui/blob/master/CONTRIBUTING.md) pour plus d'informations sur notre développement.
+Get involved with Material-UI development by [opening an issue](https://github.com/mui-org/material-ui/issues/new) or submitting a pull request. Read our [contributing guidelines](https://github.com/mui-org/material-ui/blob/next/CONTRIBUTING.md) for information on how we develop.
 
-[Rejoignez la communauté Material-UI!](/discover-more/community/)
+[Join the Material-UI Community!](/discover-more/community/)
