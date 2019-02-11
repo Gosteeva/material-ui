@@ -1,16 +1,16 @@
 ---
-title: Composant React Tiroir
+title: Drawer React component
 components: Drawer, SwipeableDrawer
 ---
-# Tiroir (Drawer)
+# Drawer
 
-<p class="description">Les tiroirs de navigation permettent d'accéder aux destinations de votre application. Les feuilles latérales sont des surfaces contenant du contenu supplémentaire ancré au bord gauche ou droit de l'écran.</p>
+<p class="description">Navigation drawers provide access to destinations in your app. Side sheets are surfaces containing supplementary content that are anchored to the left or right edge of the screen.</p>
 
 [Navigation drawers](https://material.io/design/components/navigation-drawer.html) provide access to destinations and app functionality, such as switching accounts. They can either be permanently on-screen or controlled by a navigation menu icon.
 
 [Side sheets](https://material.io/design/components/sheets-side.html) are supplementary surfaces primarily used on tablet and desktop.
 
-## Tiroir temporaire
+## Temporary drawer
 
 Temporary navigation drawers can toggle open or closed. Closed by default, the drawer opens temporarily above all other content until a section is selected.
 
@@ -40,7 +40,7 @@ The `Hidden` responsive helper component allows showing different types of drawe
 
 {{"demo": "pages/demos/drawers/ResponsiveDrawer.js", "iframe": true}}
 
-## Tiroir persistant
+## Persistent drawer
 
 Persistent navigation drawers can toggle open or closed. The drawer sits on the same surface elevation as the content. It is closed by default and opens by selecting the menu icon, and stays open until closed by the user. The state of the drawer is remembered from action to action and session to session.
 
@@ -52,7 +52,7 @@ Persistent navigation drawers are acceptable for all sizes larger than mobile. T
 
 {{"demo": "pages/demos/drawers/PersistentDrawerRight.js", "iframe": true}}
 
-## Mini variante de tiroir
+## Mini variant drawer
 
 In this variation, the persistent navigation drawer changes its width. Its resting state is as a mini-drawer at the same elevation as the content, clipped by the app bar. When expanded, it appears as the standard persistent navigation drawer.
 
@@ -60,22 +60,22 @@ The mini variant is recommended for apps sections that need quick selection acce
 
 {{"demo": "pages/demos/drawers/MiniDrawer.js", "iframe": true}}
 
-## Tiroir permanent
+## Permanent drawer
 
-Les tiroirs de navigation permanents sont toujours visibles et épinglés sur le bord gauche, à la même altitude que le contenu ou l'arrière-plan. Ils ne peuvent pas être fermés.
+Permanent navigation drawers are always visible and pinned to the left edge, at the same elevation as the content or background. They cannot be closed.
 
-Les tiroirs de navigation permanents sont les **valeurs par défaut recommandées pour le bureau**.
+Permanent navigation drawers are the **recommended default for desktop**.
 
-### Navigation pleine hauteur
+### Full-height navigation
 
-Applications axées sur la consommation d'informations utilisant une hiérarchie de gauche à droite.
+Apps focused on information consumption that use a left-to-right hierarchy.
 
 {{"demo": "pages/demos/drawers/PermanentDrawerLeft.js", "iframe": true}}
 
 {{"demo": "pages/demos/drawers/PermanentDrawerRight.js", "iframe": true}}
 
-### Clippé sous la barre d'application
+### Clipped under the app bar
 
-Des applications axées sur la productivité qui nécessitent un équilibre sur l’écran.
+Apps focused on productivity that require balance across the screen.
 
 {{"demo": "pages/demos/drawers/ClippedDrawer.js", "iframe": true}}
