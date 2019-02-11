@@ -1,6 +1,6 @@
 # API Design Approach
 
-<p class="description">Nós aprendemos bastante como o Material-UI é usado e o refatoramento da v1 permitiu-nos repensar completamente o componente de API.</p>
+<p class="description">We have learned a great deal regarding how Material-UI is used, and the v1 rewrite allowed us to completely rethink the component API.</p>
 
 > API design is hard because you can make it seem simple but it's actually deceptively complex, or make it actually simple but seem complex.
 
