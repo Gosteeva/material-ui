@@ -45,10 +45,10 @@ const Box = styled.div`${palette}${spacing}${typography}`;
 ### Installation
 
 ```jsx
-// usando npm
+// with npm
 npm install @material-ui/system
 
-// usando yarn
+// with yarn
 yarn add @material-ui/system
 ```
 
@@ -253,7 +253,7 @@ const Box = styled.div`
 />
 
 /**
- * Saídas:
+ * Outputs:
  *
  * padding: 16px;
  * @media (min-width: 600px) {

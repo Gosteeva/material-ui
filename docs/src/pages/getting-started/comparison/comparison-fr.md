@@ -18,7 +18,7 @@ We cover the following libraries:
 
 ![stars](https://img.shields.io/github/stars/mui-org/material-ui.svg?style=social&label=Stars) ![npm downloads](https://img.shields.io/npm/dm/@material-ui/core.svg)
 
-We'll try very hard to avoid bias, although as the core team, we obviously like Material-UI a lot ❤️. There are some problems we think it solves better than anything else out there; if we didn’t believe that, we wouldn’t be working on it 
+We'll try very hard to avoid bias, although as the core team, we obviously like Material-UI a lot ❤️. There are some problems we think it solves better than anything else out there; if we didn’t believe that, we wouldn’t be working on it 😄.
 
 We do want to be fair and accurate though, so where other libraries offer significant advantages we try to list these as well.
 
@@ -56,7 +56,7 @@ MDC-web was designed from the ground up to be fully compatible with 3rd party JS
 - We reduced the loading time by breaking the big monolithic CSS file in order to enable code splitting. (**faster**)
 - The style override story became more intuitive, as we were free of CSS specificity issues. (**simpler**)
 
-Eventually, we reached the limitations of inline-styles and moved toward a CSS-in-JS solution. This transition was made without losing the enhancements the first migration introduced **We strongly think that CSS-in-JS is the future of the web platform**. You can [learn more about our new styling solution](/customization/css-in-js/) in the documentation.
+Eventually, we reached the limitations of inline-styles and moved toward a CSS-in-JS solution. This transition was made without losing the enhancements the first migration introduced 💅. **We strongly think that CSS-in-JS is the future of the web platform**. You can [learn more about our new styling solution](/customization/css-in-js/) in the documentation.
 
 MDC-web relies on SCSS as Bootstrap v4. The SCSS architecture is pretty close to LESS - a technology we replaced for its limitations.
 
@@ -64,7 +64,7 @@ MDC-web relies on SCSS as Bootstrap v4. The SCSS architecture is pretty close to
 
 Our vision is to provide an elegant implementation of the Material Design guidelines **and more**.
 
-> Les recommandation material design sont un point de départ incroyable, mais elles ne fournissent aucune indication sur tous les aspects ou besoins d'une application. In addition to the guideline-specific implementation, we want Material-UI to become whatever is generally useful for application development, all in the spirit of the Material Design guidelines.
+> The Material Design guidelines are an incredible starting point, but they do not provide guidance on all aspects or needs of an application. In addition to the guideline-specific implementation, we want Material-UI to become whatever is generally useful for application development, all in the spirit of the Material Design guidelines.
 > 
 > *[An extract taken from the [vision section](/discover-more/vision/) of the documentation.]*
 

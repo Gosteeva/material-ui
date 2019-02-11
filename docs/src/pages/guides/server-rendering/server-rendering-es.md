@@ -41,7 +41,7 @@ function handleRender(req, res) {
 
 const app = express();
 
-// Isso é acionado toda vez que o servidor recebe uma solicitação.
+// This is fired every time the server-side receives a request.
 app.use(handleRender);
 
 const port = 3000;
@@ -98,7 +98,7 @@ function handleRender(req, res) {
     </JssProvider>
   )
 
-  // Pegue o CSS do nosso sheetsRegistry.
+  // Grab the CSS from our sheetsRegistry.
   const css = sheetsRegistry.toString()
 
   // Send the rendered page back to the client.
@@ -147,7 +147,7 @@ import red from '@material-ui/core/colors/red';
 import App from './App';
 
 class Main extends React.Component {
-  // Remova o CSS injetado no lado do servidor.
+  // Remove the server-side injected CSS.
   componentDidMount() {
     const jssStyles = document.getElementById('jss-server-side');
     if (jssStyles && jssStyles.parentNode) {
@@ -160,7 +160,7 @@ class Main extends React.Component {
   }
 }
 
-// Crie uma instância do tema.
+// Create a theme instance.
 const theme = createMuiTheme({
   palette: {
     primary: green,
@@ -184,11 +184,11 @@ ReactDOM.hydrate(
 
 ## Reference implementations
 
-We host different reference implementations which you can find in the [GitHub repository](https://github.com/mui-org/material-ui) under the [`/examples`](https://github.com/mui-org/material-ui/tree/master/examples) folder:
+We host different reference implementations which you can find in the [GitHub repository](https://github.com/mui-org/material-ui) under the [`/examples`](https://github.com/mui-org/material-ui/tree/next/examples) folder:
 
-- [The reference implementation of this tutorial](https://github.com/mui-org/material-ui/tree/master/examples/ssr)
-- [Next.js](https://github.com/mui-org/material-ui/tree/master/examples/nextjs)
-- [Gatsby](https://github.com/mui-org/material-ui/tree/master/examples/gatsby)
+- [The reference implementation of this tutorial](https://github.com/mui-org/material-ui/tree/next/examples/ssr)
+- [Next.js](https://github.com/mui-org/material-ui/tree/next/examples/nextjs)
+- [Gatsby](https://github.com/mui-org/material-ui/tree/next/examples/gatsby)
 
 ## Troubleshooting
 

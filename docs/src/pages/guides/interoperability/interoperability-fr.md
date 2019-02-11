@@ -6,7 +6,7 @@ This guide aims to document the most popular alternatives, but you should find t
 
 We have provided examples for the following styling solutions:
 
-- [CSS Bruto](#raw-css)
+- [Raw CSS](#raw-css)
 - [Styled Components](#styled-components)
 - [CSS Modules](#css-modules)
 - [Emotion](#emotion)
@@ -15,7 +15,7 @@ We have provided examples for the following styling solutions:
 - [CSS to MUI webpack Loader](#css-to-mui-webpack-loader)
 - [Glamor](#glamor)
 
-## CSS Bruto
+## Raw CSS
 
 Nothing fancy, just plain old CSS. Why reinvent the wheel when it has been working for decades?
 
@@ -223,7 +223,7 @@ Emotion's **css()** method works seamlessly with Material-UI.
 import { jsx, css } from "@emotion/core";
 import Button from "@material-ui/core/Button";
 
-// Nós apenas atribuímos a eles o atributo className do Button
+// We just assign them the Button's className attribute
 function EmotionCSS() {
   return (
     <div>

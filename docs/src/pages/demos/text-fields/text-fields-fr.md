@@ -1,20 +1,20 @@
 ---
-title: Composant React de champ de texte
+title: Text Field React component
 components: FilledInput, FormControl, FormHelperText, Input, InputAdornment, InputBase, InputLabel, OutlinedInput, TextField
 ---
-# Champ de texte
+# Text Fields
 
-<p class="description">Les champs de texte permettent aux utilisateurs d'entrer et de modifier du texte.</p>
+<p class="description">Text fields let users enter and edit text.</p>
 
-[Les champs de texte](https://material.io/design/components/text-fields.html) permettent aux utilisateurs de saisir du texte dans une interface utilisateur. Ils apparaissent généralement dans les formulaires et les boîtes de dialogue.
+[Text fields](https://material.io/design/components/text-fields.html) allow users to enter text into a UI. They typically appear in forms and dialogs.
 
 ## TextField
 
-Le composant d'encapsulation `TextField` est un contrôle de formulaire complet comprenant une étiquette, une entrée et un texte d'aide.
+The `TextField` wrapper component is a complete form control including a label, input and help text.
 
 {{"demo": "pages/demos/text-fields/TextFields.js"}}
 
-> **Remarque:** Cette version du champ de texte n'est plus documentée dans la documentation de material design.
+> **Note:** This version of the text field is no longer documented in the Material Design documentation.
 
 ## Outlined
 
@@ -28,9 +28,9 @@ Le composant d'encapsulation `TextField` est un contrôle de formulaire complet 
 
 {{"demo": "pages/demos/text-fields/FilledTextFields.js"}}
 
-## Composants
+## Components
 
-`TextField` est composé d'éléments plus petits ( [`FormControl`](/api/form-control/), [`Input`](/api/input/), [`FilledInput`](/api/filled-input/), [`InputLabel`](/api/input-label/), [`OutlinedInput`](/api/outlined-input/), et [`FormHelperText`](/api/form-helper-text/) ) que vous pouvez utiliser directement pour personnaliser de manière significative vos entrées de formulaire.
+`TextField` is composed of smaller components ( [`FormControl`](/api/form-control/), [`Input`](/api/input/), [`FilledInput`](/api/filled-input/), [`InputLabel`](/api/input-label/), [`OutlinedInput`](/api/outlined-input/), and [`FormHelperText`](/api/form-helper-text/) ) that you can leverage directly to significantly customize your form inputs.
 
 You might also have noticed that some native HTML input properties are missing from the `TextField` component. This is on purpose. The component takes care of the most used properties, then it's up to the user to use the underlying component shown in the following demo. Still, you can use `inputProps` (and `InputProps`, `InputLabelProps` properties) if you want to avoid some boilerplate.
 
@@ -44,7 +44,7 @@ You might also have noticed that some native HTML input properties are missing f
 
 If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here's an example of how you can change the main color of an Input.
 
-⚠️ Bien que les spécifications de conception des matériaux encouragent la thématisation, ces exemples sortent des sentiers battus.
+⚠️ While the material design specification encourages theming, these examples are off the beaten path.
 
 {{"demo": "pages/demos/text-fields/CustomizedInputs.js"}}
 
@@ -93,7 +93,7 @@ To workaround the issue, you can force the "shrink" state of the label.
 or
 
 ```jsx
-<InputLabel shrink>Contagem</InputLabel>
+<InputLabel shrink>Count</InputLabel>
 ```
 
 ## Formatted inputs
@@ -127,7 +127,7 @@ In order for the text field to be accessible, **the input should be linked to th
 </FormControl>
 ```
 
-## Projets complémentaires
+## Complementary projects
 
 For more advanced use cases you might be able to take advantage of:
 

@@ -1,21 +1,21 @@
 ---
-title: Composant React de navigation inférieure
+title: Bottom Navigation React component
 components: BottomNavigation, BottomNavigationAction
 ---
-# Barre de navigation inférieure (Bottom Navigation)
+# Bottom Navigation
 
-<p class="description">Les barres de navigation inférieures permettent le mouvement entre les destinations principales dans une application.</p>
+<p class="description">Bottom navigation bars allow movement between primary destinations in an app.</p>
 
-[La barre de navigation inférieure](https://material.io/design/components/bottom-navigation.html) affichage de trois à cinq destinations au bas de l'écran. Chaque destination est représentée par une icône et une étiquette de texte facultative. Lorsque vous appuyez sur une icône de navigation inférieure, l'utilisateur est dirigé vers la destination de navigation de premier niveau associée à cette icône.
+[Bottom navigation](https://material.io/design/components/bottom-navigation.html) bars display three to five destinations at the bottom of a screen. Each destination is represented by an icon and an optional text label. When a bottom navigation icon is tapped, the user is taken to the top-level navigation destination associated with that icon.
 
-## Navigation inférieure
+## Bottom Navigation
 
-Lorsqu'il y a seulement **trois** actions, l'affichage d'icônes et des étiquettes de texte en permanence.
+When there are only **three** actions, display both icons and text labels at all times.
 
 {{"demo": "pages/demos/bottom-navigation/SimpleBottomNavigation.js"}}
 
-## Navigation inférieure sans étiquette
+## Bottom Navigation with no label
 
-Si il y a **quatre** ou **cinq** actions, affichage inactif points de vue uniquement sous forme d'icônes.
+If there are **four** or **five** actions, display inactive views as icons only.
 
 {{"demo": "pages/demos/bottom-navigation/LabelBottomNavigation.js"}}

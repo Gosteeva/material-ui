@@ -45,7 +45,7 @@ import { createGenerateClassName, jssPreset } from '@material-ui/core/styles';
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
-// Gerador de nome de classe de Material-UI customizado.
+// Custom Material-UI class name generator.
 const generateClassName = createGenerateClassName();
 
 function RTL(props) {

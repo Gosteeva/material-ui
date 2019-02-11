@@ -7,9 +7,9 @@
 The sizing style functions support different property input type:
 
 ```jsx
-<Box width={1/4}> // Números em [0,1] são multiplicados por 100 e convertido em % valores.
-<Box width={300}> // Números são convertidos em valores de pixel.
-<Box width="75%"> // Valores de string são usados como CSS bruto.
+<Box width={1/4}> // Numbers in [0,1] are multiplied by 100 and converted to % values.
+<Box width={300}> // Numbers are converted to pixel values.
+<Box width="75%"> // String values are used as raw CSS.
 <Box width={1}>   // 100%
 ```
 

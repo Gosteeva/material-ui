@@ -1,43 +1,43 @@
 ---
-title: Composant React de barre d'application
+title: App Bar React component
 components: AppBar, Toolbar, Menu
 ---
-# Barre d'application (App Bar)
+# App Bar
 
-<p class="description">La barre d'application affiche des informations et des actions relatives à l'écran actuel.</p>
+<p class="description">The App Bar displays information and actions relating to the current screen.</p>
 
-[La barre d'application](https://material.io/design/components/app-bars-top.html) de la page fournit le contenu et les actions liés à l'écran actuel. Il est utilisé pour la marque, les titres d'écran, la navigation et les actions.
+The [top App Bar](https://material.io/design/components/app-bars-top.html) provides content and actions related to the current screen. It’s used for branding, screen titles, navigation, and actions.
 
-Il peut se transformer en une barre d’action contextuelle ou en tant que barre de navigation.
+It can transform into a contextual action bar or used as a navbar.
 
-## Boutons de la barre d’application
+## App Bar with buttons
 
 {{"demo": "pages/demos/app-bar/ButtonAppBar.js"}}
 
-## Simple barre d'Application
+## Simple App Bar
 
 {{"demo": "pages/demos/app-bar/SimpleAppBar.js"}}
 
-## Barre d'application avec un champ de recherche principal
+## App Bar with a primary search field
 
-Une barre de recherche principale.
+A primary searchbar.
 
 {{"demo": "pages/demos/app-bar/PrimarySearchAppBar.js"}}
 
-## La barre d'application avec le menu
+## App Bar with menu
 
 {{"demo": "pages/demos/app-bar/MenuAppBar.js"}}
 
-## Barre d'applications avec champ de recherche
+## App Bar with search field
 
-Une barre de recherche latérale.
+A side searchbar.
 
 {{"demo": "pages/demos/app-bar/SearchAppBar.js"}}
 
-## Dense (bureau uniquement)
+## Dense (desktop only)
 
 {{"demo": "pages/demos/app-bar/DenseAppBar.js"}}
 
-## Barre inférieure
+## Bottom App Bar
 
 {{"demo": "pages/demos/app-bar/BottomAppBar.js", "iframe": true}}

@@ -1,24 +1,24 @@
-# Exemples de Projets
+# Example Projects
 
-<p class="description">Vous cherchez un exemple de projet pour commencer?</p>
+<p class="description">Are you looking for an example project to get started?</p>
 
-Nous hébergeons quelques exemples de projets que vous pouvez trouver dans le référentiel [GitHub.](https://github.com/mui-org/material-ui) sous les [`/exemples`](https://github.com/mui-org/material-ui/tree/master/examples) dossier:
+We host some example projects which you can find in the [GitHub repository](https://github.com/mui-org/material-ui) under the [`/examples`](https://github.com/mui-org/material-ui/tree/next/examples) folder:
 
-- [Create React App](https://github.com/mui-org/material-ui/tree/master/examples/create-react-app)
-- [Next.js](https://github.com/mui-org/material-ui/tree/master/examples/nextjs)
-- [Gatsby](https://github.com/mui-org/material-ui/tree/master/examples/gatsby)
-- [CDN](https://github.com/mui-org/material-ui/tree/master/examples/cdn)
-- E mais
+- [Create React App](https://github.com/mui-org/material-ui/tree/next/examples/create-react-app)
+- [Next.js](https://github.com/mui-org/material-ui/tree/next/examples/nextjs)
+- [Gatsby](https://github.com/mui-org/material-ui/tree/next/examples/gatsby)
+- [CDN](https://github.com/mui-org/material-ui/tree/next/examples/cdn)
+- And more
 
-Create React App est un projet génial pour apprendre React. Regardez [les alternatives disponibles](https://github.com/facebook/create-react-app/blob/master/README.md#popular-alternatives) pour voir quel projet correspond le mieux à vos besoins.
+Create React App is an awesome project for learning React. Have a look at [the alternatives available](https://github.com/facebook/create-react-app/blob/master/README.md#popular-alternatives) to see which project best fits your needs.
 
-Le code source de ce site de documentation est également inclus dans le repository. C'est un projet légèrement plus complexe. Découvrez le [`/docs`](https://github.com/mui-org/material-ui/tree/master/docs) dossier pour instructions de construction.
+The source code for this documentation site is also included in the repository. This is a slightly more complex project. Check out the [`/docs`](https://github.com/mui-org/material-ui/tree/next/docs) folder for build instructions.
 
-## Exemples de projets plus avancés
+## More advanced example projects
 
-Vous recherchez un exemple de projet plus avancé?
+Looking for a more advanced example project?
 
-Si vous souhaitez commencer par un exemple plus complet et plus réaliste, vous pouvez consulter:
+If you want to start with a more complete and real world example, you could take a look at:
 
 - [Material Sense](https://github.com/alexanmtz/material-sense), which includes: 
   - Graph using recharts

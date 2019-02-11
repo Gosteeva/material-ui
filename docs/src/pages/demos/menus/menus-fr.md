@@ -1,14 +1,14 @@
 ---
-title: Composant React Menu
+title: Menu React component
 components: Menu, MenuItem, MenuList, ClickAwayListener, Popover, Popper
 ---
 # Menus
 
-<p class="description">Les menus affichent une liste de choix sur des surfaces temporaires.</p>
+<p class="description">Menus display a list of choices on temporary surfaces.</p>
 
 A [Menu](https://material.io/design/components/menus.html) displays a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.
 
-## Menu simple
+## Simple Menu
 
 Simple menus open over the anchor element by default (this option can be changed via props). When close to a screen edge, simple menus vertically realign to make sure that all menu items are completely visible.
 
@@ -18,7 +18,7 @@ Choosing an option should immediately ideally commit the option and close the me
 
 {{"demo": "pages/demos/menus/SimpleMenu.js"}}
 
-## Menus sélectionnés
+## Selected menus
 
 If used for item selection, when opened, simple menus attempt to vertically align the currently selected menu item with the anchor element. The currently selected menu item is set using the `selected` property (from [ListItem](/api/list-item/)).
 
@@ -36,7 +36,7 @@ The primary responsibility of the `MenuList` component is to handle the focus.
 
 If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here is one example of how you can customize the `MenuItem`.
 
-⚠️ Bien que la spécification material encouragent la thématisation, cet exemple sort des sentiers battus.
+⚠️ While the material design specification encourages theming, this example is off the beaten path.
 
 {{"demo": "pages/demos/menus/ListItemComposition.js"}}
 
@@ -54,19 +54,19 @@ It is a [render props](https://reactjs.org/docs/render-props.html) demo that kee
 
 {{"demo": "pages/demos/menus/RenderPropsMenu.js"}}
 
-## Limites
+## Limitations
 
-There is [a flexbox bug](https://bugs.chromium.org/p/chromium/issues/detail?id=327437) that prevents `text-overflow: ellipse` from working in a flexbox layout. You can use the `Typography` component to workaround this issue:
+There is [a flexbox bug](https://bugs.chromium.org/p/chromium/issues/detail?id=327437) that prevents `text-overflow: ellipsis` from working in a flexbox layout. You can use the `Typography` component with `noWrap` to workaround this issue:
 
 {{"demo": "pages/demos/menus/TypographyMenu.js"}}
 
-## Changer la transition
+## Change Transition
 
 Use a different transition.
 
 {{"demo": "pages/demos/menus/FadeMenu.js"}}
 
-## Projets complémentaires
+## Complementary projects
 
 For more advanced use cases you might be able to take advantage of:
 
