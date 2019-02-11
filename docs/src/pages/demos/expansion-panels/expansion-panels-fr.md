@@ -1,35 +1,35 @@
 ---
-title: Composant React Panneau d'expansion
+title: Expansion Panel React component
 components: ExpansionPanel, ExpansionPanelActions, ExpansionPanelDetails, ExpansionPanelSummary
 ---
-# Panneaux d'extension (Expansion Panels)
+# Expansion Panels
 
-<p class="description">Les panneaux d’extension contiennent des flux de création et permettent une édition légère d’un élément.</p>
+<p class="description">Expansion panels contain creation flows and allow lightweight editing of an element.</p>
 
-[Un panneau d'extension](https://material.io/archive/guidelines/components/expansion-panels.html) est un conteneur léger pouvant être autonome ou connecté à une surface plus grande, telle qu'une carte.
+[An expansion panel](https://material.io/archive/guidelines/components/expansion-panels.html) is a lightweight container that may either stand alone or be connected to a larger surface, such as a card.
 
-> **Remarque:** Les panneaux d'extension ne sont plus décrits dans la documentation Material Design.
+> **Note:** Expansion panels are no longer documented in the Material Design documentation.
 
-## Panneau d'extension simple
+## Simple Expansion Panel
 
 {{"demo": "pages/demos/expansion-panels/SimpleExpansionPanel.js"}}
 
-## Accordéon contrôlé
+## Controlled Accordion
 
-Étendez le comportement du panneau par défaut pour créer un accordéon avec le composant `ExpansionPanel`.
+Extend the default panel behavior to create an accordion with the `ExpansionPanel` component.
 
 {{"demo": "pages/demos/expansion-panels/ControlledExpansionPanels.js"}}
 
-## En-tête et colonnes secondaires
+## Secondary heading and Columns
 
-Plusieurs colonnes peuvent être utilisées pour structurer le contenu et un texte d'assistance peut être ajouté au panneau pour aider l'utilisateur.
+Multiple columns can be used to structure the content, and a helper text may be added to the panel to assist the user.
 
 {{"demo": "pages/demos/expansion-panels/DetailedExpansionPanel.js"}}
 
-## Panneau d'extension personnalisé
+## Customized Expansion Panel
 
-Si vous avez lu le [overrides page de documentation](/customization/overrides/) mais vous n'êtes pas sûr de sauter dans, ici est un exemple de la façon dont vous pouvez personnaliser la couleur de fond du `ExpansionPanelSummary` et le rembourrage de `ExpansionPanelDetails`.
+If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here is one example of how you can customize the background color of the `ExpansionPanelSummary` and padding of `ExpansionPanelDetails`.
 
-⚠️ Bien que les spécifications de conception des matériaux encouragent la thématisation, ces exemples sortent des sentiers battus.
+⚠️ While the material design specification encourages theming, these examples are off the beaten path.
 
 {{"demo": "pages/demos/expansion-panels/CustomizedExpansionPanel.js"}}
