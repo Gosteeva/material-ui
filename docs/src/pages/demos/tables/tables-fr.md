@@ -1,36 +1,36 @@
 ---
-title: Composant React Tableau
+title: Table React component
 components: Table, TableBody, TableCell, TableFooter, TableHead, TablePagination, TableRow, TableSortLabel
 ---
-# Tableaux (Table)
+# Tables
 
-<p class="description">Les tableaux de données affichent des ensembles de données. Ils peuvent être entièrement personnalisés.</p>
+<p class="description">Data tables display sets of data. They can be fully customized.</p>
 
-[Les tableaux de données](https://material.io/design/components/data-tables.html) affichent les informations de manière facile à analyser, afin que les utilisateurs puissent rechercher des modèles et des informations. Ils peuvent être intégrés au contenu principal, tel que les cartes.
+[Data tables](https://material.io/design/components/data-tables.html) display information in a way that’s easy to scan, so that users can look for patterns and insights. They can be embedded in primary content, such as cards.
 
-Les tableaux de données peuvent inclure:
+Data tables can include:
 
-- Une visualisation correspondante
-- Menu principal
-- Outils pour interroger et manipuler des données
+- A corresponding visualization
+- Navigation
+- Tools to query and manipulate data
 
-Lorsque des outils sont inclus, ils doivent être placés directement au-dessus ou au-dessous de la table.
+When including tools, they should be placed directly above or below the table.
 
 ## Structure
 
-Une table de données contient en haut une ligne d’en-tête qui répertorie les noms de colonne, suivis de lignes pour les données.
+A data table contains a header row at the top that lists column names, followed by rows for data.
 
-Des cases à cocher doivent accompagner chaque ligne si l'utilisateur doit sélectionner ou manipuler des données.
+Checkboxes should accompany each row if the user needs to select or manipulate data.
 
-Pour l'accessibilité, la première colonne est définie comme un élément `<th>` , avec un `scope` de `"row"`. Cela permet aux lecteurs d'écran d'identifier la valeur d'une cellule par son nom de ligne et de colonne.
+For accessibility, the first column is set to be a `<th>` element, with a `scope` of `"row"`. This enables screen readers to identify a cell's value by it's row and column name.
 
-## Tableau simple
+## Simple Table
 
-Un exemple simple et sans fioritures.
+A simple example with no frills.
 
 {{"demo": "pages/demos/tables/SimpleTable.js"}}
 
-## Tri & Sélection
+## Sorting & Selecting
 
 This example demonstrates the use of `Checkbox` and clickable rows for selection, with a custom `Toolbar`. It uses the `TableSortLabel` component to help style column headings.
 
@@ -38,35 +38,35 @@ The Table has been given a fixed width to demonstrate horizontal scrolling. In o
 
 {{"demo": "pages/demos/tables/EnhancedTable.js"}}
 
-## Tableaux Personnalisés
+## Customized Tables
 
 If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here are examples of how you can change the look of a `TableCell`.
 
-⚠️ Bien que la spécification material encouragent la thématisation, cet exemple sort des sentiers battus.
+⚠️ While the material design specification encourages theming, this example is off the beaten path.
 
 {{"demo": "pages/demos/tables/CustomizedTable.js"}}
 
-## Action de pagination de table personnalisée
+## Custom Table Pagination Action
 
-La propriété `Action` du composant `TablePagination` permet l'implémentation d'actions personnalisées.
+The `Action` property of the `TablePagination` component allows the implementation of custom actions.
 
 {{"demo": "pages/demos/tables/CustomPaginationActionsTable.js"}}
 
 ## Spanning Table
 
-Un exemple simple avec des colonnes couvrant & lignes.
+A simple example with spanning rows & columns.
 
 {{"demo": "pages/demos/tables/SpanningTable.js"}}
 
-## Table virtualisée
+## Virtualized Table
 
-Dans l'exemple suivant, nous montrons comment utiliser [react-virtualized](https://github.com/bvaughn/react-virtualized) avec le composant `Table`. Il affiches 200 lignes et peut facilement gérer plus.
+In the following example, we demonstrate how to use [react-virtualized](https://github.com/bvaughn/react-virtualized) with the `Table` component. It renders 200 rows and can easily handle more.
 
 {{"demo": "pages/demos/tables/ReactVirtualizedTable.js"}}
 
-## Projets complémentaires
+## Complementary projects
 
-Pour des cas d'utilisation plus avancés, vous pourrez peut-être tirer parti des avantages suivants:
+For more advanced use cases you might be able to take advantage of:
 
 - [dx-react-grid-material-ui](https://devexpress.github.io/devextreme-reactive/react/grid/) A data grid for Material-UI with paging, sorting, filtering, grouping and editing features ([custom license](https://js.devexpress.com/licensing/)).
 - [mui-datatables](https://github.com/gregnb/mui-datatables) Responsive data tables for Material-UI with filtering, sorting, search and more.
