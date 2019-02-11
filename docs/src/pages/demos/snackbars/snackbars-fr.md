@@ -24,7 +24,7 @@ A basic snackbar that aims to reproduce Google Keep's snackbar behavior.
 
 If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here are examples of how you can change the look of a Snackbar.
 
-⚠️ Bien que les spécifications de conception des matériaux encouragent la thématisation, ces exemples sortent des sentiers battus.
+⚠️ While the material design specification encourages theming, these examples are off the beaten path.
 
 {{"demo": "pages/demos/snackbars/CustomizedSnackbars.js"}}
 
@@ -60,13 +60,13 @@ Change the direction of the transition. Slide is the default transition.
 
 {{"demo": "pages/demos/snackbars/DirectionSnackbar.js"}}
 
-### Changer la transition
+### Change Transition
 
 Use a different transition.
 
 {{"demo": "pages/demos/snackbars/FadeSnackbar.js"}}
 
-## Projets complémentaires
+## Complementary projects
 
 For more advanced use cases you might be able to take advantage of:
 
