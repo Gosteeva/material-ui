@@ -38,7 +38,7 @@ const theme = createMuiTheme({
     // Name of the component ⚛️
     MuiButtonBase: {
       // The properties to apply
-      disableRipple: true, // No more ripple, on the whole application
+      disableRipple: true, // No more ripple, on the whole application 💣!
     },
   },
 });
@@ -53,7 +53,7 @@ import { createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
   transitions: {
-    // Então temos `transition: none;` everywhere
+    // So we have `transition: none;` everywhere
     create: () => 'none',
   },
 });
@@ -124,7 +124,7 @@ The documentation site is using a custom theme. Hence, the color palette is diff
 
 There are many ways to support Material-UI:
 
-- Improve [the documentation](https://github.com/mui-org/material-ui/tree/master/docs).
+- Improve [the documentation](https://github.com/mui-org/material-ui/tree/next/docs).
 - Help others to get started.
 - [Spread the word](https://twitter.com/MaterialUI).
 - Answer [StackOverflow questions](https://stackoverflow.com/questions/tagged/material-ui) or [issues marked as question](https://github.com/mui-org/material-ui/issues?q=is%3Aopen+is%3Aissue+label%3Aquestion) in the repository.
