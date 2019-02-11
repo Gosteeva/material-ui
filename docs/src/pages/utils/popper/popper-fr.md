@@ -8,9 +8,9 @@ components: Popper
 
 Some important features of the `Popper` component:
 
-- 
-- 
-- 
+- 🕷 Popper relies on the 3rd party library ([Popper.js](https://github.com/FezVrasta/popper.js)) for perfect positioning.
+- 💄 It's an alternative API to react-popper. It aims for simplicity.
+- 📦 Less than [10 KB gzipped](https://github.com/mui-org/material-ui/blob/master/.size-limit.js).
 - The children is [`Portal`](/utils/portal/) to the body of the document to avoid rendering problems. You can disable this behavior with `disablePortal`.
 - The scroll and click away aren't blocked like with the [`Popover`](/utils/popover/) component. The placement of the popper updates with the available area in the viewport.
 - The `anchorEl` is passed as the reference object to create a new `Popper.js` instance.
@@ -18,6 +18,12 @@ Some important features of the `Popper` component:
 ## Simple Popper
 
 {{"demo": "pages/utils/popper/SimplePopper.js" }}
+
+## Minimalist Popper
+
+You can use the component with zero extra dependencies.
+
+{{"demo": "pages/utils/popper/MinimalPopper.js" }}
 
 ## Scroll playground
 
@@ -45,7 +51,7 @@ It is a [render props](https://reactjs.org/docs/render-props.html) demo that kee
 
 {{"demo": "pages/utils/popper/RenderPropsPopper.js"}}
 
-## Projets complémentaires
+## Complementary projects
 
 For more advanced use cases you might be able to take advantage of:
 
