@@ -188,4 +188,4 @@ RaisedButton upgrade path:
 
 ### To be continued…
 
-Have you successfully migrated your app, and wish to help the community? Please help us! We have an open issue in order to finish this migration guide [#7195](https://github.com/mui-org/material-ui/issues/7195). Any pull request is welcomed
+Have you successfully migrated your app, and wish to help the community? Please help us! We have an open issue in order to finish this migration guide [#7195](https://github.com/mui-org/material-ui/issues/7195). Any pull request is welcomed 😊.
