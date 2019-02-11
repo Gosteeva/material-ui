@@ -1,91 +1,91 @@
 ---
-title: Composant React Bouton
+title: Button React component
 components: Button, Fab, IconButton, ButtonBase, Zoom
 ---
-# Boutons (Buttons)
+# Buttons
 
-<p class="description">Les boutons permettent aux utilisateurs de prendre des mesures et de faire des choix en un seul clic.</p>
+<p class="description">Buttons allow users to take actions, and make choices, with a single tap.</p>
 
-[Buttons](https://material.io/design/components/buttons.html) communiquent les actions que les utilisateurs peuvent effectuer. Ils sont généralement placés dans votre interface utilisateur, dans des endroits tels que:
+[Buttons](https://material.io/design/components/buttons.html) communicate actions that users can take. They are typically placed throughout your UI, in places like:
 
-- Dialogues
-- Fenêtres modales
-- Formulaires
-- Cartes
-- Barres d'outils
+- Dialogs
+- Modal windows
+- Forms
+- Cards
+- Toolbars
 
 ## Contained Buttons
 
 [Contained buttons](https://material.io/design/components/buttons.html#contained-button) are high-emphasis, distinguished by their use of elevation and fill. They contain actions that are primary to your app.
 
-Le dernier exemple de cette démo montre comment utiliser un bouton de téléchargement.
+The last example of this demo show how to use an upload button.
 
 {{"demo": "pages/demos/buttons/ContainedButtons.js"}}
 
-## Boutons de texte
+## Text Buttons
 
-[Les boutons de texte](https://material.io/design/components/buttons.html#text-button) sont généralement utilisés pour les actions moins prononcées, y compris celles situées:
+[Text buttons](https://material.io/design/components/buttons.html#text-button) are typically used for less-pronounced actions, including those located:
 
-- Dans les dialogues
-- Dans les cartes
+- In dialogs
+- In cards
 
-Dans les cartes, les boutons de texte aident à maintenir l’accent sur le contenu des cartes.
+In cards, text buttons help maintain an emphasis on card content.
 
 {{"demo": "pages/demos/buttons/TextButtons.js"}}
 
-## Boutons en surbrillance
+## Outlined Buttons
 
-[boutons en surbrillance](https://material.io/design/components/buttons.html#outlined-button) sont des boutons à accent moyen. Ils contiennent des actions importantes mais qui ne sont pas l'action principale d'une application.
+[Outlined buttons](https://material.io/design/components/buttons.html#outlined-button) are medium-emphasis buttons. They contain actions that are important, but aren’t the primary action in an app.
 
 ### Alternatives
 
-Les boutons surbrillance sont également une alternative moins importante que les boutons contenus, ou une alternative plus importante aux boutons de texte.
+Outlined buttons are also a lower emphasis alternative to contained buttons, or a higher emphasis alternative to text buttons.
 
 {{"demo": "pages/demos/buttons/OutlinedButtons.js"}}
 
-## Boutons d'action flottant
+## Floating Action Buttons
 
-A [bouton d'action flottante](https://material.io/design/components/buttons-floating-action-button.html) (FAB) effectue la première, ou la plus courante, l' action sur un écran. Il apparaît devant tout le contenu de l'écran, généralement sous la forme d'une forme circulaire avec une icône en son centre. Il existe deux types de FAB: régulier et étendu.
+A [floating action button](https://material.io/design/components/buttons-floating-action-button.html) (FAB) performs the primary, or most common, action on a screen. It appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
 
-Utilisez un FAB uniquement si c'est le moyen le plus approprié pour présenter l'action principale d'un écran.
+Only use a FAB if it is the most suitable way to present a screen’s primary action.
 
-Un seul bouton d’action flottante est recommandé par écran pour représenter l’action la plus courante.
+Only one floating action button is recommended per screen to represent the most common action.
 
 {{"demo": "pages/demos/buttons/FloatingActionButtons.js"}}
 
-Le bouton d'action flottante s'anime sur l'écran en tant que matériau en expansion, par défaut.
+The floating action button animates onto the screen as an expanding piece of material, by default.
 
-Un bouton d'action flottant qui s'étend sur plusieurs écrans latéraux (tels que des écrans à onglets) devrait disparaître brièvement, puis sur si son action change.
+A floating action button that spans multiple lateral screens (such as tabbed screens) should briefly disappear, then reappear if its action changes.
 
-La transition Zoom peut être utilisée pour y parvenir. Notez que, comme les animations sortantes et entrantes sont déclenchées simultanément, nous utilisons `enterDelay` pour permettre à l'animation du bouton d'action flottant sortant de se terminer avant l'entrée de la nouvelle.
+The Zoom transition can be used to achieve this. Note that since both the exiting and entering animations are triggered at the same time, we use `enterDelay` to allow the outgoing Floating Action Button's animation to finish before the new one enters.
 
 {{"demo": "pages/demos/buttons/FloatingActionButtonZoom.js"}}
 
-## Tailles
+## Sizes
 
-Envie de boutons plus grands ou plus petits? Utilisez la propriété `size`.
+Fancy larger or smaller buttons? Use the `size` property.
 
 {{"demo": "pages/demos/buttons/ButtonSizes.js"}}
 
-## Boutons avec des icônes et une étiquette
+## Buttons with icons and label
 
-Parfois, vous voudrez peut-être avoir des icônes pour certains boutons afin d'améliorer l'UX de l'application, car nous reconnaissons plus facilement les logos que le texte brut. Par exemple, si vous avez un bouton de suppression, vous pouvez lui attribuer une icône représentant une poubelle.
+Sometimes you might want to have icons for certain button to enhance the UX of the application as we recognize logos more easily than plain text. For example, if you have a delete button you can label it with a dustbin icon.
 
 {{"demo": "pages/demos/buttons/IconLabelButtons.js"}}
 
-## Boutons d'icônes
+## Icon Buttons
 
-Les boutons d'icône se trouvent généralement dans les barres d'applications et les barres d'outils.
+Icon buttons are commonly found in app bars and toolbars.
 
-Les icônes sont également appropriés pour les boutons à bascule qui permettent à un seul choix à choisir ou décochée, comme l' ajout ou la suppression d' une étoile à un élément.
+Icons are also appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item.
 
 {{"demo": "pages/demos/buttons/IconButtons.js"}}
 
-## Boutons personnalisés
+## Customized Buttons
 
 If you have been reading the [overrides documentation page](/customization/overrides/) but you are not confident jumping in, here are examples of how you can change the main color of a Button using classes, and using a theme; and of a Bootstrap style Button.
 
-⚠️ Bien que les spécifications de conception des matériaux encouragent la thématisation, ces exemples sortent des sentiers battus.
+⚠️ While the material design specification encourages theming, these examples are off the beaten path.
 
 {{"demo": "pages/demos/buttons/CustomizedButtons.js"}}
 
@@ -95,9 +95,9 @@ The Text Buttons, Contained Buttons, Floating Action Buttons and Icon Buttons ar
 
 {{"demo": "pages/demos/buttons/ButtonBases.js"}}
 
-## Bibliothèque de routage tierce
+## Third-party routing library
 
-Un cas d'utilisation courant consiste à utiliser le bouton pour déclencher une navigation vers une nouvelle page. Le composant `ButtonBase` fournit une propriété pour traiter ce cas d'utilisation: `composant`. Étant donné que beaucoup de nos composants interactifs comptent sur `ButtonBase`, vous devriez être en mesure de tirer profit de partout:
+One common use case is to use the button to trigger a navigation to a new page. The `ButtonBase` component provides a property to handle this use case: `component`. Given that a lot of our interactive components rely on `ButtonBase`, you should be able to take advantage of it everywhere:
 
 ```jsx
 import { Link } from 'react-router-dom'
